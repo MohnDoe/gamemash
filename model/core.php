@@ -15,6 +15,7 @@
     }
 
     session_start ();
+    var_dump('hello');
 
     ini_set('xdebug.var_display_max_depth', 5);
     ini_set('xdebug.var_display_max_children', 256);
