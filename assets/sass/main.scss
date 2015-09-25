@@ -727,5 +727,13 @@ a
   @include box-shadow(0px 0px 10px 0 transparentize(black, .75));
   border : 1px solid transparentize(darken($main-blue, 15%), .9);
   border-bottom-width: 2px;
+  transform: scale(1);
+  transition: .25s all ease;
 
+  &:hover
+  {
+    transform: scale(1.1);
+    background-color: transparentize(darken($main-blue, 12%), .5);
+    border-color: transparentize(darken($main-blue, 17%), .9);
+  }
 }

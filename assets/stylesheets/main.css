@@ -691,4 +691,12 @@ a {
   box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom-width: 2px;
+  transform: scale(1);
+  transition: .25s all ease;
+}
+/* line 733, ../sass/main.scss */
+.button-blue:hover {
+  transform: scale(1.1);
+  background-color: rgba(5, 8, 10, 0.5);
+  border-color: rgba(0, 0, 0, 0.1);
 }
