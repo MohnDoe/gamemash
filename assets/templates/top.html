@@ -1,0 +1,53 @@
+<div class="container-top" infinite-scroll="top.nextPage()" infinite-scroll-disable="top.busy || top.limitReached" infinite-scroll-distance="1">
+    <div class="container-game" ng-repeat="game in top.games track by $index">
+        <div class="container-cover-game">
+            <div class="border-white cover-border"></div>
+            <div class="cover-game" style="background-image: url('{{game.url_cover}}');"></div>
+        </div>
+        <div class="container-informations-game">
+            <ul class="informations-game">
+                <li class="information-game name-game">{{game.name}}</li>
+                <li class="information-game platforms-game">MAC_PC_Android_Unix</li>
+                <li class="information-game release-game">Valve Corporation_Oct 10, 2007</li>
+            </ul>
+        </div>
+        <div class="container-informations-rank">
+            <div class="container-rank">
+                {{game.rank}}
+            </div>
+            <div class="informations-rank">
+                <div class="informations-line">
+                    <div class="information">
+                        <span class="information-value">{{game.current_elo}}</span>
+                        <span class="information-label">Elo_Rank</span>
+                    </div>
+                    <div class="information">
+                        <span class="information-value">1,708</span>
+                        <span class="information-label">Elo_Performances</span>
+                    </div>
+                    <div class="information">
+                        <span class="information-value">1,708</span>
+                        <span class="information-label">Ranked_Matchs</span>
+                    </div>
+                </div>
+                <div class="informations-line">
+                    <div class="information">
+                        <span class="information-value">1,708</span>
+                        <span class="information-label">Matchs_Won</span>
+                    </div>
+                    <div class="information">
+                        <span class="information-value">1,708</span>
+                        <span class="information-label">Matchs_Lost</span>
+                    </div>
+                    <div class="information">
+                        <span class="information-value">1,708</span>
+                        <span class="information-label">Draw</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-gradient-game-bottom"></div>
+        <div class="container-gradient-game-left"></div>
+        <div class="container-background-game" style="background-image: url('{{game.url_image}}');"></div>
+    </div>
+</div>
