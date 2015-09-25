@@ -15,7 +15,6 @@
     }
 
     session_start ();
-    var_dump('hello');
 
     ini_set('xdebug.var_display_max_depth', 5);
     ini_set('xdebug.var_display_max_children', 256);
@@ -65,4 +64,4 @@
     require_once 'Platform.php';
     require_once 'ELORanking.php';
     require_once 'GiantBomb/GiantBomb.php';
-    require_once $_SERVER['DOCUMENT_ROOT'].'/gamemash2/vendor/autoload.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].URL_BASE_HREF.'vendor/autoload.php';
