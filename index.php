@@ -47,9 +47,10 @@
 ?>
 <html>
     <head>
-        <link rel = "stylesheet" href = "assets/stylesheets/main.css" />
         <base href="<?= URL_BASE_HREF;?>">
         <title>GameMash</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel = "stylesheet" href = "assets/stylesheets/main.css" />
     </head>
     <body ng-app="appGameMash">
     <div id="main">
