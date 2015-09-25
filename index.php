@@ -48,7 +48,7 @@
 <html>
     <head>
         <link rel = "stylesheet" href = "assets/stylesheets/main.css" />
-        <base href="/gamemash2/">
+        <base href="<?= URL_BASE_HREF;?>">
         <title>GameMash</title>
     </head>
     <body ng-app="appGameMash">

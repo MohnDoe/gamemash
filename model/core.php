@@ -26,13 +26,17 @@
     // connexion db
     if ($_SERVER["REMOTE_ADDR"] != "127.0.0.1") {
         // on heroku
-        DEFINE('HOSTNAME', 'localhost');
-        DEFINE('DBNAME', 'db_gamemash');
-        DEFINE('USER_DB', 'root');
-        DEFINE('PASS_DB', '');
+        DEFINE('URL_BASE_HREF', '/');
+        // database
+        $urlClearDB = parse_url (getenv ("CLEARDB_DATABASE_URL"));
+        DEFINE('HOSTNAME', $urlClearDB["host"]);
+        DEFINE('DBNAME', substr ($urlClearDB["path"], 1));
+        DEFINE('USER_DB', $urlClearDB["user"]);
+        DEFINE('PASS_DB', $urlClearDB["pass"]);
 
-        DEFINE('DOCUMENT_ROOT', $_SERVER["DOCUMENT_ROOT"]."/gamemash2");
+        DEFINE('DOCUMENT_ROOT', $_SERVER["DOCUMENT_ROOT"]."/");
     } else {
+        DEFINE('URL_BASE_HREF', '/gamemash2/');
         DEFINE('HOSTNAME', 'localhost');
         DEFINE('DBNAME', 'db_gamemash');
         DEFINE('USER_DB', 'root');
