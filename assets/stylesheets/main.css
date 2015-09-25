@@ -353,8 +353,22 @@ a {
   margin-top: -25px;
   z-index: 2;
 }
+/* line 374, ../sass/main.scss */
+.container-fight .container-separator .button-none {
+  position: absolute;
+  top: calc(50% + 30px);
+  width: 100%;
+  color: rgba(255, 255, 255, 0.8);
+}
+/* line 380, ../sass/main.scss */
+.container-fight .container-separator .button-none strong {
+  font-family: FuturaStdMediumCondensed, sans-serif;
+  font-size: 14px;
+  color: white;
+  letter-spacing: .2em;
+}
 
-/* line 376, ../sass/main.scss */
+/* line 391, ../sass/main.scss */
 .container-toolbar {
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 300;
@@ -372,7 +386,7 @@ a {
   z-index: 10;
   display: none;
 }
-/* line 393, ../sass/main.scss */
+/* line 408, ../sass/main.scss */
 .container-toolbar .container-user {
   height: 100%;
   width: 400px;
@@ -383,7 +397,7 @@ a {
   float: left;
   display: block;
 }
-/* line 404, ../sass/main.scss */
+/* line 419, ../sass/main.scss */
 .container-toolbar .container-user .part {
   width: 50%;
   text-align: center;
@@ -393,23 +407,23 @@ a {
   float: left;
   margin: 5px 0;
 }
-/* line 414, ../sass/main.scss */
+/* line 429, ../sass/main.scss */
 .container-toolbar .container-user .part.part-points {
   color: #6B9CAF;
   font-size: 21px;
   border-right: 1px solid rgba(255, 255, 255, 0.15);
 }
-/* line 420, ../sass/main.scss */
+/* line 435, ../sass/main.scss */
 .container-toolbar .container-user .part.part-points:after {
   content: ' PTS';
   color: inherit;
   font-size: 16px;
 }
-/* line 428, ../sass/main.scss */
+/* line 443, ../sass/main.scss */
 .container-toolbar .container-user .part.part-level {
   font-size: 16px;
 }
-/* line 432, ../sass/main.scss */
+/* line 447, ../sass/main.scss */
 .container-toolbar .container-user .part.part-level .container-progress-level {
   position: absolute;
   top: 0;
@@ -418,7 +432,7 @@ a {
   height: 100%;
   background-color: rgba(255, 255, 255, 0.1);
 }
-/* line 445, ../sass/main.scss */
+/* line 460, ../sass/main.scss */
 .container-toolbar .container-nav {
   height: 100%;
   width: auto;
@@ -426,7 +440,7 @@ a {
   float: left;
   display: block;
 }
-/* line 454, ../sass/main.scss */
+/* line 469, ../sass/main.scss */
 .container-toolbar .container-nav .nav {
   cursor: pointer;
   width: 200px;
@@ -438,13 +452,13 @@ a {
   display: block;
   text-align: center;
 }
-/* line 466, ../sass/main.scss */
+/* line 481, ../sass/main.scss */
 .container-toolbar .container-nav .nav.active {
   background-color: #6B9CAF;
   color: white;
   font-weight: bold;
 }
-/* line 472, ../sass/main.scss */
+/* line 487, ../sass/main.scss */
 .container-toolbar .container-nav .nav.active:after {
   content: ' ';
   width: 10px;
@@ -457,16 +471,16 @@ a {
   display: block;
   z-index: 3;
 }
-/* line 487, ../sass/main.scss */
+/* line 502, ../sass/main.scss */
 .container-toolbar .container-nav .nav:not(.active):hover {
   background-color: #bed3dc;
 }
 
-/* line 495, ../sass/main.scss */
+/* line 510, ../sass/main.scss */
 .container-top {
   margin-top: 55px;
 }
-/* line 499, ../sass/main.scss */
+/* line 514, ../sass/main.scss */
 .container-top .container-game {
   width: 100%;
   position: relative;
@@ -474,7 +488,7 @@ a {
   height: 150px;
   padding: 20px 50px;
 }
-/* line 507, ../sass/main.scss */
+/* line 522, ../sass/main.scss */
 .container-top .container-game .container-cover-game {
   width: 80px;
   height: 110px;
@@ -486,14 +500,14 @@ a {
   -webkit-box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.5);
 }
-/* line 517, ../sass/main.scss */
+/* line 532, ../sass/main.scss */
 .container-top .container-game .container-cover-game .cover-game {
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
 }
-/* line 526, ../sass/main.scss */
+/* line 541, ../sass/main.scss */
 .container-top .container-game .container-informations-game {
   width: calc(50% - 80px);
   height: 100%;
@@ -505,32 +519,32 @@ a {
   float: left;
   z-index: 4;
 }
-/* line 540, ../sass/main.scss */
+/* line 555, ../sass/main.scss */
 .container-top .container-game .container-informations-game .informations-game .information-game {
   margin-bottom: 5px;
 }
-/* line 544, ../sass/main.scss */
+/* line 559, ../sass/main.scss */
 .container-top .container-game .container-informations-game .informations-game .information-game.name-game {
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
   font-size: 30px;
   line-height: 30px;
   font-family: MohaveBoldItalics, sans-serif;
 }
-/* line 551, ../sass/main.scss */
+/* line 566, ../sass/main.scss */
 .container-top .container-game .container-informations-game .informations-game .information-game.platforms-game {
   opacity: .6;
   font-size: 10px;
   line-height: 10px;
   font-family: MohaveSemiBold, sans-serif;
 }
-/* line 558, ../sass/main.scss */
+/* line 573, ../sass/main.scss */
 .container-top .container-game .container-informations-game .informations-game .information-game.release-game {
   opacity: .4;
   font-size: 14px;
   line-height: 14px;
   font-family: MohaveSemiBold, sans-serif;
 }
-/* line 569, ../sass/main.scss */
+/* line 584, ../sass/main.scss */
 .container-top .container-game .container-informations-rank {
   width: 50%;
   height: 110px;
@@ -540,7 +554,7 @@ a {
   color: white;
   z-index: 4;
 }
-/* line 579, ../sass/main.scss */
+/* line 594, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .container-rank {
   font-family: FuturaStdBoldCondensedOblique, sans-serif;
   border: 3px solid white;
@@ -553,7 +567,7 @@ a {
   float: left;
   font-variant: small-caps;
 }
-/* line 593, ../sass/main.scss */
+/* line 608, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank {
   width: calc(100% - 110px);
   height: 100%;
@@ -564,7 +578,7 @@ a {
   position: relative;
   float: left;
 }
-/* line 604, ../sass/main.scss */
+/* line 619, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line {
   width: 100%;
   height: 50%;
@@ -574,7 +588,7 @@ a {
   font-size: 14px;
   margin-bottom: 5px;
 }
-/* line 614, ../sass/main.scss */
+/* line 629, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line .information {
   height: 100%;
   width: 33.3333%;
@@ -584,26 +598,26 @@ a {
   text-transform: uppercase;
   letter-spacing: .12em;
 }
-/* line 624, ../sass/main.scss */
+/* line 639, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line .information .information-value, .container-top .container-game .container-informations-rank .informations-rank .informations-line .information .information-label {
   width: 100%;
   display: block;
   clear: both;
 }
-/* line 631, ../sass/main.scss */
+/* line 646, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line .information .information-value {
   margin-bottom: 2px;
   font-family: FuturaStdMediumCondensed, sans-serif;
   line-height: 14px;
 }
-/* line 638, ../sass/main.scss */
+/* line 653, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line .information .information-label {
   font-size: 12px;
   font-family: FuturaStdLightCondensed, sans-serif;
   opacity: .15;
   line-height: 12px;
 }
-/* line 650, ../sass/main.scss */
+/* line 665, ../sass/main.scss */
 .container-top .container-game .container-gradient-game-left {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFhMjczMiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzFhMjczMiIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #1a2732), color-stop(100%, rgba(26, 39, 50, 0)));
@@ -621,7 +635,7 @@ a {
   display: block;
   opacity: .75;
 }
-/* line 665, ../sass/main.scss */
+/* line 680, ../sass/main.scss */
 .container-top .container-game .container-gradient-game-bottom {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjEuMCIgeDI9IjAuNSIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #000000), color-stop(100%, rgba(0, 0, 0, 0)));
@@ -639,7 +653,7 @@ a {
   display: block;
   opacity: .10;
 }
-/* line 680, ../sass/main.scss */
+/* line 695, ../sass/main.scss */
 .container-top .container-game .container-background-game {
   width: 100%;
   z-index: 1;
@@ -657,4 +671,24 @@ a {
   filter: grayscale(100%);
   background-size: cover;
   background-position: center;
+}
+
+/* line 714, ../sass/main.scss */
+.button-blue {
+  background-color: rgba(9, 13, 16, 0.5);
+  color: white;
+  font-family: FuturaStdLightCondensed, sans-serif;
+  letter-spacing: .12em;
+  font-size: 12px;
+  line-height: 1.2em;
+  text-align: center;
+  padding: 7px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  -moz-box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom-width: 2px;
 }

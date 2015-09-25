@@ -370,6 +370,21 @@ a
       margin-top: -25px;
       z-index : 2;
     }
+
+    .button-none
+    {
+      position : absolute;
+      top: calc(50% + 30px);
+      width : 100%;
+      color : transparentize(white, .2);
+      strong
+      {
+        font-family: FuturaStdMediumCondensed, sans-serif;
+        font-size: 14px;
+        color : white;
+        letter-spacing: .2em;
+      }
+    }
   }
 }
 
@@ -694,4 +709,23 @@ a
       background-position: center;
     }
   }
+}
+
+.button-blue
+{
+  background-color: transparentize(darken($main-blue, 10%), .5);
+  color : white;
+  font-family: FuturaStdLightCondensed, sans-serif;
+  letter-spacing: .12em;
+  font-size: 12px;
+  line-height: 1.2em;
+  text-align: center;
+  padding: 7px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  @include box-shadow(0px 0px 10px 0 transparentize(black, .75));
+  border : 1px solid transparentize(darken($main-blue, 15%), .9);
+  border-bottom-width: 2px;
+
 }
