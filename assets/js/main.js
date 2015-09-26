@@ -198,18 +198,82 @@ app.factory('TopRank', function($http) {
     return TopRank;
 });
 
-app.controller('footerController', function ($scope, $interval, GameMashStatistics){
+app.controller('communityUnlockController', function ($scope, $interval, GameMashStatistics){
+
+    $scope.communityUnlock = {
+        percentageGlobalCompletion : "0",
+        steps : [
+            {
+                name : 'Nothing',
+                needed : 0
+            },
+            {
+                name : 'Top 100',
+                needed : 1200
+            },
+            {
+                name : 'Leaderboard',
+                needed : 1240
+            },
+            {
+                name : 'Truc',
+                needed : 1250
+            },
+            {
+                name : 'Bidule',
+                needed : 1260
+            }
+        ],
+        previousAndPastSteps : []
+    };
+
+    $scope.$watch(
+        function(){
+            return $scope.communityUnlock.previousAndPastSteps;
+        },
+        function(newValue){
+            if(typeof newValue != "undefined"){
+                $scope.refreshCurrentProgress(newValue);
+            }
+        }
+    );
 
     $scope.gamemashStatistics = new GameMashStatistics();
 
     $scope.gamemashStatistics.get();
 
+
+    $scope.getCurrentStep = function(){
+        for(i = 0; i < $scope.communityUnlock.steps.length; i++){
+            step = $scope.communityUnlock.steps[i];
+            if(step.needed >= $scope.gamemashStatistics.stats.nb_votes ){
+                pastStep = $scope.communityUnlock.steps[i-1];
+                nextStep = $scope.communityUnlock.steps[i];
+                return [pastStep, nextStep];
+                break;
+            }
+        }
+    };
+
+    $scope.refreshCurrentProgress = function(aSteps){
+        pastStep = aSteps[0];
+        nextStep = aSteps[1];
+        completion = ($scope.gamemashStatistics.stats.nb_votes - pastStep.needed) / ( nextStep.needed - pastStep.needed ) * 100;
+        $scope.communityUnlock.percentageGlobalCompletion = completion;
+    };
+
     $scope.refresh = function(){
         console.log('refreshing statistics');
         $scope.gamemashStatistics.get();
-    }
-    $interval(function(){$scope.refresh();}, 7000);
+        $scope.communityUnlock.previousAndPastSteps = $scope.getCurrentStep();
+        //$scope.communityUnlock.percentageGlobalCompletion = $scope.gamemashStatistics.stats.nb_votes / $scope.communityUnlock.max * 100;
+        //console.log($scope.communityUnlock);
+    };
 
+    $scope.refresh();
+
+
+    $interval(function(){$scope.refresh();}, 2000);
 });
 
 app.factory('GameMashStatistics', function($http) {

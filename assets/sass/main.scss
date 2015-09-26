@@ -745,7 +745,7 @@ footer
   left : 0;
   right : 0;
   width : 100%;
-  height : 30px;
+  height : 100px;
   background-color: transparentize(darken($main-blue, 5%), .75);
   color: white;
   font-family: FuturaStdMediumCondensed, sans-serif;
@@ -755,4 +755,44 @@ footer
   padding: 10px 50px;
   z-index : 10;
   text-transform: uppercase;
+
+  #container-community-unlock-progress
+  {
+    width : 100%;
+    position : relative;
+    display : block;
+    height : 20px;
+
+    .community-unlock-progress
+    {
+      width : 100%;
+      position : relative;
+      float : left;
+      display : block;
+      height : 10px;
+
+      .progress-bar
+      {
+        background-color: transparentize(white, .5);
+        width : 100%;
+        height : 100%;
+        position : relative;
+        float : left;
+        margin-top: 10px;
+
+        .fill-progress-bar
+        {
+          background-color: $main-blue;
+          height : 100%;
+          position : absolute;
+          left : 0;
+          top : 0;
+          bottom : 0;
+          display : block;
+          width : 1%;
+          transition : .15s;
+        }
+      }
+    }
+  }
 }

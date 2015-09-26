@@ -72,8 +72,17 @@
         </div>
         <div ng-view></div>
     </div>
-    <footer id="footer" ng-controller="footerController">
-        <span class="nb-votes">+{{gamemashStatistics.stats.nb_votes_KMBT_format}} votes</span>
+    <footer id="footer">
+        <div id="container-community-unlock-progress" ng-controller="communityUnlockController">
+            <span class="nb-votes">Community have voted +{{gamemashStatistics.stats.nb_votes_KMBT_format}} times</span>
+            <br />
+            <span class="nb-votes">"{{communityUnlock.previousAndPastSteps[1].name}}" - {{communityUnlock.previousAndPastSteps[1].needed}} votes needed</span>
+            <div class="community-unlock-progress">
+                <div class="progress-bar">
+                    <div class="fill-progress-bar" style="width: {{communityUnlock.percentageGlobalCompletion}}%"></div>
+                </div>
+            </div>
+        </div>
     </footer>
     </body>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
