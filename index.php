@@ -72,8 +72,10 @@
         </div>
         <div ng-view></div>
     </div>
+    <footer id="footer" ng-controller="footerController">
+        <span class="nb-votes">+{{gamemashStatistics.stats.nb_votes_KMBT_format}} votes</span>
+    </footer>
     </body>
-
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.3.16/angular-route.min.js"></script>

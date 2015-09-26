@@ -128,4 +128,15 @@ class Fight {
         $query->bindParam(':id_game_looser', $this->id_game_looser);
         $query->execute();
     }
+
+    static function get_statistics () {
+        $req = DB::$db->query ('SELECT COUNT(*) AS result FROM ' . self::$table . ' WHERE is_done_fight = 1 LIMIT 1');
+        $results = [];
+        $data = $req->fetch();
+
+        $results['nb_votes'] = $data['result'];
+
+        return $results;
+
+    }
 }

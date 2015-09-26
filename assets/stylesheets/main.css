@@ -700,3 +700,22 @@ a {
   background-color: rgba(5, 8, 10, 0.5);
   border-color: rgba(0, 0, 0, 0.1);
 }
+
+/* line 741, ../sass/main.scss */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 30px;
+  background-color: rgba(17, 26, 33, 0.25);
+  color: white;
+  font-family: FuturaStdMediumCondensed, sans-serif;
+  font-size: 10px;
+  letter-spacing: .3em;
+  text-align: center;
+  padding: 10px 50px;
+  z-index: 10;
+  text-transform: uppercase;
+}

@@ -105,8 +105,8 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         }).
             success(function (data, status, headers, config) {
-                $rootScope.user.points = data['grand_total'];
-                console.log(data);
+                //$rootScope.user.points = data['grand_total'];
+                //console.log(data);
             }).
             error(function (data, status, headers, config) {
                 // called asynchronously if an error occurs
@@ -138,7 +138,7 @@ app.controller('userController', function ($scope, $http, $rootScope) {
 
     $scope.$watch('user.points', function(newValue){
         $scope.user.level.completion =  newValue * 100 / $scope.user.level.next.needed;
-        console.log($scope.user.level);
+        //console.log($scope.user.level);
     });
 
     $scope.getUser = function () {
@@ -147,7 +147,7 @@ app.controller('userController', function ($scope, $http, $rootScope) {
                 $scope.user = {
                     points: data.user.points
                 };
-                console.log(data);
+                //console.log(data);
             }).
             error(function (data, status, headers, config) {
                 // called asynchronously if an error occurs
@@ -162,27 +162,7 @@ app.controller('userController', function ($scope, $http, $rootScope) {
 app.controller('topController', function ($scope, TopRank) {
 
     $scope.top = new TopRank();
-    console.log($scope.top);
-    /*$scope.top = {
-        games : {}
-    };
-    /*
-    $scope.getTop = function () {
-        console.log('fetching top..');
-        $http.get('./api/top').
-            success(function (data, status, headers, config) {
-                $scope.top.games = data.games;
-                console.log(data);
-            }).
-            error(function (data, status, headers, config) {
-                // called asynchronously if an error occurs
-                // or server returns response with an error status.
-            });
-    };
 
-    $scope.getTop();
-    console.log($scope);
-    */
 });
 
 app.factory('TopRank', function($http) {
@@ -194,7 +174,7 @@ app.factory('TopRank', function($http) {
     };
 
     TopRank.prototype.nextPage = function() {
-        if (this.busy) return;
+        if (this.busy || this.limitReached) return;
         this.busy = true;
 
         $http({
@@ -218,6 +198,38 @@ app.factory('TopRank', function($http) {
     return TopRank;
 });
 
+app.controller('footerController', function ($scope, $interval, GameMashStatistics){
+
+    $scope.gamemashStatistics = new GameMashStatistics();
+
+    $scope.gamemashStatistics.get();
+
+    $scope.refresh = function(){
+        console.log('refreshing statistics');
+        $scope.gamemashStatistics.get();
+    }
+    $interval(function(){$scope.refresh();}, 7000);
+
+});
+
+app.factory('GameMashStatistics', function($http) {
+    var GameMashStatistics = function() {
+        this.stats = [];
+    };
+
+    GameMashStatistics.prototype.get = function() {
+
+        $http({
+            url: 'api/stats',
+            method: 'GET'
+        })
+            .success(function(data) {
+                this.stats = data;
+            }.bind(this));
+    };
+
+    return GameMashStatistics;
+});
 
 app.run(['$rootScope', function($rootScope){
     $rootScope.$on('$routeChangeStart', function(event, next, current){

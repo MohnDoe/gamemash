@@ -142,4 +142,13 @@
         echo json_encode($json);
     })->name("getTopt");
 
+    $app->get('/stats', function() use($app) {
+        $votes_stats = Fight::get_statistics();
+        $json = $votes_stats;
+        $json['nb_votes_formatted'] = number_format($votes_stats['nb_votes']);
+        $json['nb_votes_KMBT_format'] = thousandsCurrencyFormat($votes_stats['nb_votes']);
+        echo json_encode($json);
+    })->name("getFight");
+
+
     $app->run();
