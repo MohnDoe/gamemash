@@ -73,13 +73,15 @@
         <div ng-view></div>
     </div>
     <footer id="footer">
-        <div id="container-community-unlock-progress" ng-controller="communityUnlockController">
-            <span class="nb-votes">Community have voted +{{gamemashStatistics.stats.nb_votes_KMBT_format}} times</span>
+        <div id="container-user-level-progress" ng-controller="levelUserController">
             <br />
-            <span class="nb-votes">"{{communityUnlock.previousAndPastSteps[1].name}}" - {{communityUnlock.previousAndPastSteps[1].needed}} votes needed</span>
-            <div class="community-unlock-progress">
+            <div class="user-level-progress">
+                <div class="container-informations-level-progress">
+                    <span class="current-level-name">{{levelsUser.previousAndPastLevels[0].name}}</span>
+                    <span class="current-points">+{{user.points}} pts</span>
+                </div>
                 <div class="progress-bar">
-                    <div class="fill-progress-bar" style="width: {{communityUnlock.percentageGlobalCompletion}}%"></div>
+                    <div class="fill-progress-bar" style="width: {{levelsUser.percentageGlobalCompletion}}%"></div>
                 </div>
             </div>
         </div>

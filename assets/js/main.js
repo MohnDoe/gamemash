@@ -105,6 +105,7 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         }).
             success(function (data, status, headers, config) {
+                $rootScope.$emit('userGetPoints', data);
                 //$rootScope.user.points = data['grand_total'];
                 //console.log(data);
             }).
@@ -117,6 +118,7 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
     $scope.createFight();
 });
 
+/*
 app.controller('userController', function ($scope, $http, $rootScope) {
 
     $scope.user = {
@@ -158,6 +160,7 @@ app.controller('userController', function ($scope, $http, $rootScope) {
     $rootScope.user = $scope.user;
 
 });
+*/
 
 app.controller('topController', function ($scope, TopRank) {
 
@@ -198,82 +201,123 @@ app.factory('TopRank', function($http) {
     return TopRank;
 });
 
-app.controller('communityUnlockController', function ($scope, $interval, GameMashStatistics){
+app.controller('levelUserController', function ($scope, $http, $rootScope, $animate){
+    $scope.user = {
+        points : null
+    };
 
-    $scope.communityUnlock = {
+    $scope.levelsUser = {
         percentageGlobalCompletion : "0",
-        steps : [
+        levels : [
             {
-                name : 'Nothing',
+                name : 'LVL_minus1',
+                needed : -1
+            },
+
+            {
+                name : 'LVL_1',
                 needed : 0
             },
             {
-                name : 'Top 100',
-                needed : 1200
+                name : 'LVL_2',
+                needed : 10000
             },
             {
-                name : 'Leaderboard',
-                needed : 1240
+                name : 'LVL_40',
+                needed : 30000
             },
             {
-                name : 'Truc',
-                needed : 1250
+                name : 'LVL_50',
+                needed : 40000
             },
             {
                 name : 'Bidule',
-                needed : 1260
+                needed : 50060
             }
         ],
-        previousAndPastSteps : []
+        previousAndPastLevels : []
     };
 
-    $scope.$watch(
-        function(){
-            return $scope.communityUnlock.previousAndPastSteps;
-        },
-        function(newValue){
-            if(typeof newValue != "undefined"){
-                $scope.refreshCurrentProgress(newValue);
+    $scope.getCurrentLevel = function(){
+        //console.log('getting current level...')
+        //console.log('user points : '+$scope.user.points);
+        if($scope.user.points === null){return;}
+        for(i = 0; i < $scope.levelsUser.levels.length; i++){
+            level = $scope.levelsUser.levels[i];
+            if(level.needed >= $scope.user.points ){
+                pastLevel = $scope.levelsUser.levels[i-1];
+                nextLevel = $scope.levelsUser.levels[i];
+                return [pastLevel, nextLevel];
+            }
+        }
+        return [$scope.levelsUser.levels[0],$scope.levelsUser.levels[1]];
+    };
+
+    $scope.refreshCurrentProgress = function(){
+        pastLevel = $scope.levelsUser.previousAndPastLevels[0];
+        nextLevel = $scope.levelsUser.previousAndPastLevels[1];
+        completion = ($scope.user.points - pastLevel.needed) / ( nextLevel.needed - pastLevel.needed ) * 100;
+        $scope.levelsUser.percentageGlobalCompletion = completion;
+    };
+
+    $scope.getUserPoints = function(){
+        console.log('getting user points ...');
+        $http.get('./api/user').
+            then(function (result) {
+                //console.log('result from GET ./api/user', result);
+                $scope.user.points = result.data.user.points;
+                console.info('user has '+$scope.user.points+' points.');
+                aLevels = $scope.getCurrentLevel();
+                $scope.levelsUser.previousAndPastLevels = aLevels;
+            });
+    };
+
+    $scope.updateUserPoints = function(points_array){
+        $scope.user.points = points_array['grand_total'];
+        $scope.levelsUser.previousAndPastLevels = $scope.getCurrentLevel();
+        $scope.refreshCurrentProgress();
+        $animate.addClass($('.current-points'), 'shake').then(function() {
+            $('.current-points').removeClass('shake');
+        });
+    }
+
+    $scope.$watchCollection("levelsUser.previousAndPastLevels",
+        function(newValue, oldValue){
+            console.log(newValue);
+            if(typeof newValue != 'undefined' && newValue.length > 0){
+                $scope.refreshCurrentProgress();
             }
         }
     );
 
-    $scope.gamemashStatistics = new GameMashStatistics();
+    $rootScope.$on('userGetPoints', function(event, args){
+        console.info('event received userGetPoints.');
+        $scope.updateUserPoints(args);
+    });
 
-    $scope.gamemashStatistics.get();
 
+    $scope.getUserPoints();
 
-    $scope.getCurrentStep = function(){
-        for(i = 0; i < $scope.communityUnlock.steps.length; i++){
-            step = $scope.communityUnlock.steps[i];
-            if(step.needed >= $scope.gamemashStatistics.stats.nb_votes ){
-                pastStep = $scope.communityUnlock.steps[i-1];
-                nextStep = $scope.communityUnlock.steps[i];
-                return [pastStep, nextStep];
-                break;
-            }
-        }
+    //$interval(function(){$scope.refresh();}, 10000);
+});
+
+app.factory('User', function($http) {
+    var User = function() {
+        this.points = 0;
     };
 
-    $scope.refreshCurrentProgress = function(aSteps){
-        pastStep = aSteps[0];
-        nextStep = aSteps[1];
-        completion = ($scope.gamemashStatistics.stats.nb_votes - pastStep.needed) / ( nextStep.needed - pastStep.needed ) * 100;
-        $scope.communityUnlock.percentageGlobalCompletion = completion;
+    User.prototype.get = function() {
+        return $http({
+            url: 'api/user',
+            method: 'GET',
+            params: {page  : 0}
+        })
+            .success(function(data) {
+                var user = data.user;
+                this.points = user.points;
+            }.bind(this));
     };
-
-    $scope.refresh = function(){
-        console.log('refreshing statistics');
-        $scope.gamemashStatistics.get();
-        $scope.communityUnlock.previousAndPastSteps = $scope.getCurrentStep();
-        //$scope.communityUnlock.percentageGlobalCompletion = $scope.gamemashStatistics.stats.nb_votes / $scope.communityUnlock.max * 100;
-        //console.log($scope.communityUnlock);
-    };
-
-    $scope.refresh();
-
-
-    $interval(function(){$scope.refresh();}, 2000);
+    return User;
 });
 
 app.factory('GameMashStatistics', function($http) {
