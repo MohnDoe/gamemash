@@ -76,16 +76,18 @@
     </div>
     <footer id="footer">
         <div id="container-user-level-progress" ng-controller="levelUserController">
-            <br />
             <div class="user-level-progress">
-                <div class="container-informations-level-progress">
-                    <span class="current-level-name">{{levelsUser.previousAndPastLevels[0].name}}</span>
+                <span class="current-level-name">{{levelsUser.previousAndPastLevels[0].name}}</span>
+                <div class="container-progress-stats">
                     <span class="current-points">+{{user.points}} pts</span>
+                    <span class="current-percentage">{{levelsUser.percentageGlobalCompletion}}%</span>
                 </div>
+                <!--
                 <div class="container-informations-next-level-progress">
                     <span class="next-level-name">{{levelsUser.previousAndPastLevels[1].name}}</span>
                     <span class="next-points">+{{levelsUser.previousAndPastLevels[1].needed}} pts</span>
                 </div>
+                -->
                 <div class="progress-bar">
                     <div class="fill-progress-bar" style="width: {{levelsUser.percentageGlobalCompletion}}%"></div>
                 </div>
