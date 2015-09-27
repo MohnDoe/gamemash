@@ -12,10 +12,10 @@ class User {
 
     // POINTS
 
-    static $PTS_VOTE = 10;
-    static $PTS_FAST_VOTE = 5;
-    static $TIME_FAST_VOTE = 5000;
-    static $TIME_COMBO = 15000;
+    static $PTS_VOTE = PTS_FOR_A_VOTE;
+    static $PTS_FAST_VOTE = PTS_FOR_A_FAST_VOTE;
+    static $TIME_FAST_VOTE = TIME_FOR_A__FAST_VOTE;
+    static $TIME_COMBO = TIME_FOR_A_COMBO;
 
     // FIN POINTS
 

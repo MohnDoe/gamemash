@@ -210,34 +210,25 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, $anim
         percentageGlobalCompletion : "0",
         levels : [
             {
-                name : 'LVL_minus1',
+                name : 'Noob',
                 needed : -1
-            },
-
-            {
-                name : 'LVL_1',
-                needed : 0
-            },
-            {
-                name : 'LVL_2',
-                needed : 10000
-            },
-            {
-                name : 'LVL_40',
-                needed : 30000
-            },
-            {
-                name : 'LVL_50',
-                needed : 40000
-            },
-            {
-                name : 'Bidule',
-                needed : 50060
             }
         ],
         previousAndPastLevels : []
     };
 
+    $scope.getLevels = function(){
+        console.log('getting levels ...');
+        $http.get('./api/levels').
+            then(function (result) {
+                console.log(result.data.levels);
+                for (var i = 0; i < result.data.levels.length; i++) {
+                    $scope.levelsUser.levels.push(result.data.levels[i]);
+                }
+                //$scope.levelsUser.levels = result.data.levels;
+                $scope.getUserPoints();
+            });
+    };
     $scope.getCurrentLevel = function(){
         //console.log('getting current level...')
         //console.log('user points : '+$scope.user.points);
@@ -262,7 +253,7 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, $anim
 
     $scope.getUserPoints = function(){
         console.log('getting user points ...');
-        $http.get('./api/user').
+        $http.get('./api/user/points').
             then(function (result) {
                 //console.log('result from GET ./api/user', result);
                 $scope.user.points = result.data.user.points;
@@ -296,7 +287,7 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, $anim
     });
 
 
-    $scope.getUserPoints();
+    $scope.getLevels();
 
     //$interval(function(){$scope.refresh();}, 10000);
 });

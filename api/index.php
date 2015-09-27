@@ -108,7 +108,7 @@
 
     });
 
-    $app->get('/user', function() use($app) {
+    $app->get('/user/points', function() use($app) {
         $json = array();
         $json['user']['points'] = 0;
         if(isset($_COOKIE['guest_id']) AND !empty($_COOKIE['guest_id']))
@@ -147,6 +147,13 @@
         $json = $votes_stats;
         $json['nb_votes_formatted'] = number_format($votes_stats['nb_votes']);
         $json['nb_votes_KMBT_format'] = thousandsCurrencyFormat($votes_stats['nb_votes']);
+        echo json_encode($json);
+    })->name("getFight");
+
+    $app->get('/levels', function() use($app) {
+        $Level = new Level();
+        $Level::init();
+        $json['levels'] = $Level::$aLevels;
         echo json_encode($json);
     })->name("getFight");
 

@@ -44,6 +44,8 @@
 
         //var_dump('user created : '.$UserGuest->id.'/'.$UserGuest->hashid);
     }
+
+    //TEST LEVEL
 ?>
 <html>
     <head>
@@ -79,6 +81,10 @@
                 <div class="container-informations-level-progress">
                     <span class="current-level-name">{{levelsUser.previousAndPastLevels[0].name}}</span>
                     <span class="current-points">+{{user.points}} pts</span>
+                </div>
+                <div class="container-informations-next-level-progress">
+                    <span class="next-level-name">{{levelsUser.previousAndPastLevels[1].name}}</span>
+                    <span class="next-points">+{{levelsUser.previousAndPastLevels[1].needed}} pts</span>
                 </div>
                 <div class="progress-bar">
                     <div class="fill-progress-bar" style="width: {{levelsUser.percentageGlobalCompletion}}%"></div>

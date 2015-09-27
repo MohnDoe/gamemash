@@ -67,6 +67,13 @@
     DEFINE('DB_TABLE_PLATFORMS', 'platforms');
     DEFINE('DB_TABLE_IS_IN_PLATFORM', 'is_in_platform');
 
+
+    // POINTS CONSTANT
+    DEFINE('PTS_FOR_A_VOTE', 10);
+    DEFINE('PTS_FOR_A_FAST_VOTE', 5);
+    DEFINE('TIME_FOR_A__FAST_VOTE', 5000);
+    DEFINE('TIME_FOR_A_COMBO', 15000);
+
     /*
      * REQUIRING ALL CLASSES
      */
