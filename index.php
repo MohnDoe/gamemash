@@ -79,8 +79,8 @@
             <div class="user-level-progress">
                 <span class="current-level-name">{{levelsUser.previousAndPastLevels[0].name}}</span>
                 <div class="container-progress-stats">
-                    <span class="current-points">+{{user.points}} pts</span>
-                    <span class="current-percentage">{{levelsUser.percentageGlobalCompletion}}%</span>
+                    <span class="current-points">+{{user.points | number}} pts</span>
+                    <span class="current-percentage">{{levelsUser.percentageGlobalCompletion | setDecimal:2}}%</span>
                 </div>
                 <!--
                 <div class="container-informations-next-level-progress">
@@ -97,7 +97,7 @@
     </body>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
-    <script src="https://code.angularjs.org/1.3.16/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular-route.min.js"></script>
     <script src="./assets/js/ng-infinite-scroll.min.js"></script>
     <script src="./assets/js/main.js"></script>
 
