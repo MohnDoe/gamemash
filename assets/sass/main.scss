@@ -89,9 +89,18 @@ a
 
 //KEYFRAMES
 @-webkit-keyframes shake {
-  0% { -webkit-transform: rotate(2deg) scale(1); }
-  50% { -webkit-transform: rotate(-2deg) scale(1.5); }
-  100% { -webkit-transform: rotate(2deg) scale(1); }
+  0% {
+    -webkit-transform:  scale(1);
+    filter: blur(0);
+  }
+  50% {
+    -webkit-transform: scale(1.4);
+    filter: blur(5px);
+  }
+  100% {
+    -webkit-transform:  scale(1);
+    filter: blur(0);
+  }
 }
 //END KEYFRAMES
 .container-nav
@@ -748,12 +757,14 @@ a
 
 .shake {
   -webkit-animation-name: shake;
-  -webkit-animation-duration: 0.5s;
+  -webkit-animation-duration: 0.25s;
   -webkit-transform-origin: 50% 50%;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-timing-function: linear;
-  animation-duration: 0.5s;
+  animation-duration: 0.25s;
+
 }
+
 footer
 {
   position: fixed;

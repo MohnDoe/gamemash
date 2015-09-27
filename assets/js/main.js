@@ -267,9 +267,16 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, $anim
         $scope.user.points = points_array['grand_total'];
         $scope.levelsUser.previousAndPastLevels = $scope.getCurrentLevel();
         $scope.refreshCurrentProgress();
-        $animate.addClass($('.current-points'), 'shake').then(function() {
+
+        //shake the user points indicator
+        $('.current-points').removeClass('shake');
+        setTimeout(function () {
+            $('.current-points').addClass('shake');
+        }, 100);
+        /*$animate.addClass($('.current-points'), 'shake').then(function() {
+            //console.log('over');
             $('.current-points').removeClass('shake');
-        });
+        });*/
     }
 
     $scope.$watchCollection("levelsUser.previousAndPastLevels",
