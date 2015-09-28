@@ -202,7 +202,7 @@ class Game {
     }
 
     public function getPlatforms(){
-        $req = DB::$db->query ('SELECT `id_platform` FROM `'.DB_TABLE_IS_IN_PLATFORM.'` WHERE id_game = '.$this->id);
+        $req = DB::$db->query ('SELECT `id_platform` FROM `'.DB_TABLE_IS_IN_PLATFORM.'` WHERE id_game = '.$this->id.' GROUP BY  `id_platform`');
         $result = [];
         while($data = $req->fetch()){
             $result[] = new Platform($data['id_platform']);
@@ -213,6 +213,12 @@ class Game {
     public function convert_in_array(){
         $date = new DateTime($this->release_date);
         $yearGame = $date->format('Y');
+
+        $aPlatforms = array();
+        foreach($this->platforms_array as $Platform){
+            $aPlatforms[] = $Platform->convert_in_array();
+        }
+
         $result = [
             'id' => $this->id,
             'name' => $this->name,
@@ -225,7 +231,8 @@ class Game {
             'nb_matchs_won' => $this->nb_matchs_won,
             'nb_matchs_lost' => $this->nb_matchs_lost,
             'nb_matchs_draw' => $this->nb_matchs_draw,
-            'elo_performance' => $this->elo_performance
+            'elo_performance' => $this->elo_performance,
+            'platforms' => $aPlatforms
         ];
 
         return $result;

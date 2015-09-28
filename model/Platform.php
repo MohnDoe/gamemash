@@ -66,4 +66,14 @@
             $query->execute();
         }
 
+        public function convert_in_array(){
+            $result = [
+                'id' => $this->id,
+                'name' => $this->name,
+                'abbreviation' => $this->abbreviation
+            ];
+
+            return $result;
+        }
+
     }
