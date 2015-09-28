@@ -22,25 +22,25 @@
                         <span class="information-label">Elo_Rank</span>
                     </div>
                     <div class="information">
-                        <span class="information-value">1,708</span>
+                        <span class="information-value">{{game.elo_performance | setDecimal : 1}}%</span>
                         <span class="information-label">Elo_Performances</span>
                     </div>
                     <div class="information">
-                        <span class="information-value">1,708</span>
+                        <span class="information-value">{{game.nb_matchs | number}}</span>
                         <span class="information-label">Ranked_Matchs</span>
                     </div>
                 </div>
                 <div class="informations-line">
                     <div class="information">
-                        <span class="information-value">1,708</span>
+                        <span class="information-value">{{game.nb_matchs_won | number}}</span>
                         <span class="information-label">Matchs_Won</span>
                     </div>
                     <div class="information">
-                        <span class="information-value">1,708</span>
+                        <span class="information-value">{{game.nb_matchs_lost | number}}</span>
                         <span class="information-label">Matchs_Lost</span>
                     </div>
                     <div class="information">
-                        <span class="information-value">1,708</span>
+                        <span class="information-value">{{game.nb_matchs_draw | number}}</span>
                         <span class="information-label">Draw</span>
                     </div>
                 </div>
