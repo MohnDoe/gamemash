@@ -135,8 +135,8 @@
         foreach($GamesTop as $Game){
             $gameEntry = $Game->convert_in_array();
             $gameEntry['rank'] = $i;
-            $json['games'][] = $gameEntry;
 
+            $json['games'][] = $gameEntry;
             $i++;
         }
         echo json_encode($json);

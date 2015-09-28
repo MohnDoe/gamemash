@@ -30,7 +30,14 @@ class Game {
 
     public $release_date;
 
+    // ELO RELATED STUFF
+    public $aAllFightsDone = [];
     public $current_elo = 1400;
+    public $nb_matchs = 0;
+    public $nb_matchs_won = 0;
+    public $nb_matchs_lost = 0;
+    public $nb_matchs_draw = 0;
+    public $elo_performance;
 
 
     function __construct ($idGame = NULL)
@@ -68,13 +75,15 @@ class Game {
 
             $this->platforms_array = $this->getPlatforms();
 
+            $this->initEloStats();
+
         }
     }
 
     static function get_top_games ($page = 1) {
         $perPage = 10;
         $req = DB::$db->query ('SELECT id_game FROM ' . DB_TABLE_GAMES . ' WHERE 1 ORDER BY current_elo_game DESC LIMIT '.(($page-1)*$perPage).','.$perPage);
-        $results = array();
+        $results = [];
 
         while($data = $req->fetch()){
             $results[] = new Game($data['id_game']);
@@ -204,15 +213,57 @@ class Game {
     public function convert_in_array(){
         $date = new DateTime($this->release_date);
         $yearGame = $date->format('Y');
-        $result = array(
+        $result = [
             'id' => $this->id,
             'name' => $this->name,
             'url_image' => $this->images_unserialized[0]['super_url'],
             'url_cover' => $this->cover_unserialized['small_url'],
+            'year' => $yearGame,
+            //ELO STUF
             'current_elo' => $this->current_elo,
-            'year' => $yearGame);
+            'nb_matchs' => $this->nb_matchs,
+            'nb_matchs_won' => $this->nb_matchs_won,
+            'nb_matchs_lost' => $this->nb_matchs_lost,
+            'nb_matchs_draw' => $this->nb_matchs_draw,
+            'elo_performance' => $this->elo_performance
+        ];
 
         return $result;
+    }
+
+    public function getAllFightsDone(){
+        $req = DB::$db->query ('SELECT id_fight FROM ' . DB_TABLE_FIGHTS . ' WHERE (id_game_right = "' . $this->id . '" OR id_game_left = "' . $this->id . '") AND is_done_fight = 1 ORDER BY date_voted_fight ASC');
+        $result = [];
+        while($data = $req->fetch()){
+            $result[] = new Fight($data['id_fight']);
+        }
+        $this->aAllFightsDone = $result;
+        return $result;
+    }
+
+    public function initEloStats () {
+        $this->getAllFightsDone();
+        //NUMBER OF FIGHTS
+        $this->nb_matchs = count($this->aAllFightsDone);
+
+        //foreach fight check when the game won
+        // = was left + left won || was right + right won
+        $this->nb_matchs_won = 0;
+        $this->nb_matchs_lost = 0;
+        foreach($this->aAllFightsDone as $Fight){
+            if($Fight->id_game_winner == $this->id){
+                //NUMBER OF GAME WON
+                $this->nb_matchs_won++;
+            }else if($Fight->id_game_looser == $this->id){
+                //NUMBER OF GAME LOST
+                $this->nb_matchs_lost++;
+            }
+        }
+        //NUMBER OF GAME DRAW
+        // total - won - lost
+        $this->nb_matchs_draw = $this->nb_matchs - $this->nb_matchs_lost - $this->nb_matchs_won;
+        //ELO PERFORMANCE
+        $this->elo_performance = ($this->nb_matchs_won + ($this->nb_matchs_draw*0.5)) / $this->nb_matchs * 100;
     }
 
 }
