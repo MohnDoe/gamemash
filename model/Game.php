@@ -26,7 +26,7 @@ class Game {
 
     public $images_unserialized = [];
 
-    public $platforms_array = [];
+    public $platforms_array = array();
 
     public $release_date;
 

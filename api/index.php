@@ -135,6 +135,17 @@
         foreach($GamesTop as $Game){
             $gameEntry = $Game->convert_in_array();
             $gameEntry['rank'] = $i;
+            $gameEntry['platforms_string'] = "";
+            for($i = 0; $i < count($Game->platforms_array); $i++){
+                $gameEntry['platforms_string'] .= $Game->platforms_array[$i]->abbreviation;
+                if($i != count($Game->platforms_array) - 1)
+                {
+                    $gameEntry['platforms_string']  .= '_';
+                }
+            }
+            if($gameEntry['platforms_string'] == ""){
+                $gameEntry['platforms_string'] = 'Unknown';
+            }
 
             $json['games'][] = $gameEntry;
             $i++;
