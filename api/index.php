@@ -128,6 +128,7 @@
         $page = $paramsGET['page'];
         $json = array();
         $GamesTop = Game::get_top_games($page);
+        //$i = (($page-1)*10)+1;
         $i = (($page-1)*10)+1;
         if($page >= 11){
             return json_encode($json);
@@ -136,9 +137,9 @@
             $gameEntry = $Game->convert_in_array();
             $gameEntry['rank'] = $i;
             $gameEntry['platforms_string'] = "";
-            for($i = 0; $i < count($Game->platforms_array); $i++){
-                $gameEntry['platforms_string'] .= $Game->platforms_array[$i]->abbreviation;
-                if($i != count($Game->platforms_array) - 1)
+            for($j = 0; $j < count($Game->platforms_array); $j++){
+                $gameEntry['platforms_string'] .= $Game->platforms_array[$j]->abbreviation;
+                if($j != count($Game->platforms_array) - 1)
                 {
                     $gameEntry['platforms_string']  .= '_';
                 }
