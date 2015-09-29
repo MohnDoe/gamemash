@@ -225,6 +225,7 @@ class Game {
             'url_image' => $this->images_unserialized[0]['super_url'],
             'url_cover' => $this->cover_unserialized['small_url'],
             'year' => $yearGame,
+            'release_date' => $date->format('M j\, Y'),
             //ELO STUF
             'current_elo' => $this->current_elo,
             'nb_matchs' => $this->nb_matchs,
@@ -232,7 +233,8 @@ class Game {
             'nb_matchs_lost' => $this->nb_matchs_lost,
             'nb_matchs_draw' => $this->nb_matchs_draw,
             'elo_performance' => $this->elo_performance,
-            'platforms' => $aPlatforms
+            'platforms' => $aPlatforms,
+            'developers' => 'Unkown Developer'
         ];
 
         return $result;
