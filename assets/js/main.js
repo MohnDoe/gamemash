@@ -191,7 +191,7 @@ app.factory('TopRank', function($http) {
                     this.games.push(games[i]);
                 }
                 this.after = this.after + 1;
-                if(this.after >= 10){
+                if(this.after > 10){
                     this.limitReached = true;
                 }
                 this.busy = false;
