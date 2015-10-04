@@ -95,10 +95,20 @@
         </div>
     </footer>
     </body>
+    <!-- third -->
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular-route.min.js"></script>
     <script src="./assets/js/ng-infinite-scroll.min.js"></script>
+    <!-- app core -->
     <script src="./assets/js/main.js"></script>
+    <!-- controllers -->
+    <script src="./assets/js/controllers/fightController.js"></script>
+    <script src="./assets/js/controllers/topController.js"></script>
+    <script src="./assets/js/controllers/userLevelController.js"></script>
+    <!-- services -->
+    <script src="./assets/js/services/gamemashStatisticsService.js"></script>
+    <script src="./assets/js/services/topRankService.js"></script>
+    <script src="./assets/js/services/userService.js"></script>
 
 </html>
