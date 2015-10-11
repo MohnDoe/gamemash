@@ -84,5 +84,6 @@
     require_once 'Fight.php';
     require_once 'Platform.php';
     require_once 'ELORanking.php';
+    require_once 'PersistentAuth.php';
     require_once 'GiantBomb/GiantBomb.php';
     require_once $_SERVER['DOCUMENT_ROOT'].URL_BASE_HREF.'vendor/autoload.php';

@@ -29,18 +29,9 @@
         $json['gameRight'] = $GameRight->convert_in_array();
 
         //saving fight
-        $id_user_fight = -1;
-        if(isset($_COOKIE['guest_id']) AND !empty($_COOKIE['guest_id']))
-        {
-            $UserGuest = new User();
-            $UserGuest->hashid = $_COOKIE['guest_id'];
-            $UserGuest->id = $UserGuest->decodeHashid();
-            $UserGuest->init();
-
-            $id_user_fight = $UserGuest->id;
-        }
+        $User = User::get_current_user();
         $Fight = new Fight();
-        $Fight->create_fight($GameLeft,$GameRight, $id_user_fight);
+        $Fight->create_fight($GameLeft,$GameRight, $User->id);
         $Fight->save();
 
         $json['id'] = $Fight->id;
@@ -49,13 +40,13 @@
     })->name("getFight");
 
     $app->post('/vote', function() use($app) {
-        $allParamsPOST = $app->request->post();
+        $allParamsPOST = $app->request->post ();
         $id_fight = $allParamsPOST['id_fight'];
         //TODO: do something with that token
         $token_fight = $allParamsPOST['token_fight'];
         $Fight = new Fight($id_fight);
 
-        if($Fight->token != $token_fight){
+        if ($Fight->token != $token_fight) {
             return false;
         }
 
@@ -64,61 +55,55 @@
         $side = $allParamsPOST['side'];
 
         $isLeft = $isRight = 0;
-        if($side == 'left'){
+        if ($side == 'left') {
             $isLeft = 1;
-        }else if($side == 'right'){
+        } else if ($side == 'right') {
             $isRight = 1;
-        }else{
+        } else {
             $isLeft = 0.5;
             $isRight = 0.5;
         }
         $rating = new \Rating\Rating($GameLeft->current_elo, $GameRight->current_elo, $isLeft, $isRight);
-        $newRating = $rating->getNewRatings();
+        $newRating = $rating->getNewRatings ();
 
         $GameLeft->current_elo = $newRating['a'];
-        $GameLeft->updateELO();
+        $GameLeft->updateELO ();
         $GameRight->current_elo = $newRating['b'];
-        $GameRight->updateELO();
+        $GameRight->updateELO ();
 
-        $Fight->set_vote($side);
-        $Fight->saveVote();
+        $Fight->set_vote ($side);
+        $Fight->saveVote ();
 
+        $User = User::get_current_user();
         // POINTS
-        if(isset($_COOKIE['guest_id']) AND !empty($_COOKIE['guest_id']))
-        {
-            $UserGuest = new User();
-            $UserGuest->hashid = $_COOKIE['guest_id'];
-            $UserGuest->id = $UserGuest->decodeHashid();
-            $UserGuest->init();
+        $arrayActions = [];
+        $arrayActions[] = 'VOTE';
 
-            $arrayActions = array();
-            $arrayActions[] = 'VOTE';
+        $msNow = (int)microtime (true) * 1000;
+        $diffCreatedVoted = $msNow - dateTimeToMilliseconds (new DateTime($Fight->date_created));
 
-            $msNow = (int)microtime(true)*1000;
-            $diffCreatedVoted = $msNow - dateTimeToMilliseconds(new DateTime($Fight->date_created));
-
-            if($diffCreatedVoted <= User::$TIME_FAST_VOTE){
-                $arrayActions[] = 'FAST_VOTE';
-            }
-
-            $arrayPoints = $UserGuest->getPoints($arrayActions);
-
-            echo json_encode($arrayPoints);
+        if ($diffCreatedVoted <= User::$TIME_FAST_VOTE) {
+            $arrayActions[] = 'FAST_VOTE';
         }
 
+        $arrayPoints = $User->getPoints($arrayActions);
+
+        echo json_encode ($arrayPoints);
     });
 
     $app->get('/user/points', function() use($app) {
         $json = array();
-        $json['user']['points'] = 0;
-        if(isset($_COOKIE['guest_id']) AND !empty($_COOKIE['guest_id']))
-        {
-            $UserGuest = new User();
-            $UserGuest->hashid = $_COOKIE['guest_id'];
-            $UserGuest->id = $UserGuest->decodeHashid();
-            $UserGuest->init();
-            $json['user'] = $UserGuest;
-        }
+        $User = User::get_current_user();
+        $json['user'] = $User->convert_in_array();
+
+        echo json_encode($json);
+    });
+
+    $app->get('/user', function() use($app) {
+        $json = array();
+        $User = User::get_current_user();
+        $json['user'] = $User->convert_in_array();
+        $json['status'] = $User->status;
 
         echo json_encode($json);
     });
@@ -168,6 +153,54 @@
         $json['levels'] = $Level::$aLevels;
         echo json_encode($json);
     })->name("getFight");
+
+    $app->post('/user/register', function() use($app){
+        $allParamsPOST = $app->request->post();
+
+        $json_r = array();
+
+        $json_r['status'] = '';
+        $password = $allParamsPOST['password'];
+        $email = $allParamsPOST['email'];
+
+        $UserGuest = User::get_user_from_guestid_cookie();
+        //check if a user existe with this email
+        if($UserWithThisEmail = User::check_if_email_is_register($email)){
+            if(User::check_password($password, $UserWithThisEmail->hash)){
+                //pass are good
+                $json_r['status'] = 'connected';
+
+                User::delete_guestid_cookie();
+                PersistentAuth::login($UserWithThisEmail->id);
+
+                $json_r['user'] = $UserWithThisEmail->convert_in_array();
+            }else{
+                //not good
+                $json_r['status'] = 'not connected';
+                $json_r['error_message'] = 'An account already exists with this email, but the password doesn\'t match';
+            }
+        }else{
+            //no user with this email, so register this user
+            $UserGuest->is_registered = 1;
+            $UserGuest->register_at = date('Y-m-d H:i:s');
+            $UserGuest->hash = User::generate_password($password);
+            $UserGuest->email = $email;
+            $UserGuest->name = User::generate_random_username();
+
+            $UserGuest->register();
+
+            $json_r['status'] = 'registered';
+
+
+
+            User::delete_guestid_cookie();
+            PersistentAuth::login($UserGuest->id);
+            $json_r['user'] = $UserGuest->convert_in_array();
+        }
+
+        echo json_encode($json_r);
+
+    });
 
 
     $app->run();

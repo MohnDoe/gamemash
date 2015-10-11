@@ -23,27 +23,7 @@
     die();
     //*/
     // CHECK GUEST
-    if(isset($_COOKIE['guest_id']) AND !empty($_COOKIE['guest_id'])){
-        $UserGuest = new User();
-        $UserGuest->hashid = $_COOKIE['guest_id'];
-        $UserGuest->id = $UserGuest->decodeHashid();
-        $UserGuest->init();
-        setcookie('guest_id', $UserGuest->hashid, time()+3600*24*30);
-
-        //var_dump('user getted : '.$UserGuest->id.'/'.$UserGuest->hashid);
-    }else{
-        $UserGuest = new User();
-        $UserGuest->created = date("Y-m-d H:i:s");
-        $UserGuest->last_seen = $UserGuest->created;
-        $UserGuest->ip = $_SERVER['REMOTE_ADDR'];
-
-        $UserGuest->save();
-
-
-        setcookie('guest_id', $UserGuest->hashid, time()+3600*24*30);
-
-        //var_dump('user created : '.$UserGuest->id.'/'.$UserGuest->hashid);
-    }
+    //$UserGuest = User::get_user_from_guestid_cookie();
 
     //TEST LEVEL
 ?>
@@ -72,6 +52,9 @@
                 </li>
             </ul>
         </div>
+        <div class="container-user" ng-controller="userController">
+            <span class="user-name">{{user.name}}</span>
+        </div>
         <div ng-view></div>
     </div>
     <footer id="footer">
@@ -96,16 +79,18 @@
     </footer>
     </body>
     <!-- third -->
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular-route.min.js"></script>
+    <script src="./assets/js/lib/jquery.min.js"></script>
+    <script src="./assets/js/lib/angular.min.js"></script>
+    <script src="./assets/js/lib/angular-route.min.js"></script>
     <script src="./assets/js/ng-infinite-scroll.min.js"></script>
     <!-- app core -->
     <script src="./assets/js/main.js"></script>
     <!-- controllers -->
     <script src="./assets/js/controllers/fightController.js"></script>
     <script src="./assets/js/controllers/topController.js"></script>
+    <script src="./assets/js/controllers/userController.js"></script>
     <script src="./assets/js/controllers/userLevelController.js"></script>
+    <script src="./assets/js/controllers/loginController.js"></script>
     <!-- services -->
     <script src="./assets/js/services/gamemashStatisticsService.js"></script>
     <script src="./assets/js/services/topRankService.js"></script>

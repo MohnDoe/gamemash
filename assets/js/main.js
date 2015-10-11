@@ -33,6 +33,12 @@ app.config(function($routeProvider, $locationProvider) {
             controller  : 'topController',
             activetab : 'top',
             title : 'Top 100'
+        })
+        .when('/login', {
+            templateUrl : 'assets/templates/login.html',
+            controller  : 'loginController',
+            activetab : 'login',
+            title : 'Login or sign-up'
         });
 
         $locationProvider.html5Mode(true);

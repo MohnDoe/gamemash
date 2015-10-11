@@ -272,6 +272,7 @@ class Game {
         // total - won - lost
         $this->nb_matchs_draw = $this->nb_matchs - $this->nb_matchs_lost - $this->nb_matchs_won;
         //ELO PERFORMANCE
+        //TODO : prevent divide by zero
         $this->elo_performance = ($this->nb_matchs_won + ($this->nb_matchs_draw*0.5)) / $this->nb_matchs * 100;
     }
 

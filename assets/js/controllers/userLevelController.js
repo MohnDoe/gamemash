@@ -1,7 +1,5 @@
-app.controller('levelUserController', function ($scope, $http, $rootScope, $animate){
-    $scope.user = {
-        points : null
-    };
+app.controller('levelUserController', function ($scope, $http, $rootScope, UserService){
+    $scope.user = {};
 
     $scope.levelsUser = {
         percentageGlobalCompletion : "0",
@@ -27,7 +25,7 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, $anim
             });
     };
     $scope.getCurrentLevel = function(){
-        //console.log('getting current level...')
+        console.log('getting current level...')
         //console.log('user points : '+$scope.user.points);
         if($scope.user.points === null){return;}
         for(i = 0; i < $scope.levelsUser.levels.length; i++){
@@ -50,11 +48,9 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, $anim
 
     $scope.getUserPoints = function(){
         console.log('getting user points ...');
-        $http.get('./api/user/points').
-            then(function (result) {
-                //console.log('result from GET ./api/user', result);
-                $scope.user.points = result.data.user.points;
-                console.info('user has '+$scope.user.points+' points.');
+        UserService.getCurrentUser()
+            .success(function(data){
+                $scope.user = data.user;
                 aLevels = $scope.getCurrentLevel();
                 $scope.levelsUser.previousAndPastLevels = aLevels;
             });
@@ -70,15 +66,11 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, $anim
         setTimeout(function () {
             $('.current-points').addClass('shake');
         }, 100);
-        /*$animate.addClass($('.current-points'), 'shake').then(function() {
-         //console.log('over');
-         $('.current-points').removeClass('shake');
-         });*/
-    }
+    };
 
     $scope.$watchCollection("levelsUser.previousAndPastLevels",
         function(newValue, oldValue){
-            console.log(newValue);
+            //console.log(newValue);
             if(typeof newValue != 'undefined' && newValue.length > 0){
                 $scope.refreshCurrentProgress();
             }
