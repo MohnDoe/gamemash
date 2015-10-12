@@ -65,6 +65,7 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         }).
             success(function (data, status, headers, config) {
+                analytics.track('Vote');
                 $rootScope.$emit('userGetPoints', data.response);
                 //$rootScope.user.points = data['grand_total'];
                 //console.log(data);
