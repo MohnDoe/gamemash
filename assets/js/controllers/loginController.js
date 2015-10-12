@@ -1,7 +1,7 @@
 /**
  * Created by Personne on 10/10/2015.
  */
-app.controller('loginController', function ($scope, $http, $location) {
+app.controller('loginController', function ($scope, $http, $location, $rootScope) {
 
     $scope.register = function(){
         $http({
@@ -31,6 +31,7 @@ app.controller('loginController', function ($scope, $http, $location) {
                         analytics.identify(data.response.user.id);
                         analytics.track('Logged In');
                     }
+                    $rootScope.$emit('updateUser', data.response.user);
                     $location.path('/');
                 }
                 console.log(data);

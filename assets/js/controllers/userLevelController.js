@@ -82,6 +82,13 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, UserS
         $scope.updateUserPoints(args);
     });
 
+    $rootScope.$on('updateUser', function(event, args){
+        console.info('event received updateUser.');
+        $scope.user = args;
+        $scope.refreshCurrentProgress();
+
+    });
+
 
     $scope.getLevels();
 
