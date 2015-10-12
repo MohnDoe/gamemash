@@ -661,15 +661,16 @@ a {
   border-bottom-width: 2px;
   transform: scale(1);
   transition: .25s all ease;
+  outline: none;
 }
-/* line 699, ../sass/main.scss */
+/* line 700, ../sass/main.scss */
 .button-blue:hover {
   transform: scale(1.1);
   background-color: rgba(5, 8, 10, 0.5);
   border-color: rgba(0, 0, 0, 0.1);
 }
 
-/* line 707, ../sass/main.scss */
+/* line 708, ../sass/main.scss */
 .shake {
   -webkit-animation-name: shake;
   -webkit-animation-duration: 0.25s;
@@ -679,7 +680,7 @@ a {
   animation-duration: 0.25s;
 }
 
-/* line 717, ../sass/main.scss */
+/* line 718, ../sass/main.scss */
 footer {
   position: fixed;
   bottom: 0;
@@ -690,7 +691,7 @@ footer {
   z-index: 10;
   text-transform: uppercase;
 }
-/* line 734, ../sass/main.scss */
+/* line 735, ../sass/main.scss */
 footer #container-user-level-progress {
   width: 190px;
   position: absolute;
@@ -700,7 +701,7 @@ footer #container-user-level-progress {
   height: 50px;
   background-color: rgba(26, 39, 50, 0.5);
 }
-/* line 744, ../sass/main.scss */
+/* line 745, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress {
   width: 100%;
   position: relative;
@@ -710,7 +711,7 @@ footer #container-user-level-progress .user-level-progress {
   padding: 20px;
   z-index: 2;
 }
-/* line 754, ../sass/main.scss */
+/* line 755, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .current-level-name {
   color: #bf3b53;
   font-family: FuturaStdMediumCondensed, sans-serif;
@@ -724,7 +725,7 @@ footer #container-user-level-progress .user-level-progress .current-level-name {
   z-index: 1;
   font-size: 14px;
 }
-/* line 769, ../sass/main.scss */
+/* line 770, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .progress-bar {
   width: 100%;
   height: 100%;
@@ -735,7 +736,7 @@ footer #container-user-level-progress .user-level-progress .progress-bar {
   top: 0;
   opacity: .1;
 }
-/* line 781, ../sass/main.scss */
+/* line 782, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .progress-bar .fill-progress-bar {
   background-color: white;
   height: 100%;
@@ -747,7 +748,7 @@ footer #container-user-level-progress .user-level-progress .progress-bar .fill-p
   width: 1%;
   transition: .15s;
 }
-/* line 796, ../sass/main.scss */
+/* line 797, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .container-progress-stats {
   position: absolute;
   right: 0;
@@ -757,12 +758,12 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   color: white;
   text-align: right;
 }
-/* line 806, ../sass/main.scss */
+/* line 807, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .container-progress-stats .current-points {
   font-family: FuturaStdBoldCondensedOblique, sans-serif;
   font-size: 14px;
 }
-/* line 812, ../sass/main.scss */
+/* line 813, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .container-progress-stats .current-percentage {
   font-size: 12px;
   font-family: FuturaStdLightCondensed, sans-serif;
@@ -771,7 +772,7 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   right: 10px;
 }
 
-/* line 825, ../sass/main.scss */
+/* line 826, ../sass/main.scss */
 .container-user {
   position: fixed;
   right: 20px;
@@ -779,13 +780,13 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   display: block;
   z-index: 15;
 }
-/* line 833, ../sass/main.scss */
+/* line 834, ../sass/main.scss */
 .container-user .container-logged-user {
   color: white;
   font-size: 14px;
   font-family: MohaveSemiBold, sans-serif;
 }
-/* line 839, ../sass/main.scss */
+/* line 840, ../sass/main.scss */
 .container-user .container-logged-user .logged-user-name {
   color: rgba(255, 255, 255, 0.9);
   font-family: FuturaStdMediumCondensed, sans-serif;
@@ -793,7 +794,7 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   background-color: #111a21;
   letter-spacing: .05em;
 }
-/* line 848, ../sass/main.scss */
+/* line 849, ../sass/main.scss */
 .container-user .container-guest-user {
   color: white;
   font-size: 14px;
@@ -801,7 +802,7 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   display: block;
   margin-top: -10px;
 }
-/* line 856, ../sass/main.scss */
+/* line 857, ../sass/main.scss */
 .container-user .container-guest-user .information-text {
   width: 100%;
   text-align: center;
@@ -812,7 +813,7 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   display: block;
   margin-bottom: .5em;
 }
-/* line 867, ../sass/main.scss */
+/* line 868, ../sass/main.scss */
 .container-user .container-guest-user .button-sign-in {
   width: 100%;
   display: block;
@@ -820,4 +821,76 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   position: relative;
   float: left;
   display: block;
+}
+
+/* line 880, ../sass/main.scss */
+.container-login {
+  width: 50%;
+  height: auto;
+  position: relative;
+  margin: auto;
+  padding: 100px 0;
+  display: block;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+/* line 890, ../sass/main.scss */
+.container-login .informations-text {
+  width: 100%;
+  display: block;
+  line-height: 1.5em;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+/* line 900, ../sass/main.scss */
+.container-login .container-form {
+  width: 400px;
+  position: relative;
+  display: block;
+  height: auto;
+  margin: 0 auto;
+}
+/* line 908, ../sass/main.scss */
+.container-login .container-form input {
+  width: 100%;
+  height: 50px;
+  display: block;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-bottom: solid 2px white;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0 20px;
+  margin-bottom: 5px;
+  outline: none;
+}
+/* line 923, ../sass/main.scss */
+.container-login .container-form input:-webkit-autofill, .container-login .container-form input:-webkit-autofill:hover, .container-login .container-form input:-webkit-autofill:focus, .container-login .container-form input:-webkit-autofill:active {
+  transition: all 5000s ease-in-out 0s;
+  transition-property: background-color, color;
+}
+/* line 932, ../sass/main.scss */
+.container-login .container-form .message-input, .container-login .container-form .message-error {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  width: 100%;
+  display: block;
+  position: relative;
+  float: left;
+  line-height: 1.5em;
+  margin-bottom: 15px;
+}
+/* line 944, ../sass/main.scss */
+.container-login .container-form .message-error {
+  color: rgba(191, 59, 83, 0.9);
+}
+/* line 949, ../sass/main.scss */
+.container-login .container-form .button-login {
+  width: 100%;
+  position: relative;
+  float: right;
+  height: 50px;
+  margin-top: 10px;
+  font-size: 16px;
 }

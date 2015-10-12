@@ -33,9 +33,11 @@ app.controller('loginController', function ($scope, $http, $location, $rootScope
                     }
                     $rootScope.$emit('updateUser', data.response.user);
                     $location.path('/');
+                }else{
+                    if(data.response.error_message != ''){
+                        $scope.error_message = data.response.error_message;
+                    }
                 }
-                console.log(data);
-                $rootScope.user = data.user;
             }).
             error(function (data, status, headers, config) {
                 // called asynchronously if an error occurs

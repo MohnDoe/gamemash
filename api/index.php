@@ -128,7 +128,7 @@
             $i = (($page-1)*10)+1;
             if($page >= 11){
                 $json_response['status'] = 'NOTOK';
-                $json_response['error'] = 'You\'re going too far my friend';
+                $json_response['error'] = 'You\'re going too far my friend.';
                 echo json_encode($json_response);
                 exit();
             }
@@ -197,7 +197,7 @@
                 }else{
                     //not good
                     $json_response['response']['status'] = 'not connected';
-                    $json_response['response']['error_message'] = 'An account already exists with this email, but the password doesn\'t match';
+                    $json_response['response']['error_message'] = 'An account already exists with this email, but the password doesn\'t match. Try again.';
                     $json_response['status'] = 'OK';
                     echo json_encode($json_response);
                     exit();

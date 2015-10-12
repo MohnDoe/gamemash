@@ -695,6 +695,7 @@ a
   border-bottom-width: 2px;
   transform: scale(1);
   transition: .25s all ease;
+  outline : none;
 
   &:hover
   {
@@ -873,6 +874,87 @@ footer
       float : left;
       display : block;
     }
-
   }
+}
+
+.container-login
+{
+  width : 50%;
+  height : auto;
+  position : relative;
+  margin : auto;
+  padding : 100px 0;
+  display : block;
+  font-family: "Open Sans Condensed", sans-serif;
+
+  .informations-text
+  {
+    width : 100%;
+    display : block;
+    line-height : 1.5em;
+    color: transparentize(white, .05);
+    font-size: 24px;
+    margin-bottom: 50px;
+  }
+
+  .container-form
+  {
+    width : 400px;
+    position : relative;
+    display : block;
+    height :auto;
+    margin : 0 auto;
+
+    input
+    {
+      width : 100%;
+      height : 50px;
+      display : block;
+      border: none;
+      background-color: transparentize(white, .95);
+      border-bottom: solid 2px white;
+      font-family : "Open Sans Condensed", sans-serif;
+      font-size : 18px;
+      color : transparentize(white, .1);
+      padding : 0 20px;
+      margin-bottom: 5px;
+      outline: none;
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        transition: all 5000s ease-in-out 0s;
+        transition-property: background-color, color;
+      }
+    }
+
+    .message-input, .message-error
+    {
+      color : transparentize(white, .2);
+      font-size: 14px;
+      width : 100%;
+      display : block;
+      position : relative;
+      float : left;
+      line-height : 1.5em;
+      margin-bottom: 15px;
+    }
+
+    .message-error
+    {
+      color: transparentize($main-red, .1);
+    }
+
+    .button-login
+    {
+      width : 100%;
+      position : relative;
+      float : right;
+      height: 50px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+  }
+
 }
