@@ -8,8 +8,8 @@ app.controller('userController', function ($scope, UserService) {
     $scope.initCurrentUser = function(){
         UserService.getCurrentUser()
             .success(function(data){
-                $scope.user = data.user;
-                $scope.status = data.status;
+                $scope.user = data.response.user;
+                $scope.status = data.response.status;
                 console.log($scope.user);
             });
     };
