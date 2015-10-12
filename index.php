@@ -53,7 +53,9 @@
             </ul>
         </div>
         <div class="container-user" ng-controller="userController">
-            <span class="user-name">{{user.name}}</span>
+            <div class="container-logged-user">
+
+            </div>
         </div>
         <div ng-view></div>
     </div>

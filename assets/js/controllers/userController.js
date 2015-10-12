@@ -9,7 +9,7 @@ app.controller('userController', function ($scope, UserService) {
         UserService.getCurrentUser()
             .success(function(data){
                 $scope.user = data.response.user;
-                $scope.status = data.response.status;
+                $scope.user.status = data.response.status;
                 console.log($scope.user);
             });
     };
