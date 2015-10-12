@@ -422,57 +422,6 @@ a
   line-height: $size-toolbar;
   z-index : 10;
   display:none;
-  .container-user
-  {
-    height : 100%;
-    width : 400px;
-    background-color: #222;
-    color : #EEE;
-    padding: 0 20px;
-    position : relative;
-    float : left;
-    display : block;
-
-    .part
-    {
-      width : 50%;
-      text-align: center;
-      line-height: $size-toolbar - 10px;
-      height: $size-toolbar - 10px;
-      position : relative;
-      float : left;
-      margin: 5px 0;
-
-      &.part-points
-    {
-        color : $light-blue;
-        font-size: 21px;
-        border-right: 1px solid transparentize(white, .85);
-
-        &:after
-        {
-          content: ' PTS';
-          color: inherit;
-          font-size : 16px;
-        }
-      }
-
-      &.part-level
-      {
-        font-size: 16px;
-
-        .container-progress-level
-        {
-          position : absolute;
-          top : 0;
-          left : 0;
-          bottom : 0;
-          height : 100%;
-          background-color: transparentize(white, .9);
-        }
-      }
-    }
-  }
 
   .container-nav
   {
@@ -870,5 +819,60 @@ footer
         }
       }
     }
+  }
+}
+
+.container-user
+{
+  position : fixed;
+  right : 20px;
+  top : 20px;
+  display: block;
+  z-index : 15;
+
+  .container-logged-user
+  {
+    color: white;
+    font-size : 14px;
+    font-family: MohaveSemiBold, sans-serif;
+
+    .logged-user-name
+    {
+      color: transparentize(white, .1);
+      font-family: FuturaStdMediumCondensed, sans-serif;
+      padding : 0 10px;
+      background-color : darken($main-blue, 5%);
+      letter-spacing: .05em;
+    }
+  }
+  .container-guest-user
+  {
+    color: white;
+    font-size : 14px;
+    width : 130px;
+    display: block;
+    margin-top: -10px;
+
+    .information-text
+    {
+      width : 100%;
+      text-align: center;
+      font-family: "Open Sans Condensed", sans-serif;
+      line-height : 1.5em;
+      position : relative;
+      float : left;
+      display : block;
+      margin-bottom: .5em;
+    }
+    .button-sign-in
+    {
+      width : 100%;
+      display : block;
+      height : auto;
+      position : relative;
+      float : left;
+      display : block;
+    }
+
   }
 }

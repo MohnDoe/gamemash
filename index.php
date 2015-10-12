@@ -53,8 +53,12 @@
             </ul>
         </div>
         <div class="container-user" ng-controller="userController">
-            <div class="container-logged-user">
-
+           <div class="container-logged-user" ng-if="user.status === 'connected'">
+                <span class="logged-user-name">Hi, {{user.name}}</span>
+            </div>
+            <div class="container-guest-user" ng-if="user.status != 'connected'">
+                <span class="information-text">Login to save your progress</span>
+                <span class="button-blue button-sign-in"><a href = "./login">Join GameMash</a></span>
             </div>
         </div>
         <div ng-view></div>
