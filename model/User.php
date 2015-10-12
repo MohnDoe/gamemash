@@ -499,7 +499,8 @@ class User {
         if ($userID = PersistentAuth::cookieLogin ()) {
             $User = new User($userID);
             $User->status = 'connected';
-        } else if (isset($_COOKIE['guest_id']) AND !empty($_COOKIE['guest_id'])) {
+        } else
+        {
             $User = User::get_user_from_guestid_cookie ();
             $User->status = 'guest';
         }

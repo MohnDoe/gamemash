@@ -58,7 +58,9 @@
             </div>
             <div class="container-guest-user" ng-if="user.status != 'connected'">
                 <span class="information-text">Login to save your progress</span>
-                <span class="button-blue button-sign-in"><a href = "./login">Join GameMash</a></span>
+                <a href = "./login">
+                    <span class="button-blue button-sign-in">Join GameMash</span>
+                </a>
             </div>
         </div>
         <div ng-view></div>
