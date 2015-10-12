@@ -38,7 +38,7 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl : 'assets/templates/login.html',
             controller  : 'loginController',
             activetab : 'login',
-            title : 'Login or sign-up'
+            title : 'Join GameMash'
         });
 
         $locationProvider.html5Mode(true);
@@ -55,8 +55,14 @@ app.filter('setDecimal', function(){
     };
 });
 
-app.run(['$rootScope', function($rootScope){
+app.run(['$rootScope', '$location', 'UserService', function($rootScope, $location, UserService){
     $rootScope.$on('$routeChangeStart', function(event, next, current){
+        UserService.getCurrentUser()
+            .success(function(data){
+                if(data.response.status == 'connected' && $location.path() == '/login'){
+                    $location.path('/');
+                }
+            });
         $rootScope.activetab = next.$$route.activetab;
         document.title = 'GameMash - '+next.$$route.title;
     });

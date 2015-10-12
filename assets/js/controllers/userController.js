@@ -21,7 +21,7 @@ app.controller('userController', function ($scope, UserService) {
                         lastSeen: data.response.user.last_seen
                     }
                 );
-                console.log($scope.user);
+                //console.log($scope.user);
             });
     };
     $scope.initCurrentUser();
