@@ -66,7 +66,7 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
         }).
             success(function (data, status, headers, config) {
                 analytics.track('Vote');
-                $rootScope.$emit('userGetPoints', data.response);
+                $rootScope.$emit('updateUser', data.response.user);
                 //$rootScope.user.points = data['grand_total'];
                 //console.log(data);
             }).

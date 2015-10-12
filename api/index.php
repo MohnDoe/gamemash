@@ -105,7 +105,8 @@
             }
             $arrayPoints = $CurrentUser->getPoints($arrayActions);
 
-            $json_response['response'] = $arrayPoints;
+            $json_response['response']['points'] = $arrayPoints;
+            $json_response['response']['user'] = $CurrentUser->convert_in_array();
             $json_response['status'] = 'OK';
             echo json_encode($json_response);
             exit();

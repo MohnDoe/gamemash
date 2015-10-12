@@ -56,8 +56,8 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, UserS
             });
     };
 
-    $scope.updateUserPoints = function(points_array){
-        $scope.user.points = points_array['grand_total'];
+    $scope.updateUserPoints = function(){
+        //$scope.user.points = points_array['grand_total'];
         $scope.levelsUser.previousAndPastLevels = $scope.getCurrentLevel();
         $scope.refreshCurrentProgress();
 
@@ -77,15 +77,10 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, UserS
         }
     );
 
-    $rootScope.$on('userGetPoints', function(event, args){
-        console.info('event received userGetPoints.');
-        $scope.updateUserPoints(args);
-    });
-
     $rootScope.$on('updateUser', function(event, args){
         console.info('event received updateUser.');
         $scope.user = args;
-        $scope.refreshCurrentProgress();
+        $scope.updateUserPoints();
 
     });
 
