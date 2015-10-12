@@ -24,21 +24,21 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
             success(function (data, status, headers, config) {
                 $scope.fight = {
                     gameLeft : {
-                        name : data.gameLeft.name,
-                        year : data.gameLeft.year,
-                        id : data.gameLeft.id,
-                        url_image : data.gameLeft.url_image,
-                        url_cover : data.gameLeft.url_cover
+                        name : data.response.gameLeft.name,
+                        year : data.response.gameLeft.year,
+                        id : data.response.gameLeft.id,
+                        url_image : data.response.gameLeft.url_image,
+                        url_cover : data.response.gameLeft.url_cover
                     },
                     gameRight : {
-                        name : data.gameRight.name,
-                        year : data.gameRight.year,
-                        id : data.gameRight.id,
-                        url_image : data.gameRight.url_image,
-                        url_cover : data.gameRight.url_cover
+                        name : data.response.gameRight.name,
+                        year : data.response.gameRight.year,
+                        id : data.response.gameRight.id,
+                        url_image : data.response.gameRight.url_image,
+                        url_cover : data.response.gameRight.url_cover
                     },
-                    token : data.token,
-                    id : data.id
+                    token : data.response.token,
+                    id : data.response.id
                 };
                 //console.log(data);
             }).
@@ -65,7 +65,7 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         }).
             success(function (data, status, headers, config) {
-                $rootScope.$emit('userGetPoints', data);
+                $rootScope.$emit('userGetPoints', data.response);
                 //$rootScope.user.points = data['grand_total'];
                 //console.log(data);
             }).

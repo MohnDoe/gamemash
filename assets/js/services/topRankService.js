@@ -16,7 +16,7 @@ app.factory('TopRank', function($http) {
             params: {page  : this.after}
         })
             .success(function(data) {
-                var games = data.games;
+                var games = data.response.games;
                 for (var i = 0; i < games.length; i++) {
                     this.games.push(games[i]);
                 }

@@ -16,9 +16,9 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, UserS
         console.log('getting levels ...');
         $http.get('./api/levels').
             then(function (result) {
-                console.log(result.data.levels);
-                for (var i = 0; i < result.data.levels.length; i++) {
-                    $scope.levelsUser.levels.push(result.data.levels[i]);
+                //console.log(result.data.response.levels);
+                for (var i = 0; i < result.data.response.levels.length; i++) {
+                    $scope.levelsUser.levels.push(result.data.response.levels[i]);
                 }
                 //$scope.levelsUser.levels = result.data.levels;
                 $scope.getUserPoints();
@@ -50,7 +50,7 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, UserS
         console.log('getting user points ...');
         UserService.getCurrentUser()
             .success(function(data){
-                $scope.user = data.user;
+                $scope.user = data.response.user;
                 aLevels = $scope.getCurrentLevel();
                 $scope.levelsUser.previousAndPastLevels = aLevels;
             });
