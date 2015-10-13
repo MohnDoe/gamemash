@@ -85,7 +85,7 @@
                 </div>
             </div>
             <div class="container-votes-statistics">
-                You've votes {{user.nb_votes}} times.
+                You've voted {{user.nb_votes}} times.
                 <br>
                 <span class="login" ng-if="user.is_registered !== '1'">
                     Join GameMash to save your progress!
