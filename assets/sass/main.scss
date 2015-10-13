@@ -249,7 +249,6 @@ a
         right : 0;
         bottom : 0;
         transition: all .2s;
-        transform: scale(1);
         opacity : .1;
         @include bw();
 
@@ -306,13 +305,21 @@ a
         background-position: center;
       }
 
+      .cover-border
+      {
+        transition: .5s opacity;
+      }
     }
 
     &:hover
     {
-      .container-image-fighter
+      .container-cover-fighter
       {
-        //@include notbw();
+        .cover-border
+        {
+          opacity: .75;
+          border-width: 2px;
+        }
       }
     }
 
