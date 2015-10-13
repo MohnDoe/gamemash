@@ -767,23 +767,23 @@ footer
 
   #container-user-level-progress
   {
-    width : 190px;
+    width : auto;
     position : absolute;
     left : 20px;
     bottom : 20px;
     display : block;
     height : 50px;
-    background-color: transparentize($main-blue, .5);
 
     .user-level-progress
     {
-      width : 100%;
+      width : 190px;
       position : relative;
       float : left;
       display : block;
       height : 100%;
       padding: 20px;
       z-index : 2;
+      background-color: transparentize($main-blue, .5);
 
       .current-level-name
       {
@@ -852,6 +852,21 @@ footer
           right : 10px;
         }
       }
+    }
+
+    .container-votes-statistics
+    {
+      position : relative;
+      float : left;
+      margin-left: 20px;
+      color : transparentize(white, .5);
+      font-family: MohaveSemiBold, sans-serif;
+      font-size: 12px;
+      width : auto;
+      height :100%;
+      display: block;
+      line-height : 25px;
+      letter-spacing : .15em;
     }
   }
 }

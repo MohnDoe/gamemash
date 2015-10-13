@@ -79,6 +79,7 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, UserS
 
     $rootScope.$on('updateUser', function(event, args){
         console.info('event received updateUser.');
+        console.log(args);
         $scope.user = args;
         $scope.updateUserPoints();
 

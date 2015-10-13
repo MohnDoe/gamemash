@@ -80,15 +80,20 @@
                     <span class="current-points">+{{user.points | number}} pts</span>
                     <span class="current-percentage">{{levelsUser.percentageGlobalCompletion | setDecimal:2}}%</span>
                 </div>
-                <!--
-                <div class="container-informations-next-level-progress">
-                    <span class="next-level-name">{{levelsUser.previousAndPastLevels[1].name}}</span>
-                    <span class="next-points">+{{levelsUser.previousAndPastLevels[1].needed}} pts</span>
-                </div>
-                -->
                 <div class="progress-bar">
                     <div class="fill-progress-bar" style="width: {{levelsUser.percentageGlobalCompletion}}%"></div>
                 </div>
+            </div>
+            <div class="container-votes-statistics">
+                You've votes {{user.nb_votes}} times.
+                <br>
+                <span class="login" ng-if="user.is_registered !== '1'">
+                    Join GameMash to save your progress!
+                </span>
+                <span class="congrats" ng-if="user.is_registered === '1'">
+                    {{user.status}}
+                    Keep voting bro.
+                </span>
             </div>
         </div>
     </footer>

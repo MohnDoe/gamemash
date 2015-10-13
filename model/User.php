@@ -251,6 +251,8 @@ class User {
         "Kim Kaphwan"
     );
 
+    public $nb_votes = 0;
+
 
     function __construct($idUser = NULL){
         if(!is_null($idUser)){
@@ -273,6 +275,8 @@ class User {
             $this->hash = $data['hash_user'];
             $this->email = $data['email_user'];
             $this->name = $data['name_user'];
+            
+            $this->nb_votes = $this->get_nb_votes();
         }
     }
 
@@ -397,11 +401,23 @@ class User {
             'points' => $this->points,
             'hashid' => $this->hashid,
             'created' => $this->created,
-            'last_seen' => $this->last_seen
+            'last_seen' => $this->last_seen,
+            'nb_votes' => $this->nb_votes
 
         ];
 
         return $result;
+    }
+
+    public function get_nb_votes(){
+        $req = 'SELECT count(*) as result FROM ' . DB_TABLE_FIGHTS . ' WHERE id_user_fight = :id_user AND is_done_fight LIMIT 1';
+        $query = DB::$db->prepare($req);
+        $query->bindParam(':id_user', $this->id);
+        $query->execute();
+
+        $data = $query->fetch();
+
+        return $data['result'];
     }
 
     // STATIC
