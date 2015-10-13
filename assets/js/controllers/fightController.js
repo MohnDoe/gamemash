@@ -74,7 +74,7 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
                 analytics.track('Vote');
                 $rootScope.$emit('updateUser', data.response.user);
                 $scope.isBusy = false;
-                $scope.clearFighters();
+                //$scope.clearFighters();
 
                 //$rootScope.user.points = data['grand_total'];
                 //console.log(data);
