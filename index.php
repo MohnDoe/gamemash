@@ -106,6 +106,8 @@
     <script src="./assets/js/ng-infinite-scroll.min.js"></script>
     <!-- app core -->
     <script src="./assets/js/main.js"></script>
+    <!-- directives -->
+    <script src="./assets/js/directives/backImgDirective.js"></script>
     <!-- controllers -->
     <script src="./assets/js/controllers/fightController.js"></script>
     <script src="./assets/js/controllers/topController.js"></script>

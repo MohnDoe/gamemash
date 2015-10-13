@@ -952,6 +952,8 @@ footer
       padding : 0 20px;
       margin-bottom: 5px;
       outline: none;
+      position: relative;
+      float : left;
 
       &:-webkit-autofill,
       &:-webkit-autofill:hover,

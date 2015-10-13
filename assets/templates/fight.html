@@ -15,18 +15,18 @@
         <div class="container-cover-fighter">
             <span class="name-fighter">{{fight.gameLeft.name}} ({{fight.gameLeft.year}})</span>
             <div class="border-white cover-border"></div>
-            <div class="cover-fighter" style="background-image: url('{{fight.gameLeft.url_cover}}');"></div>
+            <div class="cover-fighter" back-img = 'fight.gameLeft.url_cover'></div>
         </div>
         <div class="container-gradient-fighter"></div>
-        <div class="container-image-fighter" style="background-image: url('{{fight.gameLeft.url_image}}');"></div>
+        <div class="container-image-fighter" back-img="fight.gameLeft.url_image"></div>
     </div>
     <div class="fighter fighter-right" ng-click="voteFor('right');">
         <div class="container-cover-fighter">
             <span class="name-fighter">{{fight.gameRight.name}} ({{fight.gameRight.year}})</span>
             <div class="border-white cover-border"></div>
-            <div class="cover-fighter" style="background-image: url('{{fight.gameRight.url_cover}}');"></div>
+            <div class="cover-fighter" back-img="fight.gameRight.url_cover"></div>
         </div>
         <div class="container-gradient-fighter"></div>
-        <div class="container-image-fighter" style="background-image: url('{{fight.gameRight.url_image}}');"></div>
+        <div class="container-image-fighter" back-img="fight.gameRight.url_image"></div>
     </div>
 </div>

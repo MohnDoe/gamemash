@@ -895,13 +895,15 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   padding: 0 20px;
   margin-bottom: 5px;
   outline: none;
+  position: relative;
+  float: left;
 }
-/* line 956, ../sass/main.scss */
+/* line 958, ../sass/main.scss */
 .container-login .container-form input:-webkit-autofill, .container-login .container-form input:-webkit-autofill:hover, .container-login .container-form input:-webkit-autofill:focus, .container-login .container-form input:-webkit-autofill:active {
   transition: all 5000s ease-in-out 0s;
   transition-property: background-color, color;
 }
-/* line 965, ../sass/main.scss */
+/* line 967, ../sass/main.scss */
 .container-login .container-form .message-input, .container-login .container-form .message-error {
   color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
@@ -912,11 +914,11 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   line-height: 1.5em;
   margin-bottom: 15px;
 }
-/* line 977, ../sass/main.scss */
+/* line 979, ../sass/main.scss */
 .container-login .container-form .message-error {
   color: rgba(191, 59, 83, 0.9);
 }
-/* line 982, ../sass/main.scss */
+/* line 984, ../sass/main.scss */
 .container-login .container-form .button-login {
   width: 100%;
   position: relative;

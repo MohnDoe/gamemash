@@ -2,7 +2,7 @@
     <div class="container-game" ng-repeat="game in top.games track by $index">
         <div class="container-cover-game">
             <div class="border-white cover-border"></div>
-            <div class="cover-game" style="background-image: url('{{game.url_cover}}');"></div>
+            <div class="cover-game" back-img="game.url_cover"></div>
         </div>
         <div class="container-informations-game">
             <ul class="informations-game">
@@ -48,6 +48,6 @@
         </div>
         <div class="container-gradient-game-bottom"></div>
         <div class="container-gradient-game-left"></div>
-        <div class="container-background-game" style="background-image: url('{{game.url_image}}');"></div>
+        <div class="container-background-game" back-img="game.url_image"></div>
     </div>
 </div>
