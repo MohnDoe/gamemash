@@ -35,6 +35,7 @@
         }
 
         $app->get('fight', function() use($app, $CurrentUser, $json_response) {
+            //TODO : load last not done fight from currentUser
             $GamesFight = Game::get_random_games(2);
             $GameLeft = $GamesFight[0];
             $GameRight = $GamesFight[1];

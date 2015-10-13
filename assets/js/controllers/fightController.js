@@ -18,8 +18,11 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
         token : '',
         id : 0
     };
+
+    $scope.isBusy = false;
     $scope.createFight = function () {
         console.log('creating fight...');
+        $scope.isBusy = true;
         $http.get('./api/fight').
             success(function (data, status, headers, config) {
                 $scope.fight = {
@@ -40,6 +43,7 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
                     token : data.response.token,
                     id : data.response.id
                 };
+                $scope.isBusy = false;
                 //console.log(data);
             }).
             error(function (data, status, headers, config) {
@@ -58,6 +62,8 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
     };
 
     $scope.sendVoteFor = function(side){
+        if($scope.isBusy){return;}
+        $scope.isBusy = true;
         $http({
             url: 'api/vote',
             method: 'POST',
@@ -67,6 +73,7 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
             success(function (data, status, headers, config) {
                 analytics.track('Vote');
                 $rootScope.$emit('updateUser', data.response.user);
+                $scope.isBusy = false;
                 //$rootScope.user.points = data['grand_total'];
                 //console.log(data);
             }).

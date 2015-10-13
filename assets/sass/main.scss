@@ -359,7 +359,7 @@ a
     height : 100%;
     width : 10%;
     left : 45%;
-    z-index : 9;
+    z-index : 3;
 
     .separator
     {
@@ -403,6 +403,33 @@ a
       }
     }
   }
+
+  .container-loading
+  {
+    position : absolute;
+    top : 0;
+    left : 0;
+    right : 0;
+    bottom : 0;
+    width : 100%;
+    background-color: transparentize(darken($main-blue, 10%), .15);
+    //display: block;
+    z-index : 4;
+
+    @include display-flex;
+    flex-direction  : column;
+    align-items     : center;
+    justify-content : center;
+
+    .text
+    {
+      font-family: FuturaStdBoldCondensedOblique, sans-serif;
+      color: transparentize(white, .1);
+      font-size: 80px;
+      text-shadow: 2px 2px 1px transparentize(black, .2);
+      text-transform: uppercase;
+    }
+  }
 }
 
 .container-toolbar
@@ -417,7 +444,6 @@ a
   left : 0;
   right : 0;
   width : 100%;
-  display : block;
   height : $size-toolbar;
   line-height: $size-toolbar;
   z-index : 10;

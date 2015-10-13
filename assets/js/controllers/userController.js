@@ -14,10 +14,10 @@ app.controller('userController', function ($scope, UserService) {
                     {
                         name: data.response.user.name,
                         is_registered: data.response.user.is_registered,
-                        registered_at: data.response.user.registered_at,
+                        first_seen_at: data.response.user.created,
                         email: data.response.user.email,
                         points: data.response.user.points,
-                        createdAt: data.response.user.created,
+                        createdAt: data.response.user.registered_at,
                         lastSeen: data.response.user.last_seen
                     }
                 );
