@@ -48,6 +48,7 @@
         DEFINE('USER_DB', $urlClearDB["user"]);
         DEFINE('PASS_DB', $urlClearDB["pass"]);
 
+        DEFINE('IS_REMOTE_SERVER', true);
         DEFINE('DOCUMENT_ROOT', $_SERVER["DOCUMENT_ROOT"]."/");
     } else {
         DEFINE('URL_BASE_HREF', '/gamemash2/');
@@ -56,6 +57,7 @@
         DEFINE('USER_DB', 'root');
         DEFINE('PASS_DB', '');
 
+        DEFINE('IS_REMOTE_SERVER', false);
         DEFINE('DOCUMENT_ROOT', $_SERVER["DOCUMENT_ROOT"]."/gamemash2");
     }
 
