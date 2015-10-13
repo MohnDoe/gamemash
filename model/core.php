@@ -48,8 +48,9 @@
         DEFINE('USER_DB', $urlClearDB["user"]);
         DEFINE('PASS_DB', $urlClearDB["pass"]);
 
-        DEFINE('IS_REMOTE_SERVER', true);
         DEFINE('DOCUMENT_ROOT', $_SERVER["DOCUMENT_ROOT"]."/");
+
+        DEFINE('SEGMENT_API_KEY', 'D7Uh9MBD794vugbvlNdnnlluy6WUFWUP');
     } else {
         DEFINE('URL_BASE_HREF', '/gamemash2/');
         DEFINE('HOSTNAME', 'localhost');
@@ -57,8 +58,9 @@
         DEFINE('USER_DB', 'root');
         DEFINE('PASS_DB', '');
 
-        DEFINE('IS_REMOTE_SERVER', false);
         DEFINE('DOCUMENT_ROOT', $_SERVER["DOCUMENT_ROOT"]."/gamemash2");
+
+        DEFINE('SEGMENT_API_KEY', '8M5N4oT4sjylbSgtk8tBCHqnKafLpM8K');
     }
 
     DEFINE('GIANTBOMB_API_KEY', "82f5dd7211eacfd3b0bd03ed564531a4ef1fe3c5");

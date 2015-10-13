@@ -71,9 +71,11 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         }).
             success(function (data, status, headers, config) {
-                analytics.track('Vote');
-                $rootScope.$emit('updateUser', data.response.user);
+                $rootScope.$emit('upda<teUser', data.response.user);
                 $scope.isBusy = false;
+                $scope.clearFighters();
+                analytics.track('Vote');
+
                 //$rootScope.user.points = data['grand_total'];
                 //console.log(data);
             }).
@@ -83,5 +85,26 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
             });
     };
 
+    $scope.clearFighters = function(){
+        $scope.fight = {
+            gameLeft : {
+                name : '',
+                year : '',
+                id : '',
+                url_image : '',
+                url_cover : ''
+            },
+            gameRight : {
+                name : '',
+                year : '',
+                id : '',
+                url_image : '',
+                url_cover : ''
+            },
+            token : '',
+            id : 0
+        };
+        console.log('clearing;');
+    };
     $scope.createFight();
 });
