@@ -216,9 +216,31 @@ a
   float : left;
   background-color: $main-blue;
 
+  &.container-fight-fliped
+  {
+    .fighter
+    {
+      width : 55%;
+
+      &.fighter-left
+      {
+        @include clip-path(polygon(0 0, 0 100%, 82% 100%, 100% 0));
+        left : 0;
+        z-index : 2;
+      }
+
+      &.fighter-right
+      {
+        left : 45%;
+        z-index : 1;
+
+      }
+    }
+
+  }
   .fighter
   {
-    width : 55%;
+    width : 50%;
     overflow: hidden;
     height: 100%;
     position : absolute;
@@ -275,6 +297,8 @@ a
       margin: auto;
       z-index : 3;
       @include box-shadow(0px 0px 100px 0 transparentize(black, .25));
+      transform: scale(1);
+      transition : .5s;
 
       .name-fighter
     {
@@ -315,17 +339,22 @@ a
     {
       .container-cover-fighter
       {
+        transform : scale(1.05);
         .cover-border
         {
           opacity: .75;
           border-width: 2px;
         }
       }
+
+      .container-image-fighter
+      {
+        opacity : .5;
+      }
     }
 
     &.fighter-left
     {
-      @include clip-path(polygon(0 0, 0 100%, 82% 100%, 100% 0));
       left : 0;
       z-index : 2;
 
@@ -344,7 +373,7 @@ a
 
     &.fighter-right
     {
-      left : 45%;
+      left : 50%;
       z-index : 1;
 
       .container-cover-fighter
@@ -359,7 +388,7 @@ a
 
   .container-separator
   {
-    //pointer-events: none;
+    pointer-events: none;
     position : absolute;
     top : 0;
     right : 0;
@@ -375,9 +404,14 @@ a
       height : 100%;
       position : absolute;
       top : 0;
-      left : -3px;
+      left: 50%;
+      margin-left: -1px;
       bottom : 0;
       z-index : 1;
+      display: block;
+      background-color: darken($main-blue, 5%);
+      @include box-shadow(0px 0px 20px 5px transparentize(darken($main-blue, 5%), .5));
+      opacity: .5;
     }
 
     .versus
@@ -397,10 +431,12 @@ a
 
     .button-none
     {
+      pointer-events: all;
       position : absolute;
       top: calc(50% + 30px);
       width : 100%;
       color : transparentize(white, .2);
+      z-index : 4;
       strong
       {
         font-family: FuturaStdMediumCondensed, sans-serif;
