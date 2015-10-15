@@ -746,6 +746,70 @@ a
   }
 }
 
+.container-top-full
+{
+  padding: 20px;
+  
+  .container-game
+  {
+    -webkit-box-sizing : initial;
+    -moz-box-sizing    : initial;
+    box-sizing         : initial;
+    width : calc(20% - 20px);
+    margin: 10px;
+    height : 240px;
+    padding: 0;
+
+    &.container-game-0
+    {
+      width : calc(60% - 20px);
+      height : 500px;
+    }
+    &.container-game-1, &.container-game-2
+    {
+      width : calc(40% - 20px);
+    }
+
+    .container-informations-rank
+    {
+      display : none;
+    }
+
+    .container-background-game{
+      opacity: 1;
+      @include notbw();
+    }
+    
+    .container-informations-game
+    {
+      position : absolute;
+      bottom: 0;
+      left : 0;
+      right : 0;
+      display : block;
+      width : 100%;
+      padding: 0 20px;
+      height : 140px;
+      
+      .container-cover-game
+      {
+        width : 20%;
+        position : relative;
+        float : left;
+        margin-right: 20px;
+        height : 140px;
+      }
+
+      .information-game
+      {
+        width : calc(80% - 20px);
+      }
+    }
+
+
+  }
+}
+
 .button-blue
 {
   background-color: transparentize(darken($main-blue, 10%), .5);

@@ -1,0 +1,51 @@
+<div class="container-top container-top-full" infinite-scroll="top.nextPage()" infinite-scroll-disable="top.busy || top.limitReached" infinite-scroll-distance="1">
+    <div class="container-game container-game-full container-game-{{$index}}" ng-repeat="game in top.games track by $index">
+        <div class="container-informations-game">
+            <div class="container-cover-game">
+                <div class="border-white cover-border"></div>
+                <div class="cover-game" back-img="game.url_cover"></div>
+            </div>
+            <ul class="informations-game">
+                <li class="information-game name-game">{{game.name}}</li>
+            </ul>
+        </div>
+        <div class="container-informations-rank">
+            <div class="container-rank">
+                {{game.rank}}
+            </div>
+            <div class="informations-rank">
+                <div class="informations-line">
+                    <div class="information">
+                        <span class="information-value">{{game.current_elo | number}}</span>
+                        <span class="information-label">Classement_ELO</span>
+                    </div>
+                    <div class="information">
+                        <span class="information-value">{{game.elo_performance | setDecimal : 1}}%</span>
+                        <span class="information-label">Performance_ELO</span>
+                    </div>
+                    <div class="information">
+                        <span class="information-value">{{game.nb_matchs | number}}</span>
+                        <span class="information-label">Matchs_totaux</span>
+                    </div>
+                </div>
+                <div class="informations-line">
+                    <div class="information">
+                        <span class="information-value">{{game.nb_matchs_won | number}}</span>
+                        <span class="information-label">Matchs_Gagnes</span>
+                    </div>
+                    <div class="information">
+                        <span class="information-value">{{game.nb_matchs_lost | number}}</span>
+                        <span class="information-label">Matchs_Perdus</span>
+                    </div>
+                    <div class="information">
+                        <span class="information-value">{{game.nb_matchs_draw | number}}</span>
+                        <span class="information-label">Egalites</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-gradient-game-bottom"></div>
+        <div class="container-gradient-game-left"></div>
+        <div class="container-background-game" back-img="game.url_image"></div>
+    </div>
+</div>
