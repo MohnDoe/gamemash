@@ -1,5 +1,4 @@
 app.controller('fightController', function ($scope, $http, $rootScope) {
-
     $scope.fight = {
         gameLeft : {
             name : '',
