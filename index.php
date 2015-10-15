@@ -37,7 +37,7 @@
         <script type="text/javascript">
             !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
                 analytics.load("<?= SEGMENT_API_KEY;?>");
-                analytics.page()
+                analyticis.page()
             }}();
         </script>
     </head>
@@ -61,12 +61,12 @@
         </div>
         <div class="container-user" ng-controller="userController">
            <div class="container-logged-user" ng-if="user.status === 'connected'">
-                <span class="logged-user-name">Hi, {{user.name}}</span>
+                <span class="logged-user-name">Bonjour, {{user.name}}</span>
             </div>
             <div class="container-guest-user" ng-if="user.status != 'connected'">
-                <span class="information-text">Login to save your progress</span>
+                <span class="information-text">Connectez-vous pour sauvegarder votre progression</span>
                 <a href = "./login">
-                    <span class="button-blue button-sign-in">Join GameMash</span>
+                    <span class="button-blue button-sign-in">Rejoindre GameMash</span>
                 </a>
             </div>
         </div>
@@ -85,14 +85,13 @@
                 </div>
             </div>
             <div class="container-votes-statistics">
-                You've voted {{user.nb_votes}} times.
+                Vous avez vote {{user.nb_votes}} fois.
                 <br>
                 <span class="login" ng-if="user.is_registered !== '1'">
-                    Join GameMash to save your progress!
+                    Inscrivez-vous pour sauvegarder votre progression !
                 </span>
                 <span class="congrats" ng-if="user.is_registered === '1'">
-                    {{user.status}}
-                    Keep voting bro.
+                    C'est beaucoup, bravo !
                 </span>
             </div>
         </div>

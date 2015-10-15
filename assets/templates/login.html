@@ -1,17 +1,17 @@
 <div class="container-login">
     <span class="informations-text">
-        Join GameMash to save you progress and continue voting for your favorite games.
+        Inscrivez-vous à GameMash pour sauvegarger votre progression et continuer à voter pour vos jeux préférés.
         <br>
-        If you don't already have an account, it will be created, so don't worry about that!
+        Si vous n'avais pas encore de compte, il sera créé automatiquement !
     </span>
     <div class="container-form">
         <form ng-submit="register()">
             <span class="message-error">{{error_message}}</span>
-            <input type = "email" name="email" ng-model="user.email" placeholder="Your email"/>
-            <span class="message-input">We will not spam you, pinky swear!</span>
-            <input type = "password" name="password" ng-model="user.password" placeholder="Your password">
-            <span class="message-input">Try to think about a good one, the most difficult the better.</span>
-            <button class="button-blue button-login" ng-click="register()">Login & continue voting</button>
+            <input type = "email" name="email" ng-model="user.email" placeholder="Votre adresse e-mail"/>
+            <span class="message-input">Nous ne vous enverrons aucun spam, promis!</span>
+            <input type = "password" name="password" ng-model="user.password" placeholder="Votre mot de passe">
+            <span class="message-input">Plus il  est complexe, mieux c'est.</span>
+            <button class="button-blue button-login" ng-click="register()">Se connectr et continuer à voter</button>
         </form>
     </div>
 </div>

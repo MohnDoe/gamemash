@@ -129,7 +129,7 @@
             $i = (($page-1)*10)+1;
             if($page >= 11){
                 $json_response['status'] = 'NOTOK';
-                $json_response['error'] = 'You\'re going too far my friend.';
+                $json_response['error'] = 'Vous allez bien trop vite.';
                 echo json_encode($json_response);
                 exit();
             }
@@ -145,7 +145,7 @@
                     }
                 }
                 if($gameEntry['platforms_string'] == ""){
-                    $gameEntry['platforms_string'] = 'Unknown';
+                    $gameEntry['platforms_string'] = 'Inconnues';
                 }
 
                 $json_response['response']['games'][] = $gameEntry;
@@ -198,7 +198,7 @@
                 }else{
                     //not good
                     $json_response['response']['status'] = 'not connected';
-                    $json_response['response']['error_message'] = 'An account already exists with this email, but the password doesn\'t match. Try again.';
+                    $json_response['response']['error_message'] = 'Un compte est associé à cette adresse e-mail mais le mot de passe ne correspond pas.';
                     $json_response['status'] = 'OK';
                     echo json_encode($json_response);
                     exit();
