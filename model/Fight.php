@@ -113,8 +113,8 @@ class Fight {
     }
 
     private function generate_token () {
-        $HASHIDS = new Hashids\Hashids(self::$salt_hashid, 255 , 'abcdefghij1234567890');
-        $to_encode = rand()*rand()+rand();
+        $HASHIDS = new Hashids\Hashids(self::$salt_hashid, 64 , 'abcdefghij1234567890');
+        $to_encode = $this->id_game_left.$this->id_game_right;
         $token = $HASHIDS->encode($to_encode);
         return $token;
     }
