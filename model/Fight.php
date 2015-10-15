@@ -14,8 +14,10 @@ class Fight {
     public $id;
 
     public $id_game_left;
+    public $GameLeft;
 
     public $id_game_right;
+    public $GameRight;
 
     public $elo_game_left_before;
 
@@ -48,7 +50,9 @@ class Fight {
         if($data = $this->fight_exists()){
             $this->id = $data['id_fight'];
             $this->id_game_left = $data['id_game_left'];
+            //$this->GameLeft = new Game($this->id_game_left);
             $this->id_game_right = $data['id_game_right'];
+            //$this->GameRight = new Game($this->id_game_right);
             $this->elo_game_left_before = $data['elo_game_left_before'];
             $this->elo_game_right_before = $data['elo_game_right_before'];
             $this->date_created = $data['date_created_fight'];
@@ -68,7 +72,9 @@ class Fight {
 
     public function create_fight($GameLeft, $GameRight, $id_user){
         $this->id_game_left = $GameLeft->id;
+        $this->GameLeft = $GameLeft;
         $this->id_game_right = $GameRight->id;
+        $this->GameRight = $GameRight;
         $this->elo_game_left_before = $GameLeft->current_elo;
         $this->elo_game_right_before = $GameRight->current_elo;
         $this->date_created = date("Y-m-d H:i:s");
@@ -131,6 +137,20 @@ class Fight {
         $query->execute();
     }
 
+    public function convert_in_array(){
+        $GameLeft = new Game($this->id_game_left);
+        $GameRight = new Game($this->id_game_right);
+        $result = [
+            'id' => $this->id,
+            'token' => $this->token,
+            'date_created' => $this->date_created,
+            'gameRight' => $GameRight->convert_in_array(),
+            'gameLeft' => $GameLeft->convert_in_array()
+        ];
+
+        return $result;
+    }
+
     static function get_statistics () {
         $req = DB::$db->query ('SELECT COUNT(*) AS result FROM ' . self::$table . ' WHERE is_done_fight = 1 LIMIT 1');
         $results = [];
@@ -139,6 +159,18 @@ class Fight {
         $results['nb_votes'] = $data['result'];
 
         return $results;
+    }
 
+    static function generate_fight($idUser){
+        $GamesFight = Game::get_random_games(2);
+        $GameLeft = $GamesFight[0];
+        $GameRight = $GamesFight[1];
+
+        //saving fight
+        $Fight = new Fight();
+        $Fight->create_fight($GameLeft,$GameRight, $idUser);
+        $Fight->save();
+
+        return $Fight;
     }
 }

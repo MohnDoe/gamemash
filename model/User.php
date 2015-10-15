@@ -420,6 +420,27 @@ class User {
         return $data['result'];
     }
 
+    public function get_last_undone_fight(){
+        $req = 'SELECT id_fight FROM ' . DB_TABLE_FIGHTS . ' WHERE is_done_fight = 0 AND id_user_fight = :id_user ORDER BY date_created_fight DESC LIMIT 1';
+        $query = DB::$db->prepare($req);
+        $query->bindParam(':id_user', $this->id);
+        $query->execute();
+
+        if($data = $query->fetch())
+        {
+            return new Fight($data['id_fight']);
+        }
+        return false;
+    }
+
+    public function get_fight(){
+        if($Fight = $this->get_last_undone_fight()){
+            return $Fight;
+        }else{
+            return Fight::generate_fight($this->id);
+        }
+    }
+
     // STATIC
 
     static function check_if_email_exists($email){

@@ -26,21 +26,21 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
             success(function (data, status, headers, config) {
                 $scope.fight = {
                     gameLeft : {
-                        name : data.response.gameLeft.name,
-                        year : data.response.gameLeft.year,
-                        id : data.response.gameLeft.id,
-                        url_image : data.response.gameLeft.url_image,
-                        url_cover : data.response.gameLeft.url_cover
+                        name : data.response.fight.gameLeft.name,
+                        year : data.response.fight.gameLeft.year,
+                        id : data.response.fight.gameLeft.id,
+                        url_image : data.response.fight.gameLeft.url_image,
+                        url_cover : data.response.fight.gameLeft.url_cover
                     },
                     gameRight : {
-                        name : data.response.gameRight.name,
-                        year : data.response.gameRight.year,
-                        id : data.response.gameRight.id,
-                        url_image : data.response.gameRight.url_image,
-                        url_cover : data.response.gameRight.url_cover
+                        name : data.response.fight.gameRight.name,
+                        year : data.response.fight.gameRight.year,
+                        id : data.response.fight.gameRight.id,
+                        url_image : data.response.fight.gameRight.url_image,
+                        url_cover : data.response.fight.gameRight.url_cover
                     },
-                    token : data.response.token,
-                    id : data.response.id
+                    token : data.response.fight.token,
+                    id : data.response.fight.id
                 };
                 $scope.isBusy = false;
                 //console.log(data);

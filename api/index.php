@@ -35,23 +35,10 @@
         }
 
         $app->get('fight', function() use($app, $CurrentUser, $json_response) {
-            //TODO : load last not done fight from currentUser
-            $GamesFight = Game::get_random_games(2);
-            $GameLeft = $GamesFight[0];
-            $GameRight = $GamesFight[1];
-
-            //saving fight
-            $Fight = new Fight();
-            $Fight->create_fight($GameLeft,$GameRight, $CurrentUser->id);
-            $Fight->save();
+            $Fight = $CurrentUser->get_fight();
 
             //JSON RESPONSE
-            $json_response['response'] = array(
-                'id' => $Fight->id,
-                'token' => $Fight->token,
-                'gameRight' => $GameRight->convert_in_array(),
-                'gameLeft' => $GameLeft->convert_in_array()
-            );
+            $json_response['response']['fight'] = $Fight->convert_in_array();
             $json_response['status'] = 'OK';
 
             echo json_encode($json_response);
