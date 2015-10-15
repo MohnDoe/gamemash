@@ -112,11 +112,10 @@ class Fight {
         $this->is_done = 1;
     }
 
-    private function generate_token () {
+    public function generate_token () {
         $HASHIDS = new Hashids\Hashids(self::$salt_hashid, 64 , 'abcdefghij1234567890');
         $to_encode = $this->id_game_left.$this->id_game_right;
         $token = $HASHIDS->encode($to_encode);
-        var_dump($token);
         return $token;
     }
 
