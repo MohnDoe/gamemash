@@ -234,7 +234,8 @@ class Game {
             'nb_matchs_draw' => $this->nb_matchs_draw,
             'elo_performance' => $this->elo_performance,
             'platforms' => $aPlatforms,
-            'developers' => 'Developpeur inconnu'
+            'developers' => 'Developpeur inconnu',
+            'deck' => $this->deck
         ];
 
         return $result;

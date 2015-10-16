@@ -29,7 +29,7 @@ app.config(function($routeProvider, $locationProvider) {
             title : 'Vote'
         })
         .when('/top', {
-            templateUrl : 'assets/templates/top.html',
+            templateUrl : 'assets/templates/top2.html',
             controller  : 'topController',
             activetab : 'top',
             title : 'Top 100'

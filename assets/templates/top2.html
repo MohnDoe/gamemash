@@ -7,45 +7,50 @@
             </div>
             <ul class="informations-game">
                 <li class="information-game name-game">{{game.name}}</li>
+                <li class="information-game deck-game">{{game.deck}}</li>
             </ul>
         </div>
-        <div class="container-informations-rank">
-            <div class="container-rank">
-                {{game.rank}}
-            </div>
-            <div class="informations-rank">
-                <div class="informations-line">
-                    <div class="information">
-                        <span class="information-value">{{game.current_elo | number}}</span>
-                        <span class="information-label">Classement_ELO</span>
+        <div class="overlay-informations-rank">
+            <div class="container-informations-rank">
+                <div class="container-rank">
+                    {{game.rank}}
+                </div>
+                <div class="informations-rank" ng-if="$index == 0">
+                    <div class="informations-line">
+                        <div class="information">
+                            <span class="information-value">{{game.current_elo | number}}</span>
+                            <span class="information-label">Classement_ELO</span>
+                        </div>
+                        <div class="information">
+                            <span class="information-value">{{game.elo_performance | setDecimal : 1}}%</span>
+                            <span class="information-label">Performance_ELO</span>
+                        </div>
+                        <div class="information">
+                            <span class="information-value">{{game.nb_matchs | number}}</span>
+                            <span class="information-label">Matchs_totaux</span>
+                        </div>
                     </div>
-                    <div class="information">
-                        <span class="information-value">{{game.elo_performance | setDecimal : 1}}%</span>
-                        <span class="information-label">Performance_ELO</span>
-                    </div>
-                    <div class="information">
-                        <span class="information-value">{{game.nb_matchs | number}}</span>
-                        <span class="information-label">Matchs_totaux</span>
+                    <div class="informations-line">
+                        <div class="information">
+                            <span class="information-value">{{game.nb_matchs_won | number}}</span>
+                            <span class="information-label">Matchs_Gagnes</span>
+                        </div>
+                        <div class="information">
+                            <span class="information-value">{{game.nb_matchs_lost | number}}</span>
+                            <span class="information-label">Matchs_Perdus</span>
+                        </div>
+                        <div class="information">
+                            <span class="information-value">{{game.nb_matchs_draw | number}}</span>
+                            <span class="information-label">Egalites</span>
+                        </div>
                     </div>
                 </div>
-                <div class="informations-line">
-                    <div class="information">
-                        <span class="information-value">{{game.nb_matchs_won | number}}</span>
-                        <span class="information-label">Matchs_Gagnes</span>
-                    </div>
-                    <div class="information">
-                        <span class="information-value">{{game.nb_matchs_lost | number}}</span>
-                        <span class="information-label">Matchs_Perdus</span>
-                    </div>
-                    <div class="information">
-                        <span class="information-value">{{game.nb_matchs_draw | number}}</span>
-                        <span class="information-label">Egalites</span>
-                    </div>
-                </div>
             </div>
+            <div class="container-gradient-overlay"></div>
         </div>
         <div class="container-gradient-game-bottom"></div>
-        <div class="container-gradient-game-left"></div>
+        <!--<div class="container-gradient-game-left"></div>-->
+        <div class="border-white container-game-border"></div>
         <div class="container-background-game" back-img="game.url_image"></div>
     </div>
 </div>

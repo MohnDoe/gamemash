@@ -11,6 +11,7 @@ $size-toolbar : 40px;
 $gradient-base-left : linear-gradient(to right, $main-blue, transparentize($main-blue, 1));
 $gradient-base-right : linear-gradient(to left, $main-blue, transparentize($main-blue, 1));
 $gradient-base-bottom-black : linear-gradient(to top, black, transparentize(black, 1));
+$gradient-blue-bottom-dark : linear-gradient(to top, $main-blue, darken($main-blue, 5%));
 
 //FUTURA STD
 @font-face {
@@ -764,20 +765,44 @@ a
     {
       width : calc(60% - 20px);
       height : 500px;
+
+      .informations-game
+      {
+        height : 140px;
+        width : calc(80% - 20px);
+      }
+      .container-cover-game
+      {
+        width : 20% !important;
+        display : block !important;
+      }
     }
     &.container-game-1, &.container-game-2
     {
       width : calc(40% - 20px);
-    }
 
-    .container-informations-rank
-    {
-      display : none;
+      .informations-game
+      {
+        height : 140px;
+        width : calc(75% - 20px);
+
+
+      }
+      .container-cover-game
+      {
+        width : 25% !important;
+        display : block !important;
+      }
     }
 
     .container-background-game{
       opacity: 1;
       @include notbw();
+    }
+
+    .container-gradient-game-bottom
+    {
+      opacity : .5;
     }
     
     .container-informations-game
@@ -789,23 +814,92 @@ a
       display : block;
       width : 100%;
       padding: 0 20px;
-      height : 140px;
+      height : auto;
       
       .container-cover-game
       {
-        width : 20%;
         position : relative;
         float : left;
         margin-right: 20px;
         height : 140px;
+        display : none;
+        width : 0;
+
+        .cover-game
+        {
+          background-position-y: 0;
+        }
       }
 
-      .information-game
+      .informations-game
       {
-        width : calc(80% - 20px);
+        position : relative;
+        float : left;
+
+        .information-game
+        {
+          width : 100%;
+          text-shadow: none !important;
+
+          &.deck-game
+          {
+            font-family: "Open Sans Condensed", sans-serif;
+            line-height: 1.5em;
+            font-size: 14pt;
+            max-height: 4.5em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
       }
     }
 
+    .overlay-informations-rank
+    {
+      position : absolute;
+      left : 0;
+      right : 0;
+      bottom : 0;
+      width : 100%;
+      height : 100%;
+      z-index : 4;
+      opacity : 0;
+      transition: .25s;
+
+      @include display-flex;
+      flex-direction  : column;
+      align-items     : center;
+      justify-content : center;
+
+      .container-informations-rank
+      {
+        z-index : 2;
+        width : auto !important;
+      }
+
+      .container-gradient-overlay
+      {
+        position : absolute;
+        width : 100%;
+        height : 100%;
+        left : 0;
+        right : 0;
+        bottom : 0;
+        z-index : 1;
+        opacity : .95;
+        @include background($gradient-blue-bottom-dark);
+      }
+
+    }
+
+
+    &:hover
+    {
+      .overlay-informations-rank
+      {
+        opacity : 1;
+      }
+    }
 
   }
 }
