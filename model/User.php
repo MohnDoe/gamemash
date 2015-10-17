@@ -253,6 +253,13 @@ class User {
 
     public $nb_votes = 0;
 
+    public $avatar_urls = array(
+        'small' => '',
+        'medium' => '',
+        'big' => '',
+        'orginal' => ''
+    );
+
 
     function __construct($idUser = NULL){
         if(!is_null($idUser)){
@@ -275,6 +282,13 @@ class User {
             $this->hash = $data['hash_user'];
             $this->email = $data['email_user'];
             $this->name = $data['name_user'];
+
+            $this->avatar_urls = array(
+                'small' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=32?d=identicon",
+                'medium' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=128?d=identicon",
+                'big' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=256?d=identicon",
+                'original' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=1024?d=identicon"
+            );
             
             $this->nb_votes = $this->get_nb_votes();
         }
@@ -402,7 +416,8 @@ class User {
             'hashid' => $this->hashid,
             'created' => $this->created,
             'last_seen' => $this->last_seen,
-            'nb_votes' => $this->nb_votes
+            'nb_votes' => $this->nb_votes,
+            'avatar_urls' => $this->avatar_urls
 
         ];
 
