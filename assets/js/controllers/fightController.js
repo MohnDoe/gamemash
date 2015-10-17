@@ -69,13 +69,11 @@ app.controller('fightController', function ($scope, $http, $rootScope, $timeout)
         }).
             success(function (data, status, headers, config) {
                 analytics.track('Vote');
-                $rootScope.$emit('updateUser', data.response.user);
+                if(data.status == 'OK'){
+                    $rootScope.$emit('updateUser', data.response.user);
+                }
                 // creating a new fight
                 $scope.createFight();
-                //$scope.clearFighters();
-
-                //$rootScope.user.points = data['grand_total'];
-                //console.log(data);
             }).
             error(function (data, status, headers, config) {
                 // called asynchronously if an error occurs

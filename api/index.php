@@ -52,6 +52,12 @@
             $token_fight = $allParamsPOST['token_fight'];
             $Fight = new Fight($id_fight);
 
+            if($Fight->is_done){
+                $json_response['error_message'] = 'Fight already done';
+                $json_response['status'] = 'NOTOK';
+                echo json_encode($json_response);
+                exit();
+            }
             if ($Fight->token != $token_fight) {
                 return false;
             }
