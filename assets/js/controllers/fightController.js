@@ -1,4 +1,4 @@
-app.controller('fightController', function ($scope, $http, $rootScope) {
+app.controller('fightController', function ($scope, $http, $rootScope, $timeout) {
     $scope.fight = {
         gameLeft : {
             name : '',
@@ -42,7 +42,8 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
                     token : data.response.fight.token,
                     id : data.response.fight.id
                 };
-                $scope.isBusy = false;
+                $timeout(function(){$scope.isBusy = false;}, 400);
+
                 //console.log(data);
             }).
             error(function (data, status, headers, config) {
@@ -55,9 +56,6 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
         // vote stuff
         console.log('voting for '+side);
         $scope.sendVoteFor(side);
-
-        // creating a new fight
-        $scope.createFight();
     };
 
     $scope.sendVoteFor = function(side){
@@ -72,7 +70,8 @@ app.controller('fightController', function ($scope, $http, $rootScope) {
             success(function (data, status, headers, config) {
                 analytics.track('Vote');
                 $rootScope.$emit('updateUser', data.response.user);
-                $scope.isBusy = false;
+                // creating a new fight
+                $scope.createFight();
                 //$scope.clearFighters();
 
                 //$rootScope.user.points = data['grand_total'];

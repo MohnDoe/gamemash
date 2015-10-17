@@ -474,6 +474,26 @@ a
       text-transform: uppercase;
     }
   }
+
+  &.hidden-fighter
+  {
+    .fighter-right
+    {
+      .container-cover-fighter
+      {
+        transform: translate(-500px, 0);
+        opacity: 0;
+      }
+    }
+    .fighter-left
+    {
+      .container-cover-fighter
+      {
+        transform: translate(500px, 0);
+        opacity: 0;
+      }
+    }
+  }
 }
 
 .container-toolbar

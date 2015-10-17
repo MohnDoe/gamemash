@@ -447,8 +447,18 @@ a {
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.8);
   text-transform: uppercase;
 }
+/* line 482, ../sass/main.scss */
+.container-fight.hidden-fighter .fighter-right .container-cover-fighter {
+  transform: translate(-500px, 0);
+  opacity: 0;
+}
+/* line 490, ../sass/main.scss */
+.container-fight.hidden-fighter .fighter-left .container-cover-fighter {
+  transform: translate(500px, 0);
+  opacity: 0;
+}
 
-/* line 479, ../sass/main.scss */
+/* line 499, ../sass/main.scss */
 .container-toolbar {
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 300;
@@ -465,7 +475,7 @@ a {
   z-index: 10;
   display: none;
 }
-/* line 496, ../sass/main.scss */
+/* line 516, ../sass/main.scss */
 .container-toolbar .container-nav {
   height: 100%;
   width: auto;
@@ -473,7 +483,7 @@ a {
   float: left;
   display: block;
 }
-/* line 505, ../sass/main.scss */
+/* line 525, ../sass/main.scss */
 .container-toolbar .container-nav .nav {
   cursor: pointer;
   width: 200px;
@@ -485,13 +495,13 @@ a {
   display: block;
   text-align: center;
 }
-/* line 517, ../sass/main.scss */
+/* line 537, ../sass/main.scss */
 .container-toolbar .container-nav .nav.active {
   background-color: #6B9CAF;
   color: white;
   font-weight: bold;
 }
-/* line 523, ../sass/main.scss */
+/* line 543, ../sass/main.scss */
 .container-toolbar .container-nav .nav.active:after {
   content: ' ';
   width: 10px;
@@ -504,16 +514,16 @@ a {
   display: block;
   z-index: 3;
 }
-/* line 538, ../sass/main.scss */
+/* line 558, ../sass/main.scss */
 .container-toolbar .container-nav .nav:not(.active):hover {
   background-color: #bed3dc;
 }
 
-/* line 546, ../sass/main.scss */
+/* line 566, ../sass/main.scss */
 .container-top {
   margin-top: 55px;
 }
-/* line 550, ../sass/main.scss */
+/* line 570, ../sass/main.scss */
 .container-top .container-game {
   width: 100%;
   position: relative;
@@ -521,7 +531,7 @@ a {
   height: 150px;
   padding: 20px 50px;
 }
-/* line 558, ../sass/main.scss */
+/* line 578, ../sass/main.scss */
 .container-top .container-game .container-cover-game {
   width: 80px;
   height: 110px;
@@ -533,14 +543,14 @@ a {
   -webkit-box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.5);
 }
-/* line 568, ../sass/main.scss */
+/* line 588, ../sass/main.scss */
 .container-top .container-game .container-cover-game .cover-game {
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
 }
-/* line 577, ../sass/main.scss */
+/* line 597, ../sass/main.scss */
 .container-top .container-game .container-informations-game {
   width: calc(50% - 80px);
   height: 100%;
@@ -552,32 +562,32 @@ a {
   float: left;
   z-index: 4;
 }
-/* line 591, ../sass/main.scss */
+/* line 611, ../sass/main.scss */
 .container-top .container-game .container-informations-game .informations-game .information-game {
   margin-bottom: 5px;
 }
-/* line 595, ../sass/main.scss */
+/* line 615, ../sass/main.scss */
 .container-top .container-game .container-informations-game .informations-game .information-game.name-game {
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
   font-size: 30px;
   line-height: 30px;
   font-family: MohaveBoldItalics, sans-serif;
 }
-/* line 602, ../sass/main.scss */
+/* line 622, ../sass/main.scss */
 .container-top .container-game .container-informations-game .informations-game .information-game.platforms-game {
   opacity: .6;
   font-size: 10px;
   line-height: 10px;
   font-family: MohaveSemiBold, sans-serif;
 }
-/* line 609, ../sass/main.scss */
+/* line 629, ../sass/main.scss */
 .container-top .container-game .container-informations-game .informations-game .information-game.release-game {
   opacity: .4;
   font-size: 14px;
   line-height: 14px;
   font-family: MohaveSemiBold, sans-serif;
 }
-/* line 620, ../sass/main.scss */
+/* line 640, ../sass/main.scss */
 .container-top .container-game .container-informations-rank {
   width: 50%;
   height: 110px;
@@ -587,7 +597,7 @@ a {
   color: white;
   z-index: 4;
 }
-/* line 630, ../sass/main.scss */
+/* line 650, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .container-rank {
   font-family: FuturaStdBoldCondensedOblique, sans-serif;
   border: 3px solid white;
@@ -600,7 +610,7 @@ a {
   float: left;
   font-variant: small-caps;
 }
-/* line 644, ../sass/main.scss */
+/* line 664, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank {
   width: calc(100% - 110px);
   height: 100%;
@@ -611,7 +621,7 @@ a {
   position: relative;
   float: left;
 }
-/* line 655, ../sass/main.scss */
+/* line 675, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line {
   width: 100%;
   height: 50%;
@@ -621,7 +631,7 @@ a {
   font-size: 14px;
   margin-bottom: 5px;
 }
-/* line 665, ../sass/main.scss */
+/* line 685, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line .information {
   height: 100%;
   width: 33.3333%;
@@ -631,26 +641,26 @@ a {
   text-transform: uppercase;
   letter-spacing: .12em;
 }
-/* line 675, ../sass/main.scss */
+/* line 695, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line .information .information-value, .container-top .container-game .container-informations-rank .informations-rank .informations-line .information .information-label {
   width: 100%;
   display: block;
   clear: both;
 }
-/* line 682, ../sass/main.scss */
+/* line 702, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line .information .information-value {
   margin-bottom: 2px;
   font-family: FuturaStdMediumCondensed, sans-serif;
   line-height: 14px;
 }
-/* line 689, ../sass/main.scss */
+/* line 709, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line .information .information-label {
   font-size: 12px;
   font-family: FuturaStdLightCondensed, sans-serif;
   opacity: .15;
   line-height: 12px;
 }
-/* line 701, ../sass/main.scss */
+/* line 721, ../sass/main.scss */
 .container-top .container-game .container-gradient-game-left {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFhMjczMiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzFhMjczMiIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #1a2732), color-stop(100%, rgba(26, 39, 50, 0)));
@@ -668,7 +678,7 @@ a {
   display: block;
   opacity: .75;
 }
-/* line 716, ../sass/main.scss */
+/* line 736, ../sass/main.scss */
 .container-top .container-game .container-gradient-game-bottom {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjEuMCIgeDI9IjAuNSIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #000000), color-stop(100%, rgba(0, 0, 0, 0)));
@@ -686,7 +696,7 @@ a {
   display: block;
   opacity: .10;
 }
-/* line 731, ../sass/main.scss */
+/* line 751, ../sass/main.scss */
 .container-top .container-game .container-background-game {
   width: 100%;
   z-index: 1;
@@ -706,11 +716,11 @@ a {
   background-position: center;
 }
 
-/* line 750, ../sass/main.scss */
+/* line 770, ../sass/main.scss */
 .container-top-full {
   padding: 20px;
 }
-/* line 754, ../sass/main.scss */
+/* line 774, ../sass/main.scss */
 .container-top-full .container-game {
   -webkit-box-sizing: initial;
   -moz-box-sizing: initial;
@@ -720,47 +730,47 @@ a {
   height: 240px;
   padding: 0;
 }
-/* line 764, ../sass/main.scss */
+/* line 784, ../sass/main.scss */
 .container-top-full .container-game.container-game-0 {
   width: calc(60% - 20px);
   height: 500px;
 }
-/* line 769, ../sass/main.scss */
+/* line 789, ../sass/main.scss */
 .container-top-full .container-game.container-game-0 .informations-game {
   height: 140px;
   width: calc(80% - 20px);
 }
-/* line 774, ../sass/main.scss */
+/* line 794, ../sass/main.scss */
 .container-top-full .container-game.container-game-0 .container-cover-game {
   width: 20% !important;
   display: block !important;
 }
-/* line 780, ../sass/main.scss */
+/* line 800, ../sass/main.scss */
 .container-top-full .container-game.container-game-1, .container-top-full .container-game.container-game-2 {
   width: calc(40% - 20px);
 }
-/* line 784, ../sass/main.scss */
+/* line 804, ../sass/main.scss */
 .container-top-full .container-game.container-game-1 .informations-game, .container-top-full .container-game.container-game-2 .informations-game {
   height: 140px;
   width: calc(75% - 20px);
 }
-/* line 791, ../sass/main.scss */
+/* line 811, ../sass/main.scss */
 .container-top-full .container-game.container-game-1 .container-cover-game, .container-top-full .container-game.container-game-2 .container-cover-game {
   width: 25% !important;
   display: block !important;
 }
-/* line 798, ../sass/main.scss */
+/* line 818, ../sass/main.scss */
 .container-top-full .container-game .container-background-game {
   opacity: 1;
   filter: none;
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
 }
-/* line 803, ../sass/main.scss */
+/* line 823, ../sass/main.scss */
 .container-top-full .container-game .container-gradient-game-bottom {
   opacity: .5;
 }
-/* line 808, ../sass/main.scss */
+/* line 828, ../sass/main.scss */
 .container-top-full .container-game .container-informations-game {
   position: absolute;
   bottom: 0;
@@ -771,7 +781,7 @@ a {
   padding: 0 20px;
   height: auto;
 }
-/* line 819, ../sass/main.scss */
+/* line 839, ../sass/main.scss */
 .container-top-full .container-game .container-informations-game .container-cover-game {
   position: relative;
   float: left;
@@ -780,21 +790,21 @@ a {
   display: none;
   width: 0;
 }
-/* line 828, ../sass/main.scss */
+/* line 848, ../sass/main.scss */
 .container-top-full .container-game .container-informations-game .container-cover-game .cover-game {
   background-position-y: 0;
 }
-/* line 834, ../sass/main.scss */
+/* line 854, ../sass/main.scss */
 .container-top-full .container-game .container-informations-game .informations-game {
   position: relative;
   float: left;
 }
-/* line 839, ../sass/main.scss */
+/* line 859, ../sass/main.scss */
 .container-top-full .container-game .container-informations-game .informations-game .information-game {
   width: 100%;
   text-shadow: none !important;
 }
-/* line 844, ../sass/main.scss */
+/* line 864, ../sass/main.scss */
 .container-top-full .container-game .container-informations-game .informations-game .information-game.deck-game {
   font-family: "Open Sans Condensed", sans-serif;
   line-height: 1.5em;
@@ -803,7 +813,7 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 857, ../sass/main.scss */
+/* line 877, ../sass/main.scss */
 .container-top-full .container-game .overlay-informations-rank {
   position: absolute;
   left: 0;
@@ -820,12 +830,12 @@ a {
   align-items: center;
   justify-content: center;
 }
-/* line 874, ../sass/main.scss */
+/* line 894, ../sass/main.scss */
 .container-top-full .container-game .overlay-informations-rank .container-informations-rank {
   z-index: 2;
   width: auto !important;
 }
-/* line 880, ../sass/main.scss */
+/* line 900, ../sass/main.scss */
 .container-top-full .container-game .overlay-informations-rank .container-gradient-overlay {
   position: absolute;
   width: 100%;
@@ -841,12 +851,12 @@ a {
   background: -webkit-linear-gradient(bottom, #1a2732, #111a21);
   background: linear-gradient(to top, #1a2732, #111a21);
 }
-/* line 898, ../sass/main.scss */
+/* line 918, ../sass/main.scss */
 .container-top-full .container-game:hover .overlay-informations-rank {
   opacity: 1;
 }
 
-/* line 907, ../sass/main.scss */
+/* line 927, ../sass/main.scss */
 .button-blue {
   background-color: rgba(9, 13, 16, 0.5);
   color: white;
@@ -868,14 +878,14 @@ a {
   transition: .25s all ease;
   outline: none;
 }
-/* line 927, ../sass/main.scss */
+/* line 947, ../sass/main.scss */
 .button-blue:hover {
   transform: scale(1.1);
   background-color: rgba(5, 8, 10, 0.5);
   border-color: rgba(0, 0, 0, 0.1);
 }
 
-/* line 935, ../sass/main.scss */
+/* line 955, ../sass/main.scss */
 .shake {
   -webkit-animation-name: shake;
   -webkit-animation-duration: 0.25s;
@@ -885,7 +895,7 @@ a {
   animation-duration: 0.25s;
 }
 
-/* line 945, ../sass/main.scss */
+/* line 965, ../sass/main.scss */
 footer {
   position: fixed;
   bottom: 0;
@@ -896,7 +906,7 @@ footer {
   z-index: 10;
   text-transform: uppercase;
 }
-/* line 962, ../sass/main.scss */
+/* line 982, ../sass/main.scss */
 footer #container-user-level-progress {
   width: auto;
   position: absolute;
@@ -905,7 +915,7 @@ footer #container-user-level-progress {
   display: block;
   height: 50px;
 }
-/* line 971, ../sass/main.scss */
+/* line 991, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress {
   width: 190px;
   position: relative;
@@ -916,7 +926,7 @@ footer #container-user-level-progress .user-level-progress {
   z-index: 2;
   background-color: rgba(26, 39, 50, 0.5);
 }
-/* line 982, ../sass/main.scss */
+/* line 1002, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .current-level-name {
   color: #bf3b53;
   font-family: FuturaStdMediumCondensed, sans-serif;
@@ -930,7 +940,7 @@ footer #container-user-level-progress .user-level-progress .current-level-name {
   z-index: 1;
   font-size: 14px;
 }
-/* line 997, ../sass/main.scss */
+/* line 1017, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .progress-bar {
   width: 100%;
   height: 100%;
@@ -941,7 +951,7 @@ footer #container-user-level-progress .user-level-progress .progress-bar {
   top: 0;
   opacity: .1;
 }
-/* line 1009, ../sass/main.scss */
+/* line 1029, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .progress-bar .fill-progress-bar {
   background-color: white;
   height: 100%;
@@ -953,7 +963,7 @@ footer #container-user-level-progress .user-level-progress .progress-bar .fill-p
   width: 1%;
   transition: .15s;
 }
-/* line 1024, ../sass/main.scss */
+/* line 1044, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .container-progress-stats {
   position: absolute;
   right: 0;
@@ -963,12 +973,12 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   color: white;
   text-align: right;
 }
-/* line 1034, ../sass/main.scss */
+/* line 1054, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .container-progress-stats .current-points {
   font-family: FuturaStdBoldCondensedOblique, sans-serif;
   font-size: 14px;
 }
-/* line 1040, ../sass/main.scss */
+/* line 1060, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .container-progress-stats .current-percentage {
   font-size: 12px;
   font-family: FuturaStdLightCondensed, sans-serif;
@@ -976,7 +986,7 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   bottom: 10px;
   right: 10px;
 }
-/* line 1051, ../sass/main.scss */
+/* line 1071, ../sass/main.scss */
 footer #container-user-level-progress .container-votes-statistics {
   position: relative;
   float: left;
@@ -991,7 +1001,7 @@ footer #container-user-level-progress .container-votes-statistics {
   letter-spacing: .15em;
 }
 
-/* line 1068, ../sass/main.scss */
+/* line 1088, ../sass/main.scss */
 .container-user {
   position: fixed;
   right: 20px;
@@ -999,13 +1009,13 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
   z-index: 15;
 }
-/* line 1076, ../sass/main.scss */
+/* line 1096, ../sass/main.scss */
 .container-user .container-logged-user {
   color: white;
   font-size: 14px;
   font-family: MohaveSemiBold, sans-serif;
 }
-/* line 1082, ../sass/main.scss */
+/* line 1102, ../sass/main.scss */
 .container-user .container-logged-user .logged-user-name {
   color: rgba(255, 255, 255, 0.9);
   font-family: FuturaStdMediumCondensed, sans-serif;
@@ -1013,7 +1023,7 @@ footer #container-user-level-progress .container-votes-statistics {
   background-color: #111a21;
   letter-spacing: .05em;
 }
-/* line 1091, ../sass/main.scss */
+/* line 1111, ../sass/main.scss */
 .container-user .container-guest-user {
   color: white;
   font-size: 14px;
@@ -1021,7 +1031,7 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
   margin-top: -10px;
 }
-/* line 1099, ../sass/main.scss */
+/* line 1119, ../sass/main.scss */
 .container-user .container-guest-user .information-text {
   width: 100%;
   text-align: center;
@@ -1032,7 +1042,7 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
   margin-bottom: .5em;
 }
-/* line 1110, ../sass/main.scss */
+/* line 1130, ../sass/main.scss */
 .container-user .container-guest-user .button-sign-in {
   width: 100%;
   display: block;
@@ -1042,7 +1052,7 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
 }
 
-/* line 1122, ../sass/main.scss */
+/* line 1142, ../sass/main.scss */
 .container-login {
   width: 50%;
   height: auto;
@@ -1052,7 +1062,7 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
   font-family: "Open Sans Condensed", sans-serif;
 }
-/* line 1132, ../sass/main.scss */
+/* line 1152, ../sass/main.scss */
 .container-login .informations-text {
   width: 100%;
   display: block;
@@ -1061,7 +1071,7 @@ footer #container-user-level-progress .container-votes-statistics {
   font-size: 24px;
   margin-bottom: 50px;
 }
-/* line 1142, ../sass/main.scss */
+/* line 1162, ../sass/main.scss */
 .container-login .container-form {
   width: 400px;
   position: relative;
@@ -1069,7 +1079,7 @@ footer #container-user-level-progress .container-votes-statistics {
   height: auto;
   margin: 0 auto;
 }
-/* line 1150, ../sass/main.scss */
+/* line 1170, ../sass/main.scss */
 .container-login .container-form input {
   width: 100%;
   height: 50px;
@@ -1086,12 +1096,12 @@ footer #container-user-level-progress .container-votes-statistics {
   position: relative;
   float: left;
 }
-/* line 1167, ../sass/main.scss */
+/* line 1187, ../sass/main.scss */
 .container-login .container-form input:-webkit-autofill, .container-login .container-form input:-webkit-autofill:hover, .container-login .container-form input:-webkit-autofill:focus, .container-login .container-form input:-webkit-autofill:active {
   transition: all 5000s ease-in-out 0s;
   transition-property: background-color, color;
 }
-/* line 1176, ../sass/main.scss */
+/* line 1196, ../sass/main.scss */
 .container-login .container-form .message-input, .container-login .container-form .message-error {
   color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
@@ -1102,11 +1112,11 @@ footer #container-user-level-progress .container-votes-statistics {
   line-height: 1.5em;
   margin-bottom: 15px;
 }
-/* line 1188, ../sass/main.scss */
+/* line 1208, ../sass/main.scss */
 .container-login .container-form .message-error {
   color: rgba(191, 59, 83, 0.9);
 }
-/* line 1193, ../sass/main.scss */
+/* line 1213, ../sass/main.scss */
 .container-login .container-form .button-login {
   width: 100%;
   position: relative;
