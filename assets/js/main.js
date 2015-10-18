@@ -38,7 +38,7 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl : 'assets/templates/login.html',
             controller  : 'loginController',
             activetab : 'login',
-            title : 'Join GameMash'
+            title : 'Rejoindre GameMash'
         });
 
         $locationProvider.html5Mode(true);
