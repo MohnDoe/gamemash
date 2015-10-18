@@ -70,6 +70,7 @@
     DEFINE('DB_TABLE_USERS', 'users');
     DEFINE('DB_TABLE_PLATFORMS', 'platforms');
     DEFINE('DB_TABLE_IS_IN_PLATFORM', 'is_in_platform');
+    DEFINE('DB_TABLE_ACTIVITES', 'activites');
 
 
     // POINTS CONSTANT
@@ -84,6 +85,7 @@
     require_once 'DB.php';
     require_once 'Game.php';
     require_once 'User.php';
+    require_once 'Activity.php';
     require_once 'Level.php';
     require_once 'Fight.php';
     require_once 'Platform.php';

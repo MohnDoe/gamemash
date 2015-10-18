@@ -348,9 +348,24 @@ class User {
                     break;
             }
         }
+        $_pointsBefore = $this->points;
         $this->addPoints($arrayPoints);
 
         $arrayPoints['grand_total'] = $this->points;
+
+        $Activity = new Activity();
+        $Activity->configure(
+            $this->id,
+            'POINTS',
+            'POINTS_GET',
+            array(
+                'reasons' => $arrayActions,
+                'points_before' => $_pointsBefore,
+                'points_after' => $this->points
+            )
+        );
+        $Activity->save();
+
         return $arrayPoints;
     }
 
