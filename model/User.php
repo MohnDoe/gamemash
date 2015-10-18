@@ -439,6 +439,18 @@ class User {
         return $result;
     }
 
+    public function convert_in_soft_array(){
+        $result = [
+            'id' => $this->id,
+            'name' => $this->name,
+            'points' => $this->points,
+            'nb_votes' => $this->nb_votes,
+            'avatar_urls' => $this->avatar_urls
+        ];
+
+        return $result;
+    }
+
     public function get_nb_votes(){
         $req = 'SELECT count(*) as result FROM ' . DB_TABLE_FIGHTS . ' WHERE id_user_fight = :id_user AND is_done_fight LIMIT 1';
         $query = DB::$db->prepare($req);
@@ -574,5 +586,37 @@ class User {
             $User->status = 'guest';
         }
         return $User;
+    }
+
+    static function get_leaderboard($period = 7, $limit = 10){
+        $arrayActivities = Activity::get_activites($period, null, 'POINTS');
+        $leaderboard = array();
+
+        $userPoints = array();
+        foreach($arrayActivities as $Activity){
+            if(isset($userPoints[$Activity->id_user])){
+                $userPoints[$Activity->id_user] += $Activity->details_unserialized['points_diff'];
+            }else{
+                $userPoints[$Activity->id_user] = $Activity->details_unserialized['points_diff'];
+
+            }
+        }
+        //sorting users
+        arsort($userPoints);
+
+        foreach ($userPoints as $id_user => $points) {
+            $User = new User($id_user);
+            if($User->is_registered){
+                $leaderboard[] = array(
+                    'user' => $User->convert_in_soft_array(),
+                    'points_period' => $points
+                );
+                if(count($leaderboard) >= $limit){
+                    break;
+                }
+            }
+        }
+
+        return $leaderboard;
     }
 }

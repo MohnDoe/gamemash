@@ -33,18 +33,23 @@
             }
         }
 
-        public function init () {
-            if($data = $this->activity_exists()){
-                $this->id = $data['id_activity'];
-                $this->id_user = $data['id_user_activity'];
-                $this->date = $data['date_activity'];
-
-                $this->details_serialized = $data['details_activity'];
-                $this->details_unserialized = unserialize($this->details_serialized);
-
-                $this->category = $data['category_activity'];
-                $this->action = $data['action_activity'];
+        public function init ($data = null) {
+            if(is_null($data)){
+                if(!$data = $this->activity_exists())
+                {
+                    return false;
+                }
             }
+
+            $this->id = $data['id_activity'];
+            $this->id_user = $data['id_user_activity'];
+            $this->date = $data['date_activity'];
+
+            $this->details_serialized = $data['details_activity'];
+            $this->details_unserialized = unserialize($this->details_serialized);
+
+            $this->category = $data['category_activity'];
+            $this->action = $data['action_activity'];
         }
 
         public function activity_exists () {
@@ -110,4 +115,47 @@
 
             $this->create($arrayDetails, $category, $action, $date, $id_user);
         }
+
+        static function get_activites($period = 7, $limit = null, $category = null, $action = null, $id_user = null)
+        {
+            $req = 'SELECT * FROM ' . self::$table;
+            $req .= ' WHERE date_activity > DATE_SUB(NOW(), INTERVAL '.$period.' DAY)';
+            if(!is_null($category)){
+                $req .= ' AND category_activity = :category';
+            }
+            if(!is_null($action)){
+                $req .= ' AND action_activity = :action';
+            }
+            if(!is_null($id_user)){
+                $req .= ' AND id_user_activity = :id_user';
+            }
+            $req .= ' ORDER BY date_activity DESC';
+            if(!is_null($limit)){
+                $req .= ' LIMIT '.$limit;
+            }
+
+            $query = DB::$db->prepare($req);
+
+            if(!is_null($category)){
+                $query->bindParam(':category', $category);
+            }
+            if(!is_null($action)){
+                $query->bindParam(':action', $action);
+            }
+            if(!is_null($id_user)){
+                $query->bindParam(':id_user', $id_user);
+            }
+            $query->execute();
+
+            $results = array();
+
+            while($data = $query->fetch()){
+                $Activity = new Activity();
+                $Activity->init($data);
+                $results[] = $Activity;
+            }
+
+            return $results;
+        }
+
     }
