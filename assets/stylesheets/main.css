@@ -858,7 +858,7 @@ a {
 
 /* line 927, ../sass/main.scss */
 .button-blue {
-  background-color: rgba(9, 13, 16, 0.5);
+  background-color: rgba(52, 78, 100, 0.75);
   color: white;
   font-family: FuturaStdLightCondensed, sans-serif;
   letter-spacing: .12em;
@@ -872,7 +872,7 @@ a {
   -moz-box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.25);
   box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(61, 91, 117, 0.5);
   border-bottom-width: 2px;
   transform: scale(1);
   transition: .25s all ease;
@@ -881,11 +881,11 @@ a {
 /* line 947, ../sass/main.scss */
 .button-blue:hover {
   transform: scale(1.1);
-  background-color: rgba(5, 8, 10, 0.5);
-  border-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(56, 83, 107, 0.9);
+  border-color: rgba(64, 97, 124, 0.5);
 }
 
-/* line 955, ../sass/main.scss */
+/* line 956, ../sass/main.scss */
 .shake {
   -webkit-animation-name: shake;
   -webkit-animation-duration: 0.25s;
@@ -895,7 +895,7 @@ a {
   animation-duration: 0.25s;
 }
 
-/* line 965, ../sass/main.scss */
+/* line 966, ../sass/main.scss */
 footer {
   pointer-events: none;
   position: fixed;
@@ -907,7 +907,7 @@ footer {
   z-index: 10;
   text-transform: uppercase;
 }
-/* line 983, ../sass/main.scss */
+/* line 984, ../sass/main.scss */
 footer #container-user-level-progress {
   width: auto;
   position: absolute;
@@ -916,7 +916,7 @@ footer #container-user-level-progress {
   display: block;
   height: 50px;
 }
-/* line 992, ../sass/main.scss */
+/* line 993, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress {
   width: 190px;
   position: relative;
@@ -927,7 +927,7 @@ footer #container-user-level-progress .user-level-progress {
   z-index: 2;
   background-color: rgba(26, 39, 50, 0.5);
 }
-/* line 1003, ../sass/main.scss */
+/* line 1004, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .current-level-name {
   color: #bf3b53;
   font-family: FuturaStdMediumCondensed, sans-serif;
@@ -941,7 +941,7 @@ footer #container-user-level-progress .user-level-progress .current-level-name {
   z-index: 1;
   font-size: 14px;
 }
-/* line 1018, ../sass/main.scss */
+/* line 1019, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .progress-bar {
   width: 100%;
   height: 100%;
@@ -952,7 +952,7 @@ footer #container-user-level-progress .user-level-progress .progress-bar {
   top: 0;
   opacity: .1;
 }
-/* line 1030, ../sass/main.scss */
+/* line 1031, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .progress-bar .fill-progress-bar {
   background-color: white;
   height: 100%;
@@ -964,7 +964,7 @@ footer #container-user-level-progress .user-level-progress .progress-bar .fill-p
   width: 1%;
   transition: .15s;
 }
-/* line 1045, ../sass/main.scss */
+/* line 1046, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .container-progress-stats {
   position: absolute;
   right: 0;
@@ -974,12 +974,12 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   color: white;
   text-align: right;
 }
-/* line 1055, ../sass/main.scss */
+/* line 1056, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .container-progress-stats .current-points {
   font-family: FuturaStdBoldCondensedOblique, sans-serif;
   font-size: 14px;
 }
-/* line 1061, ../sass/main.scss */
+/* line 1062, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .container-progress-stats .current-percentage {
   font-size: 12px;
   font-family: FuturaStdLightCondensed, sans-serif;
@@ -987,7 +987,7 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   bottom: 10px;
   right: 10px;
 }
-/* line 1072, ../sass/main.scss */
+/* line 1073, ../sass/main.scss */
 footer #container-user-level-progress .container-votes-statistics {
   position: relative;
   float: left;
@@ -1002,7 +1002,7 @@ footer #container-user-level-progress .container-votes-statistics {
   letter-spacing: .15em;
 }
 
-/* line 1089, ../sass/main.scss */
+/* line 1090, ../sass/main.scss */
 .container-user {
   position: fixed;
   right: 20px;
@@ -1010,13 +1010,13 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
   z-index: 15;
 }
-/* line 1097, ../sass/main.scss */
+/* line 1098, ../sass/main.scss */
 .container-user .container-logged-user {
   color: white;
   font-size: 14px;
   font-family: MohaveSemiBold, sans-serif;
 }
-/* line 1103, ../sass/main.scss */
+/* line 1104, ../sass/main.scss */
 .container-user .container-logged-user .logged-user-name {
   color: rgba(255, 255, 255, 0.9);
   font-family: FuturaStdMediumCondensed, sans-serif;
@@ -1024,7 +1024,7 @@ footer #container-user-level-progress .container-votes-statistics {
   background-color: #111a21;
   letter-spacing: .05em;
 }
-/* line 1112, ../sass/main.scss */
+/* line 1113, ../sass/main.scss */
 .container-user .container-guest-user {
   color: white;
   font-size: 14px;
@@ -1032,7 +1032,7 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
   margin-top: -10px;
 }
-/* line 1120, ../sass/main.scss */
+/* line 1121, ../sass/main.scss */
 .container-user .container-guest-user .information-text {
   width: 100%;
   text-align: center;
@@ -1043,7 +1043,7 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
   margin-bottom: .5em;
 }
-/* line 1131, ../sass/main.scss */
+/* line 1132, ../sass/main.scss */
 .container-user .container-guest-user .button-sign-in {
   width: 100%;
   display: block;
@@ -1053,17 +1053,17 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
 }
 
-/* line 1143, ../sass/main.scss */
+/* line 1144, ../sass/main.scss */
 .container-login {
-  width: 50%;
+  width: calc(100% - 100px);
   height: auto;
   position: relative;
-  margin: auto;
+  margin: auto 50px;
   padding: 100px 0;
   display: block;
   font-family: "Open Sans Condensed", sans-serif;
 }
-/* line 1153, ../sass/main.scss */
+/* line 1154, ../sass/main.scss */
 .container-login .informations-text {
   width: 100%;
   display: block;
@@ -1072,16 +1072,21 @@ footer #container-user-level-progress .container-votes-statistics {
   font-size: 24px;
   margin-bottom: 50px;
 }
-/* line 1163, ../sass/main.scss */
+/* line 1164, ../sass/main.scss */
 .container-login .container-form {
-  width: 400px;
+  width: 45%;
   position: relative;
   display: block;
   height: auto;
-  margin: 0 auto;
+  float: left;
+  padding: 20px;
 }
-/* line 1171, ../sass/main.scss */
-.container-login .container-form input {
+/* line 1173, ../sass/main.scss */
+.container-login .container-form .informations-text {
+  margin-bottom: 20px;
+}
+/* line 1178, ../sass/main.scss */
+.container-login .container-form input:not([type="submit"]) {
   width: 100%;
   height: 50px;
   display: block;
@@ -1097,12 +1102,12 @@ footer #container-user-level-progress .container-votes-statistics {
   position: relative;
   float: left;
 }
-/* line 1188, ../sass/main.scss */
-.container-login .container-form input:-webkit-autofill, .container-login .container-form input:-webkit-autofill:hover, .container-login .container-form input:-webkit-autofill:focus, .container-login .container-form input:-webkit-autofill:active {
+/* line 1195, ../sass/main.scss */
+.container-login .container-form input:not([type="submit"]):-webkit-autofill, .container-login .container-form input:not([type="submit"]):-webkit-autofill:hover, .container-login .container-form input:not([type="submit"]):-webkit-autofill:focus, .container-login .container-form input:not([type="submit"]):-webkit-autofill:active {
   transition: all 5000s ease-in-out 0s;
   transition-property: background-color, color;
 }
-/* line 1197, ../sass/main.scss */
+/* line 1204, ../sass/main.scss */
 .container-login .container-form .message-input, .container-login .container-form .message-error {
   color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
@@ -1113,16 +1118,22 @@ footer #container-user-level-progress .container-votes-statistics {
   line-height: 1.5em;
   margin-bottom: 15px;
 }
-/* line 1209, ../sass/main.scss */
+/* line 1216, ../sass/main.scss */
 .container-login .container-form .message-error {
   color: rgba(191, 59, 83, 0.9);
+  background-color: #EEE;
+  padding: 0 10px;
 }
-/* line 1214, ../sass/main.scss */
-.container-login .container-form .button-login {
+/* line 1223, ../sass/main.scss */
+.container-login .container-form .button-login, .container-login .container-form .button-register {
   width: 100%;
   position: relative;
   float: right;
   height: 50px;
   margin-top: 10px;
   font-size: 16px;
+}
+/* line 1234, ../sass/main.scss */
+.container-login .container-form:last-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
 }

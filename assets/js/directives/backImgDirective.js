@@ -5,7 +5,6 @@ app.directive('backImg', function(){
 
     return function(scope, element, attrs) {
         scope.$watch(attrs.backImg, function(value) {
-            console.log('clearing lol');
             element.css({
                 'background': 'none !important',
                 'display' : 'none'

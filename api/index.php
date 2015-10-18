@@ -168,12 +168,11 @@
             exit();
         })->name("getFight");
 
-        $app->post('user/register', function() use($app, $json_response){
+        $app->post('user/login', function() use($app, $json_response){
             $allParamsPOST = $app->request->post();
             $password = $allParamsPOST['password'];
             $email = $allParamsPOST['email'];
 
-            $UserGuest = User::get_user_from_guestid_cookie();
             //check if a user existe with this email
             if($UserWithThisEmail = User::check_if_email_is_register($email)){
                 if(User::check_password($password, $UserWithThisEmail->hash)){
@@ -191,29 +190,57 @@
                 }else{
                     //not good
                     $json_response['response']['status'] = 'not connected';
-                    $json_response['response']['error_message'] = 'Un compte est associé à cette adresse e-mail mais le mot de passe ne correspond pas.';
+                    $json_response['response']['error_message'] = utf8_encode('L\'adresse e-mail et le mot de passe ne correspondent pas.');
                     $json_response['status'] = 'OK';
                     echo json_encode($json_response);
                     exit();
                 }
             }else{
-                //no user with this email, so register this user
-                $UserGuest->is_registered = 1;
-                $UserGuest->register_at = date('Y-m-d H:i:s');
-                $UserGuest->hash = User::generate_password($password);
-                $UserGuest->email = $email;
-                $UserGuest->name = User::generate_random_username();
 
-                $UserGuest->register();
+                //not good
+                $json_response['response']['status'] = 'not connected';
+                $json_response['response']['error_message'] = utf8_encode('Aucun compte n\'est associé à cette adresse e-mail');
+                $json_response['status'] = 'OK';
+                echo json_encode($json_response);
+                exit();
+            }
+
+        });
+
+        $app->post('user/register', function() use($app, $json_response, $CurrentUser){
+            $app->response->headers->set('Content-Type', 'application/json');
+            $allParamsPOST = $app->request->post();
+            $password = $allParamsPOST['password'];
+            $email = $allParamsPOST['email'];
+            $name = $allParamsPOST['name'];
+            //check if a user existe with this email
+            if(User::check_if_email_is_register($email)){
+                //not good
+                $json_response['response'] = array(
+                    'status' => 'not connected',
+                    'error_message' => utf8_encode('Un compte est déjà associé à cette adresse email.')
+                );
+                $json_response['status'] = 'OK';
+                echo json_encode($json_response);
+                exit();
+            }else{
+                //no user with this email, so register this user
+                $CurrentUser->is_registered = 1;
+                $CurrentUser->register_at = date('Y-m-d H:i:s');
+                $CurrentUser->hash = User::generate_password($password);
+                $CurrentUser->email = $email;
+                $CurrentUser->name = $name;
+
+                $CurrentUser->register();
 
 
 
 
                 User::delete_guestid_cookie();
-                PersistentAuth::login($UserGuest->id);
+                PersistentAuth::login($CurrentUser->id);
 
-                $json_response['response']['status'] = 'registered';
-                $json_response['response']['user'] = $UserGuest->convert_in_array();
+                $json_response['response']['status'] = 'connected';
+                $json_response['response']['user'] = $CurrentUser->convert_in_array();
                 $json_response['status'] = 'OK';
                 echo json_encode($json_response);
                 exit();

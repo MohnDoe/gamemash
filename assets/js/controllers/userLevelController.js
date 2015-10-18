@@ -13,7 +13,7 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, UserS
     };
 
     $scope.getLevels = function(){
-        console.log('getting levels ...');
+        //console.log('getting levels ...');
         $http.get('./api/levels').
             then(function (result) {
                 //console.log(result.data.response.levels);
@@ -25,7 +25,7 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, UserS
             });
     };
     $scope.getCurrentLevel = function(){
-        console.log('getting current level...')
+        //console.log('getting current level...')
         //console.log('user points : '+$scope.user.points);
         if($scope.user.points === null){return;}
         for(i = 0; i < $scope.levelsUser.levels.length; i++){
@@ -40,14 +40,22 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, UserS
     };
 
     $scope.refreshCurrentProgress = function(){
+        //console.log($scope.user.points);
+        //console.log($scope.levelsUser.previousAndPastLevels);
         pastLevel = $scope.levelsUser.previousAndPastLevels[0];
         nextLevel = $scope.levelsUser.previousAndPastLevels[1];
-        completion = ($scope.user.points - pastLevel.needed) / ( nextLevel.needed - pastLevel.needed ) * 100;
+        if($scope.levelsUser.previousAndPastLevels[0] === undefined || $scope.levelsUser.previousAndPastLevels[1] === undefined)
+        {
+            completion = 100;
+        }else
+        {
+            completion = ($scope.user.points - pastLevel.needed) / ( nextLevel.needed - pastLevel.needed ) * 100;
+        }
         $scope.levelsUser.percentageGlobalCompletion = completion;
     };
 
     $scope.getUserPoints = function(){
-        console.log('getting user points ...');
+        //console.log('getting user points ...');
         UserService.getCurrentUser()
             .success(function(data){
                 $scope.user = data.response.user;
@@ -58,7 +66,8 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, UserS
 
     $scope.updateUserPoints = function(){
         //$scope.user.points = points_array['grand_total'];
-        $scope.levelsUser.previousAndPastLevels = $scope.getCurrentLevel();
+        previousAndPastLevels = $scope.getCurrentLevel();
+        $scope.levelsUser.previousAndPastLevels = previousAndPastLevels;
         $scope.refreshCurrentProgress();
 
         //shake the user points indicator
@@ -78,8 +87,6 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, UserS
     );
 
     $rootScope.$on('updateUser', function(event, args){
-        console.info('event received updateUser.');
-        console.log(args);
         $scope.user = args;
         $scope.updateUserPoints();
 

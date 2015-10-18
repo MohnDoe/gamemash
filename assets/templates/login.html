@@ -1,17 +1,27 @@
 <div class="container-login">
-    <span class="informations-text">
-        Inscrivez-vous à GameMash pour sauvegarger votre progression et continuer à voter pour vos jeux préférés.
-        <br>
-        Si vous n'avais pas encore de compte, il sera créé automatiquement !
-    </span>
+    <span class="informations-text"></span>
     <div class="container-form">
+        <span class="informations-text">Connectez-vous à GameMash à l'aide de votre compte.</span>
+        <form ng-submit="login()">
+            <span class="message-error">{{login_error_message}}</span>
+            <input type = "email" name="email" ng-model="userLogin.email" placeholder="Votre adresse e-mail" required/>
+            <span class="message-input"></span>
+            <input type = "password" name="password" ng-model="userLogin.password" placeholder="Votre mot de passe" required/>
+            <span class="message-input"></span>
+            <input type = "submit" class="button-blue button-login" value="Se connecter et continuer à voter"/>
+        </form>
+    </div>
+    <div class="container-form">
+        <span class="informations-text">Inscrivez-vous à GameMash pour sauvegarder votre progression.</span>
         <form ng-submit="register()">
-            <span class="message-error">{{error_message}}</span>
-            <input type = "email" name="email" ng-model="user.email" placeholder="Votre adresse e-mail"/>
+            <span class="message-error">{{register_error_message}}</span>
+            <input type = "text" name="username" ng-model="userRegister.name" placeholder="Votre nom ou pseudonyme" required/>
+            <span class="message-input">Comment vos amis vous appellent</span>
+            <input type = "email" name="email" ng-model="userRegister.email" placeholder="Votre adresse e-mail" required/>
             <span class="message-input">Nous ne vous enverrons aucun spam, promis!</span>
-            <input type = "password" name="password" ng-model="user.password" placeholder="Votre mot de passe">
+            <input type = "password" name="password" ng-model="userRegister.password" placeholder="Votre mot de passe" required>
             <span class="message-input">Plus il  est complexe, mieux c'est.</span>
-            <button class="button-blue button-login" ng-click="register()">Se connectr et continuer à voter</button>
+            <input type = "submit" class="button-blue button-register" value="S'enregister et sauvegarder sa progression"/>
         </form>
     </div>
 </div>

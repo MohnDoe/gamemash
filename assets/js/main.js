@@ -56,6 +56,24 @@ app.filter('setDecimal', function(){
 });
 
 app.run(['$rootScope', '$location', 'UserService', function($rootScope, $location, UserService){
+    console.log(
+        '%c v. 1.0 \'Reborn\' \n'
+        , 'color: #feb41c; background: #24221f; font-weight:bold;'
+    );
+    console.log(
+        '%c Entirely coded & designed by Kevin F. Poivre \n' +
+        ' Lovingly hand-crafted in Nancy, France \n\n'+
+        ' kevin@gamemash.net \n'+
+        ' https://twitter.com/mohndoe \n'+
+        ' https://www.facebook.com/fb.of.Kevin \n'
+        , 'background: #feb41c; color: #24221f'
+    );
+
+    console.log(
+        '%c https://youtu.be/k78OjoJZcVc \n'
+        , 'color: #f1f1f1; background: #cc181e; font-weight:bold;'
+    );
+
     $rootScope.$on('$routeChangeStart', function(event, next, current){
         UserService.getCurrentUser()
             .success(function(data){

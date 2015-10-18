@@ -78,10 +78,10 @@
             </ul>
         </div>
         <div class="container-user" ng-controller="userController">
-           <div class="container-logged-user" ng-if="user.status === 'connected'">
+           <div class="container-logged-user" ng-if="status === 'connected'">
                 <span class="logged-user-name">Bonjour, {{user.name}}</span>
             </div>
-            <div class="container-guest-user" ng-if="user.status != 'connected'">
+            <div class="container-guest-user" ng-if="status != 'connected'">
                 <span class="information-text">Connectez-vous pour sauvegarder votre progression</span>
                 <a href = "./login">
                     <span class="button-blue button-sign-in">Rejoindre GameMash</span>

@@ -20,7 +20,7 @@ app.controller('fightController', function ($scope, $http, $rootScope, $timeout)
 
     $scope.isBusy = false;
     $scope.createFight = function () {
-        console.log('creating fight...');
+        //console.log('creating fight...');
         $scope.isBusy = true;
         $http.get('./api/fight').
             success(function (data, status, headers, config) {
@@ -54,7 +54,7 @@ app.controller('fightController', function ($scope, $http, $rootScope, $timeout)
 
     $scope.voteFor = function(side){
         // vote stuff
-        console.log('voting for '+side);
+        //console.log('voting for '+side);
         $scope.sendVoteFor(side);
     };
 
@@ -100,7 +100,6 @@ app.controller('fightController', function ($scope, $http, $rootScope, $timeout)
             token : '',
             id : 0
         };
-        console.log('clearing;');
     };
     $scope.createFight();
 });
