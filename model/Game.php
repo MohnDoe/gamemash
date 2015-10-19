@@ -280,4 +280,120 @@ class Game {
         }
     }
 
+    static function get_best_elo_performances($period = 7, $limit = 10){
+        //fetch all fight for the period
+
+        //foreach fight get fighters
+        //store the fighter opponent ELO rank a this moment and the status
+        /*
+         * foreach fight get fighters
+         * store the fighter opponent ELO rank at this moment and the status
+         * calculate mean of ELO rank each opponent (Rc) and p (value of victory)
+         *
+         * Victory = 1
+         * Lost = 0
+         * Draw = 0.5
+         *
+         * Then get dp according to the FIDE table
+         *
+         * do Rc - d(p)
+         * And this is your performance
+         */
+
+        $allFights = Fight::get_fights_done($period);
+        $arraySumRanksOpponent = array();
+        $arrayP = array();
+        $arrayNumberFights = array();
+        foreach($allFights as $Fight){
+            // one fight
+            //LEFT'S OPPONENTS SUM RANKS
+            if(isset($arraySumRanksOpponent[intval($Fight->id_game_left)]))
+            {
+                $arraySumRanksOpponent[intval($Fight->id_game_left)] = $arraySumRanksOpponent[intval($Fight->id_game_left)] + $Fight->elo_game_right_before;
+            }else{
+                $arraySumRanksOpponent[intval($Fight->id_game_left)] = $Fight->elo_game_right_before;
+            }
+
+            //RIGHT'S OPPONENTS SUM RANKS
+            if(isset($arraySumRanksOpponent[intval($Fight->id_game_right)]))
+            {
+
+                $arraySumRanksOpponent[intval($Fight->id_game_right)] = $arraySumRanksOpponent[intval($Fight->id_game_right)] + $Fight->elo_game_left_before;
+            }else{
+                $arraySumRanksOpponent[intval($Fight->id_game_right)] = $Fight->elo_game_left_before;
+            }
+
+
+            //LEFT NUMBER FIGHTS
+            if(isset($arrayNumberFights[intval($Fight->id_game_left)])){
+                $arrayNumberFights[intval($Fight->id_game_left)]++;
+            }else{
+                $arrayNumberFights[intval($Fight->id_game_left)] = 1;
+            }
+
+            //RIGHT NUMBER FIGHTS
+            if(isset($arrayNumberFights[intval($Fight->id_game_right)])){
+                $arrayNumberFights[intval($Fight->id_game_right)]++;
+            }else
+            {
+                $arrayNumberFights[intval($Fight->id_game_right)] = 1;
+            }
+
+
+            //determine p for each
+            if($Fight->id_game_winner == 0){
+                $p_left = 0.5;
+                $p_right = 0.5;
+            }else if($Fight->id_game_left == $Fight->id_game_winner){
+                $p_left = 1;
+                $p_right = 0;
+            }else
+            {
+                $p_left = 0;
+                $p_right = 1;
+            }
+
+            //storing
+            if(isset($arrayP[intval($Fight->id_game_left)]))
+            {
+                //var_dump($Fight->id_game_left);
+                //var_dump($arrayP[intval($Fight->id_game_left)]);
+                $arrayP[intval($Fight->id_game_left)] = $arrayP[intval($Fight->id_game_left)] + $p_left;
+                //var_dump($arrayP[intval($Fight->id_game_left)]);
+            }else{
+                $arrayP[intval($Fight->id_game_left)] = $p_left;
+            }
+            if(isset($arrayP[intval($Fight->id_game_right)]))
+            {
+                $arrayP[intval($Fight->id_game_right)] = $arrayP[intval($Fight->id_game_right)] + $p_right;
+            }else{
+                $arrayP[intval($Fight->id_game_right)] = $p_right;
+            }
+        }
+
+        $arrayPerformances = array();
+        foreach($arraySumRanksOpponent as $id_fighter => $sumRanksOpponent)
+        {
+            $meanRanksOppenent = $sumRanksOpponent / $arrayNumberFights[$id_fighter];
+            $p = ($arrayP[$id_fighter]/$arrayNumberFights[$id_fighter]);
+            $dp = \Rating\Rating::get_dp($p);
+            $performance = $meanRanksOppenent + $dp;
+            $arrayPerformances[$id_fighter] = $performance;
+            /*
+            if($id_fighter == 9137){
+                var_dump($id_fighter);
+                var_dump($arrayP[$id_fighter]);
+                var_dump($dp);
+                var_dump($sumRanksOpponent);
+                var_dump($arrayNumberFights[$id_fighter]);
+                var_dump($performance);
+            }
+            */
+        }
+        arsort($arrayPerformances);
+
+        $arrayPerformances = array_slice($arrayPerformances, 0, $limit, true);
+        return $arrayPerformances;
+    }
+
 }

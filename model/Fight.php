@@ -46,23 +46,27 @@ class Fight {
         }
     }
 
-    public function init () {
-        if($data = $this->fight_exists()){
-            $this->id = $data['id_fight'];
-            $this->id_game_left = $data['id_game_left'];
-            //$this->GameLeft = new Game($this->id_game_left);
-            $this->id_game_right = $data['id_game_right'];
-            //$this->GameRight = new Game($this->id_game_right);
-            $this->elo_game_left_before = $data['elo_game_left_before'];
-            $this->elo_game_right_before = $data['elo_game_right_before'];
-            $this->date_created = $data['date_created_fight'];
-            $this->date_voted = $data['date_voted_fight'];
-            $this->id_game_winner = $data['id_game_winner'];
-            $this->id_game_looser = $data['id_game_looser'];
-            $this->token = $data['token_fight'];
-            $this->is_done = $data['is_done_fight'];
-            $this->id_user = $data['id_user_fight'];
+    public function init ($data = null) {
+        if(is_null($data)){
+            if(!$data = $this->fight_exists()){
+                return false;
+            }
         }
+
+        $this->id = $data['id_fight'];
+        $this->id_game_left = $data['id_game_left'];
+        //$this->GameLeft = new Game($this->id_game_left);
+        $this->id_game_right = $data['id_game_right'];
+        //$this->GameRight = new Game($this->id_game_right);
+        $this->elo_game_left_before = $data['elo_game_left_before'];
+        $this->elo_game_right_before = $data['elo_game_right_before'];
+        $this->date_created = $data['date_created_fight'];
+        $this->date_voted = $data['date_voted_fight'];
+        $this->id_game_winner = $data['id_game_winner'];
+        $this->id_game_looser = $data['id_game_looser'];
+        $this->token = $data['token_fight'];
+        $this->is_done = $data['is_done_fight'];
+        $this->id_user = $data['id_user_fight'];
     }
 
     public function fight_exists () {
@@ -172,5 +176,33 @@ class Fight {
         $Fight->save();
 
         return $Fight;
+    }
+
+    static function get_fights_done($period = null, $limit = null)
+    {
+        $req = 'SELECT * FROM ' . self::$table;
+        $req .= ' WHERE is_done_fight = 1';
+        if(!is_null($period)){
+            $req .= ' AND date_voted_fight > DATE_SUB(NOW(), INTERVAL '.$period.' DAY)';
+        }
+        $req .= ' ORDER BY date_voted_fight DESC';
+        if(!is_null($limit)){
+            $req .= ' LIMIT '.$limit;
+        }
+
+        $query = DB::$db->prepare($req);
+
+        $query->execute();
+
+        $results = array();
+
+        while($data = $query->fetch()){
+            $Fight = new Fight();
+            $Fight->init($data);
+
+            $results[] = $Fight;
+        }
+
+        return $results;
     }
 }
