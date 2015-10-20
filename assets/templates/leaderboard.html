@@ -6,37 +6,15 @@
             <span class="information-module">Depuis le début</span>
         </div>
         <div class="content-module content-leaderboard">
-            <div class="container-user-leaderboard">
+            <div class="container-user-leaderboard" ng-repeat="line in leaderboards.all.content track by $index">
                 <div class="container-informations-user-leaderboard">
                     <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">BlaBla</li>
-                        <li class="information-user-leaderboard information-points-user-leaderboard">1,456 pts</li>
+                        <li class="information-user-leaderboard information-name-user-leaderboard">{{line[0].user.name}}</li>
+                        <li class="information-user-leaderboard information-points-user-leaderboard">{{line[0].user.points | number}} pts</li>
                     </ul>
                 </div>
                 <div class="container-rank-user">
-                    <span class="rank-user">1</span>
-                </div>
-            </div>
-            <div class="container-user-leaderboard">
-                <div class="container-informations-user-leaderboard">
-                    <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">BlaBla</li>
-                        <li class="information-user-leaderboard information-points-user-leaderboard">1,456 pts</li>
-                    </ul>
-                </div>
-                <div class="container-rank-user">
-                    <span class="rank-user">1</span>
-                </div>
-            </div>
-            <div class="container-user-leaderboard">
-                <div class="container-informations-user-leaderboard">
-                    <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">BlaBla</li>
-                        <li class="information-user-leaderboard information-points-user-leaderboard">1,456 pts</li>
-                    </ul>
-                </div>
-                <div class="container-rank-user">
-                    <span class="rank-user">1</span>
+                    <span class="rank-user">{{$index + 1}}</span>
                 </div>
             </div>
         </div>
@@ -49,37 +27,15 @@
             <span class="information-module">Ce mois-ci</span>
         </div>
         <div class="content-module content-leaderboard">
-            <div class="container-user-leaderboard">
+            <div class="container-user-leaderboard" ng-repeat="line in leaderboards.month.content track by $index">
                 <div class="container-informations-user-leaderboard">
                     <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">BlaBla</li>
-                        <li class="information-user-leaderboard information-points-user-leaderboard">1,456 pts</li>
+                        <li class="information-user-leaderboard information-name-user-leaderboard">{{line[0].user.name}}</li>
+                        <li class="information-user-leaderboard information-points-user-leaderboard">+{{line[0].points_period | number}} pts</li>
                     </ul>
                 </div>
                 <div class="container-rank-user">
-                    <span class="rank-user">1</span>
-                </div>
-            </div>
-            <div class="container-user-leaderboard">
-                <div class="container-informations-user-leaderboard">
-                    <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">BlaBla</li>
-                        <li class="information-user-leaderboard information-points-user-leaderboard">1,456 pts</li>
-                    </ul>
-                </div>
-                <div class="container-rank-user">
-                    <span class="rank-user">1</span>
-                </div>
-            </div>
-            <div class="container-user-leaderboard">
-                <div class="container-informations-user-leaderboard">
-                    <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">BlaBla</li>
-                        <li class="information-user-leaderboard information-points-user-leaderboard">1,456 pts</li>
-                    </ul>
-                </div>
-                <div class="container-rank-user">
-                    <span class="rank-user">1</span>
+                    <span class="rank-user">{{$index + 1}}</span>
                 </div>
             </div>
         </div>
@@ -92,37 +48,15 @@
             <span class="information-module">Cette semaine</span>
         </div>
         <div class="content-module content-leaderboard">
-            <div class="container-user-leaderboard">
+            <div class="container-user-leaderboard" ng-repeat="line in leaderboards.week.content track by $index">
                 <div class="container-informations-user-leaderboard">
                     <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">BlaBla</li>
-                        <li class="information-user-leaderboard information-points-user-leaderboard">1,456 pts</li>
+                        <li class="information-user-leaderboard information-name-user-leaderboard">{{line[0].user.name}}</li>
+                        <li class="information-user-leaderboard information-points-user-leaderboard">+{{line[0].points_period | number}} pts</li>
                     </ul>
                 </div>
                 <div class="container-rank-user">
-                    <span class="rank-user">1</span>
-                </div>
-            </div>
-            <div class="container-user-leaderboard">
-                <div class="container-informations-user-leaderboard">
-                    <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">BlaBla</li>
-                        <li class="information-user-leaderboard information-points-user-leaderboard">1,456 pts</li>
-                    </ul>
-                </div>
-                <div class="container-rank-user">
-                    <span class="rank-user">1</span>
-                </div>
-            </div>
-            <div class="container-user-leaderboard">
-                <div class="container-informations-user-leaderboard">
-                    <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">BlaBla</li>
-                        <li class="information-user-leaderboard information-points-user-leaderboard">1,456 pts</li>
-                    </ul>
-                </div>
-                <div class="container-rank-user">
-                    <span class="rank-user">1</span>
+                    <span class="rank-user">{{$index + 1}}</span>
                 </div>
             </div>
         </div>

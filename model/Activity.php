@@ -148,7 +148,6 @@
             if(!is_null($id_user)){
                 $query->bindParam(':id_user', $id_user);
             }
-            var_dump($query);
             $query->execute();
 
             $results = array();
