@@ -14,6 +14,10 @@ app.controller('leaderboardController', function ($scope, $http) {
         week : {
             content: {},
             isBusy: true
+        },
+        today : {
+            content: {},
+            isBusy: true
         }
     };
 
@@ -29,6 +33,10 @@ app.controller('leaderboardController', function ($scope, $http) {
         else if(period == 'week')
         {
             $scope.leaderboards.week.isBusy = true;
+        }
+        else if(period == 'today')
+        {
+            $scope.leaderboards.today.isBusy = true;
         }else
         {
             return false;
@@ -50,6 +58,11 @@ app.controller('leaderboardController', function ($scope, $http) {
                     $scope.leaderboards.week.content = data.response.leaderboard;
                     $scope.leaderboards.week.isBusy = false;
                 }
+                else if(period == 'today')
+                {
+                    $scope.leaderboards.today.content = data.response.leaderboard;
+                    $scope.leaderboards.today.isBusy = false;
+                }
                 //console.log(period);
                 //console.log(data);
             }).
@@ -63,6 +76,7 @@ app.controller('leaderboardController', function ($scope, $http) {
         $scope.getLeaderboard('all');
         $scope.getLeaderboard('month');
         $scope.getLeaderboard('week');
+        $scope.getLeaderboard('today');
     }
 
     $scope.getAllLeaderboards();

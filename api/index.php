@@ -127,6 +127,9 @@
                 case 'week':
                     $periodNumber = 7;
                     break;
+                case 'today':
+                    $periodNumber = 1;
+                    break;
                 default:
                     $periodNumber = null;
                     break;

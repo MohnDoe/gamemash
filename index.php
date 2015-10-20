@@ -81,7 +81,7 @@
         </div>
         <div class="container-user" ng-controller="userController">
            <div class="container-logged-user" ng-if="status === 'connected'">
-                <span class="logged-user-name">Bonjour, {{user.name}}</span>
+                <span class="logged-user-name">{{user.name}}</span>
             </div>
             <div class="container-guest-user" ng-if="status != 'connected'">
                 <span class="information-text">Connectez-vous pour sauvegarder votre progression</span>

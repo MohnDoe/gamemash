@@ -1,5 +1,5 @@
 <div class="container-leaderboards">
-    <div class="container-leaderboard container-module">
+    <div class="container-leaderboard container-leaderboard-all container-module">
         <div class="container-gradient-module"></div>
         <div class="container-header-module">
             <span class="title-module">Leaderboard</span>
@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div class="container-leaderboard container-module">
+    <div class="container-leaderboard container-leaderboard-month container-module">
         <div class="container-gradient-module"></div>
         <div class="container-header-module">
             <span class="title-module">Leaderboard</span>
@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <div class="container-leaderboard container-module">
+    <div class="container-leaderboard container-leaderboard-week container-module">
         <div class="container-gradient-module"></div>
         <div class="container-header-module">
             <span class="title-module">Leaderboard</span>
@@ -49,6 +49,27 @@
         </div>
         <div class="content-module content-leaderboard">
             <div class="container-user-leaderboard" ng-repeat="line in leaderboards.week.content track by $index">
+                <div class="container-informations-user-leaderboard">
+                    <ul>
+                        <li class="information-user-leaderboard information-name-user-leaderboard">{{line.user.name}}</li>
+                        <li class="information-user-leaderboard information-points-user-leaderboard">+{{line.points_period | number}} pts</li>
+                    </ul>
+                </div>
+                <div class="container-rank-user">
+                    <span class="rank-user">{{$index + 1}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-leaderboard container-leaderboard-today container-module">
+        <div class="container-gradient-module"></div>
+        <div class="container-header-module">
+            <span class="title-module">Leaderboard</span>
+            <span class="information-module">Aujourd'hui</span>
+        </div>
+        <div class="content-module content-leaderboard">
+            <div class="container-user-leaderboard" ng-repeat="line in leaderboards.today.content track by $index">
                 <div class="container-informations-user-leaderboard">
                     <ul>
                         <li class="information-user-leaderboard information-name-user-leaderboard">{{line.user.name}}</li>
