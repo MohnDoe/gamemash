@@ -114,6 +114,29 @@
             exit();
         });
 
+
+        $app->get('leaderboard/:period', function($period) use($app, $json_response) {
+            switch($period)
+            {
+                case 'all':
+                    $periodNumber = null;
+                    break;
+                case 'month':
+                    $periodNumber = 30;
+                    break;
+                case 'week':
+                    $periodNumber = 7;
+                    break;
+                default:
+                    $periodNumber = null;
+                    break;
+            }
+            $json_response['response']['leaderboard'] = User::get_leaderboard($periodNumber, 10);
+            $json_response['status'] = 'OK';
+            echo json_encode($json_response);
+            exit();
+        });
+
         $app->get('top', function() use($app, $CurrentUser, $json_response) {
             $paramsGET = $app->request->get();
             $page = $paramsGET['page'];

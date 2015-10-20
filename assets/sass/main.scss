@@ -12,6 +12,7 @@ $gradient-base-left : linear-gradient(to right, $main-blue, transparentize($main
 $gradient-base-right : linear-gradient(to left, $main-blue, transparentize($main-blue, 1));
 $gradient-base-bottom-black : linear-gradient(to top, black, transparentize(black, 1));
 $gradient-blue-bottom-dark : linear-gradient(to top, $main-blue, darken($main-blue, 5%));
+$gradient-blue-top-dark : linear-gradient(to bottom, $main-blue, darken($main-blue, 5%));
 
 //FUTURA STD
 @font-face {
@@ -1236,4 +1237,140 @@ footer
     border-left : 1px solid transparentize(white, .5);
   }
 
+}
+
+.container-leaderboards
+{
+  width : 100%;
+  display: block;
+  height : 100%;
+  position : relative;
+  float : left;
+  background-color: $main-blue;
+  padding : 100px;
+  
+  .container-module
+  {
+    width : calc(33.333% - 20px);
+    position : relative;
+    float : left;
+    margin: 10px;
+    @include background($gradient-blue-top-dark);
+    border: 1px solid darken($main-blue, 5%);
+    display : block;
+    height : auto;
+    min-height : 500px;
+    color: white;
+
+    &.container-leaderboard
+    {
+      padding: 20px;
+    }
+
+    .container-header-module
+    {
+      width : 100%;
+      display : block;
+      position : relative;
+      float : left;
+      margin-bottom: 20px;
+      height : 14px;
+      line-height : 14px;
+      font-size: 14px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+
+      .title-module
+      {
+        position : relative;
+        float : left;
+        font-family: FuturaStdMediumCondensed, sans-serif;
+      }
+
+      .information-module
+      {
+        font-family: FuturaStdLightCondensed, sans-serif;
+        opacity : .3;
+        position : relative;
+        float : right;
+      }
+    }
+
+    .content-module
+    {
+      position : relative;
+      float : left;
+      display : block;
+      width : 100%;
+      height : auto;
+
+      .container-user-leaderboard
+      {
+        display : block;
+        position : relative;
+        float : left;
+        height : 42px;
+        width : 100%;
+        margin-bottom: 10px;
+        border: 1px solid transparentize(white, .85);
+        line-height : 40px;
+        font-size: 14px;
+        color: white;
+
+        .container-informations-user-leaderboard
+        {
+          display : block;
+          position : relative;
+          float : left;
+          width : calc(100% - 42px);
+          height : 100%;
+          padding : 0 10px;
+
+          .information-user-leaderboard
+          {
+            position : relative;
+            line-height : 40px;
+
+            &.information-name-user-leaderboard
+            {
+              font-family: FuturaStdMediumCondensed, sans-serif;
+              float : left;
+              text-transform: uppercase;
+            }
+            &.information-points-user-leaderboard
+            {
+              float : right;
+              font-family: FuturaStdLightCondensed, sans-serif;
+              opacity : .6;
+              font-size: 12px;
+              font-variant: small-caps;
+            }
+          }
+        }
+
+        .container-rank-user
+        {
+          width : 42px;
+          height : 42px;
+          display : block;
+          position : absolute;
+          top : 0;
+          right : 0;
+          bottom : 0;
+          border: 2px solid white;
+
+          .rank-user
+          {
+            font-family: FuturaStdBoldCondensedOblique, sans-serif;
+            font-size: 18px;
+            line-height : 40px;
+            font-variant: small-caps;
+            width : 100%;
+            text-align: center;
+            display : block;
+          }
+        }
+      }
+    }
+  }
 }

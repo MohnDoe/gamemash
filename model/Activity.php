@@ -116,12 +116,15 @@
             $this->create($arrayDetails, $category, $action, $date, $id_user);
         }
 
-        static function get_activites($period = 7, $limit = null, $category = null, $action = null, $id_user = null)
+        static function get_activites($period = null, $limit = null, $category = null, $action = null, $id_user = null)
         {
             $req = 'SELECT * FROM ' . self::$table;
-            $req .= ' WHERE date_activity > DATE_SUB(NOW(), INTERVAL '.$period.' DAY)';
+            $req .= ' WHERE';
+            if(!is_null($period)){
+                $req .= ' date_activity > DATE_SUB(NOW(), INTERVAL '.$period.' DAY) AND';
+            }
             if(!is_null($category)){
-                $req .= ' AND category_activity = :category';
+                $req .= ' category_activity = :category';
             }
             if(!is_null($action)){
                 $req .= ' AND action_activity = :action';
@@ -145,6 +148,7 @@
             if(!is_null($id_user)){
                 $query->bindParam(':id_user', $id_user);
             }
+            var_dump($query);
             $query->execute();
 
             $results = array();

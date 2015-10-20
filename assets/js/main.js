@@ -28,6 +28,12 @@ app.config(function($routeProvider, $locationProvider) {
             activetab : 'fight',
             title : 'Vote'
         })
+        .when('/leaderboard', {
+            templateUrl : 'assets/templates/leaderboard.html',
+            controller  : 'leaderboardController',
+            activetab : 'leaderboard',
+            title : 'Ceux qui pèsent dans le game'
+        })
         .when('/top', {
             templateUrl : 'assets/templates/top2.html',
             controller  : 'topController',

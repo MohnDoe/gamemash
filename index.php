@@ -69,8 +69,8 @@
                 <li class="nav" ng-class="{active: $root.activetab == 'top'}">
                     <a href = "./top">Top 100</a>
                 </li>
-                <li class="nav coming-soon disabled" ng-class="{active: $root.activetab == 'leaderboard'}">
-                    <a href = "./fight">Leaderboard</a>
+                <li class="nav" ng-class="{active: $root.activetab == 'leaderboard'}">
+                    <a href = "./leaderboard">Leaderboard</a>
                 </li>
                 <li class="nav coming-soon disabled" ng-class="{active: $root.activetab == 'stats'}">
                     <a href = "./fight">Cool statistics</a>
@@ -130,6 +130,7 @@
     <script src="./assets/js/controllers/userController.js"></script>
     <script src="./assets/js/controllers/userLevelController.js"></script>
     <script src="./assets/js/controllers/loginController.js"></script>
+    <script src="./assets/js/controllers/leaderboardController.js"></script>
     <!-- services -->
     <script src="./assets/js/services/gamemashStatisticsService.js"></script>
     <script src="./assets/js/services/topRankService.js"></script>

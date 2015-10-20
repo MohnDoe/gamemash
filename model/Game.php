@@ -281,6 +281,7 @@ class Game {
     }
 
     static function get_best_elo_performances($period = 7, $limit = 10){
+        //TODO : check time that takes & optimize
         //fetch all fight for the period
 
         //foreach fight get fighters
@@ -292,7 +293,7 @@ class Game {
          *
          * Victory = 1
          * Lost = 0
-         * Draw = 0.5
+         * Draw = 0.5ind
          *
          * Then get dp according to the FIDE table
          *
