@@ -32,10 +32,10 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl : 'assets/templates/leaderboard.html',
             controller  : 'leaderboardController',
             activetab : 'leaderboard',
-            title : 'Ceux qui pèsent dans le game'
+            title : 'Ceux qui pesent dans le game'
         })
         .when('/top', {
-            templateUrl : 'assets/templates/top2.html',
+            templateUrl : 'assets/templates/top.html',
             controller  : 'topController',
             activetab : 'top',
             title : 'Top 100'

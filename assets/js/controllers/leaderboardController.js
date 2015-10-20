@@ -54,7 +54,7 @@ app.controller('leaderboardController', function ($scope, $http) {
                 console.log(data);
             }).
             error(function (data, status, headers, config) {
-                // called asynchronously if an error occurs
+                // called asynchronously if an error occursmain
                 // or server returns response with an error status.
             });
     };
