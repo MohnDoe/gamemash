@@ -1146,7 +1146,7 @@ footer #container-user-level-progress .container-votes-statistics {
   position: relative;
   float: left;
   background-color: #1a2732;
-  padding: 100px 50px;
+  padding: 50px;
 }
 /* line 1252, ../sass/main.scss */
 .container-leaderboards .container-module {
@@ -1162,15 +1162,14 @@ footer #container-user-level-progress .container-votes-statistics {
   border: 1px solid #111a21;
   display: block;
   height: auto;
-  min-height: 500px;
   color: white;
 }
-/* line 1265, ../sass/main.scss */
+/* line 1264, ../sass/main.scss */
 .container-leaderboards .container-module.container-leaderboard {
   padding: 20px;
   height: 100%;
 }
-/* line 1271, ../sass/main.scss */
+/* line 1270, ../sass/main.scss */
 .container-leaderboards .container-module .container-header-module {
   width: 100%;
   display: block;
@@ -1183,20 +1182,20 @@ footer #container-user-level-progress .container-votes-statistics {
   letter-spacing: .1em;
   text-transform: uppercase;
 }
-/* line 1284, ../sass/main.scss */
+/* line 1283, ../sass/main.scss */
 .container-leaderboards .container-module .container-header-module .title-module {
   position: relative;
   float: left;
   font-family: FuturaStdMediumCondensed, sans-serif;
 }
-/* line 1291, ../sass/main.scss */
+/* line 1290, ../sass/main.scss */
 .container-leaderboards .container-module .container-header-module .information-module {
   font-family: FuturaStdLightCondensed, sans-serif;
   opacity: .3;
   position: relative;
   float: right;
 }
-/* line 1300, ../sass/main.scss */
+/* line 1299, ../sass/main.scss */
 .container-leaderboards .container-module .content-module {
   position: relative;
   float: left;
@@ -1204,7 +1203,7 @@ footer #container-user-level-progress .container-votes-statistics {
   width: 100%;
   height: auto;
 }
-/* line 1308, ../sass/main.scss */
+/* line 1307, ../sass/main.scss */
 .container-leaderboards .container-module .content-module .container-user-leaderboard {
   display: block;
   position: relative;
@@ -1217,7 +1216,7 @@ footer #container-user-level-progress .container-votes-statistics {
   font-size: 14px;
   color: white;
 }
-/* line 1321, ../sass/main.scss */
+/* line 1320, ../sass/main.scss */
 .container-leaderboards .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard {
   display: block;
   position: relative;
@@ -1226,18 +1225,18 @@ footer #container-user-level-progress .container-votes-statistics {
   height: 100%;
   padding: 0 10px;
 }
-/* line 1330, ../sass/main.scss */
+/* line 1329, ../sass/main.scss */
 .container-leaderboards .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard {
   position: relative;
   line-height: 40px;
 }
-/* line 1335, ../sass/main.scss */
+/* line 1334, ../sass/main.scss */
 .container-leaderboards .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard.information-name-user-leaderboard {
   font-family: FuturaStdMediumCondensed, sans-serif;
   float: left;
   text-transform: uppercase;
 }
-/* line 1341, ../sass/main.scss */
+/* line 1340, ../sass/main.scss */
 .container-leaderboards .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard.information-points-user-leaderboard {
   float: right;
   font-family: FuturaStdLightCondensed, sans-serif;
@@ -1245,7 +1244,7 @@ footer #container-user-level-progress .container-votes-statistics {
   font-size: 12px;
   font-variant: small-caps;
 }
-/* line 1352, ../sass/main.scss */
+/* line 1351, ../sass/main.scss */
 .container-leaderboards .container-module .content-module .container-user-leaderboard .container-rank-user {
   width: 42px;
   height: 42px;
@@ -1256,7 +1255,7 @@ footer #container-user-level-progress .container-votes-statistics {
   bottom: 0;
   border: 2px solid white;
 }
-/* line 1363, ../sass/main.scss */
+/* line 1362, ../sass/main.scss */
 .container-leaderboards .container-module .content-module .container-user-leaderboard .container-rank-user .rank-user {
   font-family: FuturaStdBoldCondensedOblique, sans-serif;
   font-size: 18px;

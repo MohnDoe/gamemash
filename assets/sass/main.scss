@@ -1247,7 +1247,7 @@ footer
   position : relative;
   float : left;
   background-color: $main-blue;
-  padding : 100px 50px;
+  padding : 50px;
   
   .container-module
   {
@@ -1259,7 +1259,6 @@ footer
     border: 1px solid darken($main-blue, 5%);
     display : block;
     height : auto;
-    min-height : 500px;
     color: white;
 
     &.container-leaderboard
