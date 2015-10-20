@@ -72,9 +72,11 @@
                 <li class="nav" ng-class="{active: $root.activetab == 'leaderboard'}">
                     <a href = "./leaderboard">Leaderboard</a>
                 </li>
+                <!---
                 <li class="nav coming-soon disabled" ng-class="{active: $root.activetab == 'stats'}">
                     <a href = "./fight">Cool statistics</a>
                 </li>
+                --->
             </ul>
         </div>
         <div class="container-user" ng-controller="userController">

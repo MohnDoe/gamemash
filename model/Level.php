@@ -15,19 +15,24 @@ class Level {
     static function init(){
 
         $aLevels = array();
-        $delta = 0.2;
-        for($i = 0; $i < self::$numberLevelLimit; $i++){
+        $delta = 0.60;
+        $step = (PTS_FOR_A_VOTE * 10);
+        for($i = 0; $i <= self::$numberLevelLimit; $i++){
+            if($i%5 == 0){
+                $step += PTS_FOR_A_VOTE * 9.5;
+            }
             $Level = array();
 
-            $Level['name'] = 'LVL_'.$i;
+            $Level['name'] = 'Niveau '.$i;
             if($i == 0){
                 $Level['needed'] = PTS_FOR_A_VOTE * (1);
             }
             else if($i == 1){
-                $Level['needed'] = PTS_FOR_A_VOTE * (2);
+                $Level['needed'] = PTS_FOR_A_VOTE * (5);
             }
             else{
-                $Level['needed'] = $aLevels[$i-1]['needed'] + ($aLevels[$i-2]['needed'] * ($delta * ($i%10 + 1)));
+                //$Level['needed'] = $aLevels[$i-1]['needed'] + ($aLevels[$i-2]['needed'] * ($delta));
+                $Level['needed'] = $aLevels[$i-1]['needed'] + ($step);
             }
             $Level['needed'] = round($Level['needed']);
             $Level['votesNeeded'] = round($Level['needed'] / PTS_FOR_A_VOTE);

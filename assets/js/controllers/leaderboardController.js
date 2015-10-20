@@ -50,8 +50,8 @@ app.controller('leaderboardController', function ($scope, $http) {
                     $scope.leaderboards.week.content = data.response.leaderboard;
                     $scope.leaderboards.week.isBusy = false;
                 }
-                console.log(period);
-                console.log(data);
+                //console.log(period);
+                //console.log(data);
             }).
             error(function (data, status, headers, config) {
                 // called asynchronously if an error occursmain

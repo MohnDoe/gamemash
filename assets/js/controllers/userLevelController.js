@@ -16,7 +16,7 @@ app.controller('levelUserController', function ($scope, $http, $rootScope, UserS
         //console.log('getting levels ...');
         $http.get('./api/levels').
             then(function (result) {
-                //console.log(result.data.response.levels);
+                console.log(result.data.response.levels);
                 for (var i = 0; i < result.data.response.levels.length; i++) {
                     $scope.levelsUser.levels.push(result.data.response.levels[i]);
                 }
