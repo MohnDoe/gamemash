@@ -37,17 +37,17 @@ app.controller('leaderboardController', function ($scope, $http) {
             success(function (data, status, headers, config) {
                 if(period == 'all')
                 {
-                    $scope.leaderboards.all.content = data.response;
+                    $scope.leaderboards.all.content = data.response.leaderboard;
                     $scope.leaderboards.all.isBusy = false;
                 }
                 else if(period == 'month')
                 {
-                    $scope.leaderboards.month.content = data.response;
+                    $scope.leaderboards.month.content = data.response.leaderboard;
                     $scope.leaderboards.month.isBusy = false;
                 }
                 else if(period == 'week')
                 {
-                    $scope.leaderboards.week.content = data.response;
+                    $scope.leaderboards.week.content = data.response.leaderboard;
                     $scope.leaderboards.week.isBusy = false;
                 }
                 console.log(period);

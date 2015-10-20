@@ -9,8 +9,8 @@
             <div class="container-user-leaderboard" ng-repeat="line in leaderboards.all.content track by $index">
                 <div class="container-informations-user-leaderboard">
                     <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">{{line[0].user.name}}</li>
-                        <li class="information-user-leaderboard information-points-user-leaderboard">{{line[0].user.points | number}} pts</li>
+                        <li class="information-user-leaderboard information-name-user-leaderboard">{{line.user.name}}</li>
+                        <li class="information-user-leaderboard information-points-user-leaderboard">{{line.points_period | number}} pts</li>
                     </ul>
                 </div>
                 <div class="container-rank-user">
@@ -30,8 +30,8 @@
             <div class="container-user-leaderboard" ng-repeat="line in leaderboards.month.content track by $index">
                 <div class="container-informations-user-leaderboard">
                     <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">{{line[0].user.name}}</li>
-                        <li class="information-user-leaderboard information-points-user-leaderboard">+{{line[0].points_period | number}} pts</li>
+                        <li class="information-user-leaderboard information-name-user-leaderboard">{{line.user.name}}</li>
+                        <li class="information-user-leaderboard information-points-user-leaderboard">+{{line.points_period | number}} pts</li>
                     </ul>
                 </div>
                 <div class="container-rank-user">
@@ -51,8 +51,8 @@
             <div class="container-user-leaderboard" ng-repeat="line in leaderboards.week.content track by $index">
                 <div class="container-informations-user-leaderboard">
                     <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">{{line[0].user.name}}</li>
-                        <li class="information-user-leaderboard information-points-user-leaderboard">+{{line[0].points_period | number}} pts</li>
+                        <li class="information-user-leaderboard information-name-user-leaderboard">{{line.user.name}}</li>
+                        <li class="information-user-leaderboard information-points-user-leaderboard">+{{line.points_period | number}} pts</li>
                     </ul>
                 </div>
                 <div class="container-rank-user">

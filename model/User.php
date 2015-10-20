@@ -269,29 +269,33 @@ class User {
         }
     }
 
-    public function init () {
-        if($data = $this->user_exists()){
-            $this->id = $data['id_user'];
-            $this->hashid = $data['hashid_user'];
-            $this->ip = $data['ip_user'];
-            $this->created = $data['created_user'];
-            $this->last_seen = $data['last_seen_user'];
-            $this->points = $data['points_user'];
-            $this->is_registered = $data['is_registered_user'];
-            $this->register_at = $data['register_at_user'];
-            $this->hash = $data['hash_user'];
-            $this->email = $data['email_user'];
-            $this->name = $data['name_user'];
-
-            $this->avatar_urls = array(
-                'small' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=32?d=identicon",
-                'medium' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=128?d=identicon",
-                'big' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=256?d=identicon",
-                'original' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=1024?d=identicon"
-            );
-            
-            $this->nb_votes = $this->get_nb_votes();
+    public function init ($data = null) {
+        if(is_null($data)){
+            if(!$data = $this->user_exists())
+            {
+                return false;
+            }
         }
+        $this->id = $data['id_user'];
+        $this->hashid = $data['hashid_user'];
+        $this->ip = $data['ip_user'];
+        $this->created = $data['created_user'];
+        $this->last_seen = $data['last_seen_user'];
+        $this->points = $data['points_user'];
+        $this->is_registered = $data['is_registered_user'];
+        $this->register_at = $data['register_at_user'];
+        $this->hash = $data['hash_user'];
+        $this->email = $data['email_user'];
+        $this->name = $data['name_user'];
+
+        $this->avatar_urls = array(
+            'small' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=32?d=identicon",
+            'medium' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=128?d=identicon",
+            'big' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=256?d=identicon",
+            'original' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=1024?d=identicon"
+        );
+
+        $this->nb_votes = $this->get_nb_votes();
     }
 
     public function user_exists () {
@@ -589,6 +593,9 @@ class User {
     }
 
     static function get_leaderboard($period = 7, $limit = 10){
+        if(is_null($period)){
+            return self::get_leaderboard_all_time($limit);
+        }
         $arrayActivities = Activity::get_activites($period, null, 'POINTS');
         $leaderboard = array();
 
@@ -615,6 +622,28 @@ class User {
                     break;
                 }
             }
+        }
+
+        return $leaderboard;
+    }
+
+
+    static function get_leaderboard_all_time($limit = 10){
+
+        $req = 'SELECT * FROM ' . self::$table . ' WHERE is_registered_user = 1 ORDER BY points_user DESC LIMIT '.$limit;
+        $query = DB::$db->prepare($req);
+        $query->bindParam(':email', $email);
+        $query->execute();
+
+        $leaderboard = array();
+        while($data = $query->fetch()){
+            $User = new User();
+            $User->init($data);
+
+            $leaderboard[] = array(
+                'user' => $User->convert_in_soft_array(),
+                'points_period' => $User->points
+            );
         }
 
         return $leaderboard;
