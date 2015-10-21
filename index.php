@@ -105,7 +105,7 @@
                 </div>
             </div>
             <div class="container-votes-statistics">
-                Vous avez vote {{user.nb_votes}} fois.
+                Vous avez vot&eacute; {{user.nb_votes}} fois.
                 <br>
                 <span class="login" ng-if="user.is_registered !== '1'">
                     Inscrivez-vous pour sauvegarder votre progression !

@@ -1,18 +1,18 @@
 <div class="container-login">
     <span class="informations-text"></span>
     <div class="container-form">
-        <span class="informations-text">Connectez-vous à GameMash à l'aide de votre compte.</span>
+        <span class="informations-text">Connectez-vous &agrave; GameMash &agrave; l'aide de votre compte.</span>
         <form ng-submit="login()">
             <span class="message-error">{{login_error_message}}</span>
             <input type = "email" name="email" ng-model="userLogin.email" placeholder="Votre adresse e-mail" required/>
             <span class="message-input"></span>
             <input type = "password" name="password" ng-model="userLogin.password" placeholder="Votre mot de passe" required/>
             <span class="message-input"></span>
-            <input type = "submit" class="button-blue button-login" value="Se connecter et continuer à voter"/>
+            <input type = "submit" class="button-blue button-login" value="Se connecter et continuer &agrave; voter"/>
         </form>
     </div>
     <div class="container-form">
-        <span class="informations-text">Inscrivez-vous à GameMash pour sauvegarder votre progression.</span>
+        <span class="informations-text">Inscrivez-vous &agrave; GameMash pour sauvegarder votre progression.</span>
         <form ng-submit="register()">
             <span class="message-error">{{register_error_message}}</span>
             <input type = "text" name="username" ng-model="userRegister.name" placeholder="Votre nom ou pseudonyme" required/>
@@ -21,7 +21,7 @@
             <span class="message-input">Nous ne vous enverrons aucun spam, promis!</span>
             <input type = "password" name="password" ng-model="userRegister.password" placeholder="Votre mot de passe" required>
             <span class="message-input">Plus il  est complexe, mieux c'est.</span>
-            <input type = "submit" class="button-blue button-register" value="S'enregister et sauvegarder sa progression"/>
+            <input type = "submit" class="button-blue button-register" value="S'enregister et sauvegarder ma progression"/>
         </form>
     </div>
 </div>

@@ -1,4 +1,4 @@
-app.controller('topController', function ($scope, TopRank, UserService) {
+app.controller('topController', function ($scope, TopRank, UserService, $sce) {
 
     $scope.top = new TopRank();
     $scope.canSee = false;
@@ -10,7 +10,7 @@ app.controller('topController', function ($scope, TopRank, UserService) {
                 $scope.canSee = true;
             }else{
                 $scope.canSee = false;
-                $scope.error = 'Vous devez etre connecte pour acceder au classement des jeux'
+                $scope.error = $sce.trustAsHtml("Vous devez etre connecté pour acceder au classement");
             }
             $scope.isBusy = false;
         });
