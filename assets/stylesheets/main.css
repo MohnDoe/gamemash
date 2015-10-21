@@ -423,8 +423,19 @@ a {
   color: white;
   letter-spacing: .2em;
 }
-/* line 452, ../sass/main.scss */
-.container-fight .container-loading {
+/* line 456, ../sass/main.scss */
+.container-fight.hidden-fighter .fighter-right .container-cover-fighter {
+  transform: translate(-500px, 0);
+  opacity: 0;
+}
+/* line 464, ../sass/main.scss */
+.container-fight.hidden-fighter .fighter-left .container-cover-fighter {
+  transform: translate(500px, 0);
+  opacity: 0;
+}
+
+/* line 472, ../sass/main.scss */
+.container-loading {
   position: absolute;
   top: 0;
   left: 0;
@@ -439,23 +450,15 @@ a {
   align-items: center;
   justify-content: center;
 }
-/* line 469, ../sass/main.scss */
-.container-fight .container-loading .text {
+/* line 489, ../sass/main.scss */
+.container-loading .text {
   font-family: FuturaStdBoldCondensedOblique, sans-serif;
   color: rgba(255, 255, 255, 0.9);
   font-size: 80px;
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.8);
   text-transform: uppercase;
-}
-/* line 483, ../sass/main.scss */
-.container-fight.hidden-fighter .fighter-right .container-cover-fighter {
-  transform: translate(-500px, 0);
-  opacity: 0;
-}
-/* line 491, ../sass/main.scss */
-.container-fight.hidden-fighter .fighter-left .container-cover-fighter {
-  transform: translate(500px, 0);
-  opacity: 0;
+  text-align: center;
+  padding: 0 50px;
 }
 
 /* line 500, ../sass/main.scss */
@@ -1028,7 +1031,7 @@ footer #container-user-level-progress .container-votes-statistics {
 .container-user .container-guest-user {
   color: white;
   font-size: 14px;
-  width: 130px;
+  width: 200px;
   display: block;
   margin-top: -10px;
 }

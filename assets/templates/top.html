@@ -1,4 +1,7 @@
-<div class="container-top" infinite-scroll="top.nextPage()" infinite-scroll-disable="top.busy || top.limitReached" infinite-scroll-distance="1">
+<div class="container-loading" ng-show="isBusy || !canSee">
+    <span class="text">{{error}}</span>
+</div>
+<div class="container-top" ng-if='canSee' infinite-scroll="top.nextPage()" infinite-scroll-disable="top.busy || top.limitReached" infinite-scroll-distance="1">
     <div class="container-game" ng-repeat="game in top.games track by $index">
         <div class="container-cover-game">
             <div class="border-white cover-border"></div>

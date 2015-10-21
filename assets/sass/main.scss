@@ -449,33 +449,6 @@ a
     }
   }
 
-  .container-loading
-  {
-    position : absolute;
-    top : 0;
-    left : 0;
-    right : 0;
-    bottom : 0;
-    width : 100%;
-    background-color: transparentize(darken($main-blue, 10%), .15);
-    //display: block;
-    z-index : 4;
-
-    @include display-flex;
-    flex-direction  : column;
-    align-items     : center;
-    justify-content : center;
-
-    .text
-    {
-      font-family: FuturaStdBoldCondensedOblique, sans-serif;
-      color: transparentize(white, .1);
-      font-size: 80px;
-      text-shadow: 2px 2px 1px transparentize(black, .2);
-      text-transform: uppercase;
-    }
-  }
-
   &.hidden-fighter
   {
     .fighter-right
@@ -496,7 +469,34 @@ a
     }
   }
 }
+.container-loading
+{
+  position : absolute;
+  top : 0;
+  left : 0;
+  right : 0;
+  bottom : 0;
+  width : 100%;
+  background-color: transparentize(darken($main-blue, 10%), .15);
+  //display: block;
+  z-index : 4;
 
+  @include display-flex;
+  flex-direction  : column;
+  align-items     : center;
+  justify-content : center;
+
+  .text
+  {
+    font-family: FuturaStdBoldCondensedOblique, sans-serif;
+    color: transparentize(white, .1);
+    font-size: 80px;
+    text-shadow: 2px 2px 1px transparentize(black, .2);
+    text-transform: uppercase;
+    text-align: center;
+    padding : 0 50px;
+  }
+}
 .container-toolbar
 {
   font-family: "Open Sans Condensed", sans-serif;
@@ -1115,7 +1115,7 @@ footer
   {
     color: white;
     font-size : 14px;
-    width : 130px;
+    width : 200px;
     display: block;
     margin-top: -10px;
 

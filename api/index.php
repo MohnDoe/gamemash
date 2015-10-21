@@ -143,6 +143,12 @@
         $app->get('top', function() use($app, $CurrentUser, $json_response) {
             $paramsGET = $app->request->get();
             $page = $paramsGET['page'];
+            if($CurrentUser->status != 'connected'){
+                $json_response['status'] = 'NOTOK';
+                $json_response['error'] = 'Vous devez etre connecte pour pouvoir acceder aux classement des jeux.';
+                echo json_encode($json_response);
+                exit();
+            }
             $GamesTop = Game::get_top_games($page);
             //$i = (($page-1)*10)+1;
             $i = (($page-1)*10)+1;

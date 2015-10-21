@@ -20,6 +20,7 @@ app.factory('TopRank', function($http) {
                 for (var i = 0; i < games.length; i++) {
                     this.games.push(games[i]);
                 }
+                console.log(this.games);
                 this.after = this.after + 1;
                 if(this.after > 10){
                     this.limitReached = true;
