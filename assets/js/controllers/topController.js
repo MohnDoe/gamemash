@@ -1,5 +1,6 @@
-app.controller('topController', function ($scope, TopRank, UserService, $sce) {
+app.controller('topController', function ($scope, TopRank, UserService, $sce, $http) {
 
+    $scope.nb_votes = false;
     $scope.top = new TopRank();
     $scope.canSee = false;
     $scope.error = 'Chargement...';
@@ -14,5 +15,17 @@ app.controller('topController', function ($scope, TopRank, UserService, $sce) {
             }
             $scope.isBusy = false;
         });
+
+    $scope.getNumberVotes = function(){
+        $http({
+            url: 'api/stats',
+            method: 'GET'
+        })
+        .success(function(data) {
+                $scope.nb_votes = data.response.nb_votes;
+        });
+    }
+
+    $scope.getNumberVotes();
 
 });

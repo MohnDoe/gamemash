@@ -563,6 +563,23 @@ a {
   margin-top: 55px;
 }
 /* line 571, ../sass/main.scss */
+.container-top .vote-statistics {
+  width: 100%;
+  display: block;
+  height: auto;
+  font-family: FuturaStdMediumCondensed, sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 42px;
+  line-height: 1.4em;
+  letter-spacing: .1em;
+  margin: 50px 0;
+  margin-top: 25px;
+  text-transform: uppercase;
+  position: relative;
+  float: left;
+}
+/* line 589, ../sass/main.scss */
 .container-top .container-game {
   width: 100%;
   position: relative;
@@ -570,7 +587,7 @@ a {
   height: 150px;
   padding: 20px 50px;
 }
-/* line 579, ../sass/main.scss */
+/* line 597, ../sass/main.scss */
 .container-top .container-game .container-cover-game {
   width: 80px;
   height: 110px;
@@ -582,14 +599,14 @@ a {
   -webkit-box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.5);
 }
-/* line 589, ../sass/main.scss */
+/* line 607, ../sass/main.scss */
 .container-top .container-game .container-cover-game .cover-game {
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
 }
-/* line 598, ../sass/main.scss */
+/* line 616, ../sass/main.scss */
 .container-top .container-game .container-informations-game {
   width: calc(50% - 80px);
   height: 100%;
@@ -601,32 +618,32 @@ a {
   float: left;
   z-index: 4;
 }
-/* line 612, ../sass/main.scss */
+/* line 630, ../sass/main.scss */
 .container-top .container-game .container-informations-game .informations-game .information-game {
   margin-bottom: 5px;
 }
-/* line 616, ../sass/main.scss */
+/* line 634, ../sass/main.scss */
 .container-top .container-game .container-informations-game .informations-game .information-game.name-game {
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
   font-size: 30px;
   line-height: 30px;
   font-family: MohaveBoldItalics, sans-serif;
 }
-/* line 623, ../sass/main.scss */
+/* line 641, ../sass/main.scss */
 .container-top .container-game .container-informations-game .informations-game .information-game.platforms-game {
   opacity: .6;
   font-size: 10px;
   line-height: 10px;
   font-family: MohaveSemiBold, sans-serif;
 }
-/* line 630, ../sass/main.scss */
+/* line 648, ../sass/main.scss */
 .container-top .container-game .container-informations-game .informations-game .information-game.release-game {
   opacity: .4;
   font-size: 14px;
   line-height: 14px;
   font-family: MohaveSemiBold, sans-serif;
 }
-/* line 641, ../sass/main.scss */
+/* line 659, ../sass/main.scss */
 .container-top .container-game .container-informations-rank {
   width: 50%;
   height: 110px;
@@ -636,7 +653,7 @@ a {
   color: white;
   z-index: 4;
 }
-/* line 651, ../sass/main.scss */
+/* line 669, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .container-rank {
   font-family: FuturaStdBoldCondensedOblique, sans-serif;
   border: 3px solid white;
@@ -649,7 +666,7 @@ a {
   float: left;
   font-variant: small-caps;
 }
-/* line 665, ../sass/main.scss */
+/* line 683, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank {
   width: calc(100% - 110px);
   height: 100%;
@@ -660,7 +677,7 @@ a {
   position: relative;
   float: left;
 }
-/* line 676, ../sass/main.scss */
+/* line 694, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line {
   width: 100%;
   height: 50%;
@@ -670,7 +687,7 @@ a {
   font-size: 14px;
   margin-bottom: 5px;
 }
-/* line 686, ../sass/main.scss */
+/* line 704, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line .information {
   height: 100%;
   width: 33.3333%;
@@ -680,26 +697,26 @@ a {
   text-transform: uppercase;
   letter-spacing: .12em;
 }
-/* line 696, ../sass/main.scss */
+/* line 714, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line .information .information-value, .container-top .container-game .container-informations-rank .informations-rank .informations-line .information .information-label {
   width: 100%;
   display: block;
   clear: both;
 }
-/* line 703, ../sass/main.scss */
+/* line 721, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line .information .information-value {
   margin-bottom: 2px;
   font-family: FuturaStdMediumCondensed, sans-serif;
   line-height: 14px;
 }
-/* line 710, ../sass/main.scss */
+/* line 728, ../sass/main.scss */
 .container-top .container-game .container-informations-rank .informations-rank .informations-line .information .information-label {
   font-size: 12px;
   font-family: FuturaStdLightCondensed, sans-serif;
   opacity: .15;
   line-height: 12px;
 }
-/* line 722, ../sass/main.scss */
+/* line 740, ../sass/main.scss */
 .container-top .container-game .container-gradient-game-left {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFhMjczMiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzFhMjczMiIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #1a2732), color-stop(100%, rgba(26, 39, 50, 0)));
@@ -717,7 +734,7 @@ a {
   display: block;
   opacity: .75;
 }
-/* line 737, ../sass/main.scss */
+/* line 755, ../sass/main.scss */
 .container-top .container-game .container-gradient-game-bottom {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjEuMCIgeDI9IjAuNSIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #000000), color-stop(100%, rgba(0, 0, 0, 0)));
@@ -735,7 +752,7 @@ a {
   display: block;
   opacity: .10;
 }
-/* line 752, ../sass/main.scss */
+/* line 770, ../sass/main.scss */
 .container-top .container-game .container-background-game {
   width: 100%;
   z-index: 1;
@@ -755,11 +772,11 @@ a {
   background-position: center;
 }
 
-/* line 771, ../sass/main.scss */
+/* line 789, ../sass/main.scss */
 .container-top-full {
   padding: 20px;
 }
-/* line 775, ../sass/main.scss */
+/* line 793, ../sass/main.scss */
 .container-top-full .container-game {
   -webkit-box-sizing: initial;
   -moz-box-sizing: initial;
@@ -769,47 +786,47 @@ a {
   height: 240px;
   padding: 0;
 }
-/* line 785, ../sass/main.scss */
+/* line 803, ../sass/main.scss */
 .container-top-full .container-game.container-game-0 {
   width: calc(60% - 20px);
   height: 500px;
 }
-/* line 790, ../sass/main.scss */
+/* line 808, ../sass/main.scss */
 .container-top-full .container-game.container-game-0 .informations-game {
   height: 140px;
   width: calc(80% - 20px);
 }
-/* line 795, ../sass/main.scss */
+/* line 813, ../sass/main.scss */
 .container-top-full .container-game.container-game-0 .container-cover-game {
   width: 20% !important;
   display: block !important;
 }
-/* line 801, ../sass/main.scss */
+/* line 819, ../sass/main.scss */
 .container-top-full .container-game.container-game-1, .container-top-full .container-game.container-game-2 {
   width: calc(40% - 20px);
 }
-/* line 805, ../sass/main.scss */
+/* line 823, ../sass/main.scss */
 .container-top-full .container-game.container-game-1 .informations-game, .container-top-full .container-game.container-game-2 .informations-game {
   height: 140px;
   width: calc(75% - 20px);
 }
-/* line 812, ../sass/main.scss */
+/* line 830, ../sass/main.scss */
 .container-top-full .container-game.container-game-1 .container-cover-game, .container-top-full .container-game.container-game-2 .container-cover-game {
   width: 25% !important;
   display: block !important;
 }
-/* line 819, ../sass/main.scss */
+/* line 837, ../sass/main.scss */
 .container-top-full .container-game .container-background-game {
   opacity: 1;
   filter: none;
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
 }
-/* line 824, ../sass/main.scss */
+/* line 842, ../sass/main.scss */
 .container-top-full .container-game .container-gradient-game-bottom {
   opacity: .5;
 }
-/* line 829, ../sass/main.scss */
+/* line 847, ../sass/main.scss */
 .container-top-full .container-game .container-informations-game {
   position: absolute;
   bottom: 0;
@@ -820,7 +837,7 @@ a {
   padding: 0 20px;
   height: auto;
 }
-/* line 840, ../sass/main.scss */
+/* line 858, ../sass/main.scss */
 .container-top-full .container-game .container-informations-game .container-cover-game {
   position: relative;
   float: left;
@@ -829,21 +846,21 @@ a {
   display: none;
   width: 0;
 }
-/* line 849, ../sass/main.scss */
+/* line 867, ../sass/main.scss */
 .container-top-full .container-game .container-informations-game .container-cover-game .cover-game {
   background-position-y: 0;
 }
-/* line 855, ../sass/main.scss */
+/* line 873, ../sass/main.scss */
 .container-top-full .container-game .container-informations-game .informations-game {
   position: relative;
   float: left;
 }
-/* line 860, ../sass/main.scss */
+/* line 878, ../sass/main.scss */
 .container-top-full .container-game .container-informations-game .informations-game .information-game {
   width: 100%;
   text-shadow: none !important;
 }
-/* line 865, ../sass/main.scss */
+/* line 883, ../sass/main.scss */
 .container-top-full .container-game .container-informations-game .informations-game .information-game.deck-game {
   font-family: "Open Sans Condensed", sans-serif;
   line-height: 1.5em;
@@ -852,7 +869,7 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 878, ../sass/main.scss */
+/* line 896, ../sass/main.scss */
 .container-top-full .container-game .overlay-informations-rank {
   position: absolute;
   left: 0;
@@ -872,12 +889,12 @@ a {
   align-items: center;
   justify-content: center;
 }
-/* line 895, ../sass/main.scss */
+/* line 913, ../sass/main.scss */
 .container-top-full .container-game .overlay-informations-rank .container-informations-rank {
   z-index: 2;
   width: auto !important;
 }
-/* line 901, ../sass/main.scss */
+/* line 919, ../sass/main.scss */
 .container-top-full .container-game .overlay-informations-rank .container-gradient-overlay {
   position: absolute;
   width: 100%;
@@ -893,12 +910,12 @@ a {
   background: -webkit-linear-gradient(bottom, #1a2732, #111a21);
   background: linear-gradient(to top, #1a2732, #111a21);
 }
-/* line 919, ../sass/main.scss */
+/* line 937, ../sass/main.scss */
 .container-top-full .container-game:hover .overlay-informations-rank {
   opacity: 1;
 }
 
-/* line 928, ../sass/main.scss */
+/* line 946, ../sass/main.scss */
 .button-blue {
   background-color: rgba(52, 78, 100, 0.75);
   color: white;
@@ -926,7 +943,7 @@ a {
   transition: all 0.25s ease;
   outline: none;
 }
-/* line 947, ../sass/main.scss */
+/* line 965, ../sass/main.scss */
 .button-blue:hover {
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
@@ -936,7 +953,7 @@ a {
   border-color: rgba(64, 97, 124, 0.5);
 }
 
-/* line 956, ../sass/main.scss */
+/* line 974, ../sass/main.scss */
 .shake {
   -webkit-animation-name: shake;
   -webkit-animation-duration: 0.25s;
@@ -946,7 +963,7 @@ a {
   animation-duration: 0.25s;
 }
 
-/* line 966, ../sass/main.scss */
+/* line 984, ../sass/main.scss */
 footer {
   pointer-events: none;
   position: fixed;
@@ -958,7 +975,7 @@ footer {
   z-index: 10;
   text-transform: uppercase;
 }
-/* line 984, ../sass/main.scss */
+/* line 1002, ../sass/main.scss */
 footer #container-user-level-progress {
   width: auto;
   position: absolute;
@@ -967,7 +984,7 @@ footer #container-user-level-progress {
   display: block;
   height: 50px;
 }
-/* line 993, ../sass/main.scss */
+/* line 1011, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress {
   width: 190px;
   position: relative;
@@ -978,7 +995,7 @@ footer #container-user-level-progress .user-level-progress {
   z-index: 2;
   background-color: rgba(26, 39, 50, 0.5);
 }
-/* line 1004, ../sass/main.scss */
+/* line 1022, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .current-level-name {
   color: #bf3b53;
   font-family: FuturaStdMediumCondensed, sans-serif;
@@ -992,7 +1009,7 @@ footer #container-user-level-progress .user-level-progress .current-level-name {
   z-index: 1;
   font-size: 14px;
 }
-/* line 1019, ../sass/main.scss */
+/* line 1037, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .progress-bar {
   width: 100%;
   height: 100%;
@@ -1003,7 +1020,7 @@ footer #container-user-level-progress .user-level-progress .progress-bar {
   top: 0;
   opacity: .1;
 }
-/* line 1031, ../sass/main.scss */
+/* line 1049, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .progress-bar .fill-progress-bar {
   background-color: white;
   height: 100%;
@@ -1018,7 +1035,7 @@ footer #container-user-level-progress .user-level-progress .progress-bar .fill-p
   -webkit-transition: 0.15s;
   transition: 0.15s;
 }
-/* line 1046, ../sass/main.scss */
+/* line 1064, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .container-progress-stats {
   position: absolute;
   right: 0;
@@ -1028,12 +1045,12 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   color: white;
   text-align: right;
 }
-/* line 1056, ../sass/main.scss */
+/* line 1074, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .container-progress-stats .current-points {
   font-family: FuturaStdBoldCondensedOblique, sans-serif;
   font-size: 14px;
 }
-/* line 1062, ../sass/main.scss */
+/* line 1080, ../sass/main.scss */
 footer #container-user-level-progress .user-level-progress .container-progress-stats .current-percentage {
   font-size: 12px;
   font-family: FuturaStdLightCondensed, sans-serif;
@@ -1041,7 +1058,7 @@ footer #container-user-level-progress .user-level-progress .container-progress-s
   bottom: 10px;
   right: 10px;
 }
-/* line 1073, ../sass/main.scss */
+/* line 1091, ../sass/main.scss */
 footer #container-user-level-progress .container-votes-statistics {
   position: relative;
   float: left;
@@ -1056,7 +1073,7 @@ footer #container-user-level-progress .container-votes-statistics {
   letter-spacing: .15em;
 }
 
-/* line 1090, ../sass/main.scss */
+/* line 1108, ../sass/main.scss */
 .container-user {
   position: fixed;
   right: 20px;
@@ -1064,13 +1081,13 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
   z-index: 15;
 }
-/* line 1098, ../sass/main.scss */
+/* line 1116, ../sass/main.scss */
 .container-user .container-logged-user {
   color: white;
   font-size: 14px;
   font-family: MohaveSemiBold, sans-serif;
 }
-/* line 1104, ../sass/main.scss */
+/* line 1122, ../sass/main.scss */
 .container-user .container-logged-user .logged-user-name {
   color: rgba(255, 255, 255, 0.9);
   font-family: FuturaStdMediumCondensed, sans-serif;
@@ -1078,7 +1095,7 @@ footer #container-user-level-progress .container-votes-statistics {
   background-color: #111a21;
   letter-spacing: .05em;
 }
-/* line 1113, ../sass/main.scss */
+/* line 1131, ../sass/main.scss */
 .container-user .container-guest-user {
   color: white;
   font-size: 14px;
@@ -1086,7 +1103,7 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
   margin-top: -10px;
 }
-/* line 1121, ../sass/main.scss */
+/* line 1139, ../sass/main.scss */
 .container-user .container-guest-user .information-text {
   width: 100%;
   text-align: center;
@@ -1097,7 +1114,7 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
   margin-bottom: .5em;
 }
-/* line 1132, ../sass/main.scss */
+/* line 1150, ../sass/main.scss */
 .container-user .container-guest-user .button-sign-in {
   width: 100%;
   display: block;
@@ -1107,7 +1124,7 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
 }
 
-/* line 1144, ../sass/main.scss */
+/* line 1162, ../sass/main.scss */
 .container-login {
   width: calc(100% - 100px);
   height: auto;
@@ -1117,7 +1134,7 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
   font-family: "Open Sans Condensed", sans-serif;
 }
-/* line 1154, ../sass/main.scss */
+/* line 1172, ../sass/main.scss */
 .container-login .informations-text {
   width: 100%;
   display: block;
@@ -1126,7 +1143,7 @@ footer #container-user-level-progress .container-votes-statistics {
   font-size: 24px;
   margin-bottom: 50px;
 }
-/* line 1164, ../sass/main.scss */
+/* line 1182, ../sass/main.scss */
 .container-login .container-form {
   width: 45%;
   position: relative;
@@ -1135,11 +1152,11 @@ footer #container-user-level-progress .container-votes-statistics {
   float: left;
   padding: 20px;
 }
-/* line 1173, ../sass/main.scss */
+/* line 1191, ../sass/main.scss */
 .container-login .container-form .informations-text {
   margin-bottom: 20px;
 }
-/* line 1178, ../sass/main.scss */
+/* line 1196, ../sass/main.scss */
 .container-login .container-form input:not([type="submit"]) {
   width: 100%;
   height: 50px;
@@ -1156,7 +1173,7 @@ footer #container-user-level-progress .container-votes-statistics {
   position: relative;
   float: left;
 }
-/* line 1195, ../sass/main.scss */
+/* line 1213, ../sass/main.scss */
 .container-login .container-form input:not([type="submit"]):-webkit-autofill, .container-login .container-form input:not([type="submit"]):-webkit-autofill:hover, .container-login .container-form input:not([type="submit"]):-webkit-autofill:focus, .container-login .container-form input:not([type="submit"]):-webkit-autofill:active {
   -moz-transition: all 5000s ease-in-out 0s;
   -o-transition: all 5000s ease-in-out 0s;
@@ -1165,7 +1182,7 @@ footer #container-user-level-progress .container-votes-statistics {
   transition: all 5000s ease-in-out 0s;
   transition-property: background-color, color;
 }
-/* line 1204, ../sass/main.scss */
+/* line 1222, ../sass/main.scss */
 .container-login .container-form .message-input, .container-login .container-form .message-error {
   color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
@@ -1176,13 +1193,13 @@ footer #container-user-level-progress .container-votes-statistics {
   line-height: 1.5em;
   margin-bottom: 15px;
 }
-/* line 1216, ../sass/main.scss */
+/* line 1234, ../sass/main.scss */
 .container-login .container-form .message-error {
   color: rgba(191, 59, 83, 0.9);
   background-color: #EEE;
   padding: 0 10px;
 }
-/* line 1223, ../sass/main.scss */
+/* line 1241, ../sass/main.scss */
 .container-login .container-form .button-login, .container-login .container-form .button-register {
   width: 100%;
   position: relative;
@@ -1191,12 +1208,12 @@ footer #container-user-level-progress .container-votes-statistics {
   margin-top: 10px;
   font-size: 16px;
 }
-/* line 1234, ../sass/main.scss */
+/* line 1252, ../sass/main.scss */
 .container-login .container-form:last-child {
   border-left: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-/* line 1241, ../sass/main.scss */
+/* line 1259, ../sass/main.scss */
 .container-leaderboards {
   width: 100%;
   display: block;
@@ -1206,7 +1223,7 @@ footer #container-user-level-progress .container-votes-statistics {
   background-color: #1a2732;
   padding: 50px;
 }
-/* line 1251, ../sass/main.scss */
+/* line 1269, ../sass/main.scss */
 .container-leaderboards .container-module {
   width: calc(25% - 20px);
   position: relative;
@@ -1222,12 +1239,12 @@ footer #container-user-level-progress .container-votes-statistics {
   height: auto;
   color: white;
 }
-/* line 1263, ../sass/main.scss */
+/* line 1281, ../sass/main.scss */
 .container-leaderboards .container-module.container-leaderboard {
   padding: 20px;
   height: 100%;
 }
-/* line 1269, ../sass/main.scss */
+/* line 1287, ../sass/main.scss */
 .container-leaderboards .container-module .container-header-module {
   width: 100%;
   display: block;
@@ -1240,20 +1257,20 @@ footer #container-user-level-progress .container-votes-statistics {
   letter-spacing: .1em;
   text-transform: uppercase;
 }
-/* line 1282, ../sass/main.scss */
+/* line 1300, ../sass/main.scss */
 .container-leaderboards .container-module .container-header-module .title-module {
   position: relative;
   float: left;
   font-family: FuturaStdMediumCondensed, sans-serif;
 }
-/* line 1289, ../sass/main.scss */
+/* line 1307, ../sass/main.scss */
 .container-leaderboards .container-module .container-header-module .information-module {
   font-family: FuturaStdLightCondensed, sans-serif;
   opacity: .3;
   position: relative;
   float: right;
 }
-/* line 1298, ../sass/main.scss */
+/* line 1316, ../sass/main.scss */
 .container-leaderboards .container-module .content-module {
   position: relative;
   float: left;
@@ -1261,7 +1278,7 @@ footer #container-user-level-progress .container-votes-statistics {
   width: 100%;
   height: auto;
 }
-/* line 1306, ../sass/main.scss */
+/* line 1324, ../sass/main.scss */
 .container-leaderboards .container-module .content-module .container-user-leaderboard {
   display: block;
   position: relative;
@@ -1274,7 +1291,7 @@ footer #container-user-level-progress .container-votes-statistics {
   font-size: 14px;
   color: white;
 }
-/* line 1319, ../sass/main.scss */
+/* line 1337, ../sass/main.scss */
 .container-leaderboards .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard {
   display: block;
   position: relative;
@@ -1283,18 +1300,18 @@ footer #container-user-level-progress .container-votes-statistics {
   height: 100%;
   padding: 0 10px;
 }
-/* line 1328, ../sass/main.scss */
+/* line 1346, ../sass/main.scss */
 .container-leaderboards .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard {
   position: relative;
   line-height: 40px;
 }
-/* line 1333, ../sass/main.scss */
+/* line 1351, ../sass/main.scss */
 .container-leaderboards .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard.information-name-user-leaderboard {
   font-family: FuturaStdMediumCondensed, sans-serif;
   float: left;
   text-transform: uppercase;
 }
-/* line 1339, ../sass/main.scss */
+/* line 1357, ../sass/main.scss */
 .container-leaderboards .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard.information-points-user-leaderboard {
   float: right;
   font-family: FuturaStdLightCondensed, sans-serif;
@@ -1302,7 +1319,7 @@ footer #container-user-level-progress .container-votes-statistics {
   font-size: 12px;
   font-variant: small-caps;
 }
-/* line 1350, ../sass/main.scss */
+/* line 1368, ../sass/main.scss */
 .container-leaderboards .container-module .content-module .container-user-leaderboard .container-rank-user {
   width: 42px;
   height: 42px;
@@ -1313,7 +1330,7 @@ footer #container-user-level-progress .container-votes-statistics {
   bottom: 0;
   border: 2px solid white;
 }
-/* line 1361, ../sass/main.scss */
+/* line 1379, ../sass/main.scss */
 .container-leaderboards .container-module .content-module .container-user-leaderboard .container-rank-user .rank-user {
   font-family: FuturaStdBoldCondensedOblique, sans-serif;
   font-size: 18px;
