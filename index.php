@@ -61,15 +61,15 @@
 
         <meta property="og:url"                content="http://www.gamemash.net/" />
         <meta property="og:type"               content="website" />
-        <meta property="og:title"              content="GameMash - Votez pour vos jeux préférés" />
-        <meta property="og:description"        content="Choisissez le jeu que vous préférez parmis les deux jeux proposés." />
+        <meta property="og:title"              content="GameMash - Votez pour vos jeux prÃ©fÃ©rÃ©s" />
+        <meta property="og:description"        content="Choisissez le jeu que vous prÃ©fÃ©rez parmis les deux jeux proposÃ©s." />
         <meta property="og:image"              content="http://www.gamemash.net/assets/img/gamemash-meta-img.jpg" />
 
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@GameMashHQ">
         <meta name="twitter:creator" content="@GameMashHQ">
-        <meta name="twitter:title" content="GameMash - Votez pour vos jeux préférés">
-        <meta name="twitter:description" content="Choisissez le jeu que vous préférez parmis les deux jeux proposés.">
+        <meta name="twitter:title" content="GameMash - Votez pour vos jeux prÃ©fÃ©rÃ©s">
+        <meta name="twitter:description" content="Choisissez le jeu que vous prÃ©fÃ©rez parmis les deux jeux proposÃ©s.">
         <meta name="twitter:image" content="http://www.gamemash.net/assets/img/gamemash-meta-img.jpg">
 
         <link rel="canonical" href="./" />
