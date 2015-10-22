@@ -58,6 +58,12 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="./assets/favicons/ms-icon-144x144.png">
         <meta name="theme-color" content="#1a2732">
+
+        <meta property="og:url"                content="http://gamemash.net" />
+        <meta property="og:type"               content="website" />
+        <meta property="og:title"              content="GameMash - Votez pour vos jeux préférés" />
+        <meta property="og:description"        content="Choisissez le jeu que vous préférez par rapport aux deux jeux proposés" />
+        <meta property="og:image"              content="./assets/img/gamemash-meta-img.jpg" />
     </head>
     <body ng-app="appGameMash">
     <div id="main">
