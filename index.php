@@ -71,8 +71,6 @@
         <meta name="twitter:title" content="GameMash - Votez pour vos jeux préférés">
         <meta name="twitter:description" content="Choisissez le jeu que vous préférez parmi les deux jeux proposés.">
         <meta name="twitter:image" content="http://www.gamemash.net/assets/img/gamemash-meta-img.jpg">
-
-        <link rel="canonical" href="./" />
     </head>
     <body ng-app="appGameMash">
     <div id="main">
