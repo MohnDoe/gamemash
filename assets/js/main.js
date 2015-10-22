@@ -70,8 +70,8 @@ app.run(['$rootScope', '$location', 'UserService', function($rootScope, $locatio
         '%c Entirely coded & designed by Kevin F. Poivre \n' +
         ' Lovingly hand-crafted in Nancy, France \n\n'+
         ' kevin@gamemash.net \n'+
-        ' https://twitter.com/mohndoe \n'+
-        ' https://www.facebook.com/fb.of.Kevin \n'
+        ' https://twitter.com/GameMashHQ \n'+
+        ' https://www.facebook.com/GameMashHQ \n'
         , 'background: #feb41c; color: #24221f'
     );
 
