@@ -32,7 +32,6 @@
         <base href="<?= URL_BASE_HREF;?>">
         <title>GameMash</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta charset="utf-8">
         <link rel = "stylesheet" href = "assets/stylesheets/main.css" />
         <!--    SEGMENT -->
         <script type="text/javascript">
@@ -71,6 +70,8 @@
         <meta name="twitter:title" content="GameMash - Votez pour vos jeux préférés">
         <meta name="twitter:description" content="Choisissez le jeu que vous préférez parmis les deux jeux proposés.">
         <meta name="twitter:image" content="http://www.gamemash.net/assets/img/gamemash-meta-img.jpg">
+
+        <link rel="canonical" href="./" />
     </head>
     <body ng-app="appGameMash">
     <div id="main">
