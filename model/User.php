@@ -13,6 +13,7 @@ class User {
     // POINTS
 
     static $PTS_VOTE = PTS_FOR_A_VOTE;
+    static $PTS_VOTE_NONE = PTS_FOR_A_VOTE_NONE;
     static $PTS_FAST_VOTE = PTS_FOR_A_FAST_VOTE;
     static $TIME_FAST_VOTE = TIME_FOR_A__FAST_VOTE;
     static $TIME_COMBO = TIME_FOR_A_COMBO;
@@ -349,6 +350,10 @@ class User {
                 case 'FAST_VOTE':
                     $arrayPoints['total'] += self::$PTS_FAST_VOTE;
                     $arrayPoints['list']['FAST_VOTE'] = self::$PTS_FAST_VOTE;
+                    break;
+                case 'VOTE_NONE':
+                    $arrayPoints['total'] += self::$PTS_VOTE_NONE;
+                    $arrayPoints['list']['VOTE_NONE'] = self::$PTS_VOTE_NONE;
                     break;
             }
         }

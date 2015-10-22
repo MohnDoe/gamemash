@@ -67,13 +67,19 @@
             $side = $allParamsPOST['side'];
 
             $isLeft = $isRight = 0;
+
+            // POINTS
+            $arrayActions = [];
             if ($side == 'left') {
                 $isLeft = 1;
+                $arrayActions[] = 'VOTE';
             } else if ($side == 'right') {
                 $isRight = 1;
+                $arrayActions[] = 'VOTE';
             } else {
                 $isLeft = 0.5;
                 $isRight = 0.5;
+                $arrayActions[] = 'VOTE_NONE';
             }
             //ELO RATING
             $rating = new \Rating\Rating($GameLeft->current_elo, $GameRight->current_elo, $isLeft, $isRight);
@@ -86,9 +92,6 @@
             //saving the vote
             $Fight->set_vote ($side);
             $Fight->saveVote ();
-            // POINTS
-            $arrayActions = [];
-            $arrayActions[] = 'VOTE';
 
             //TODO : put that in the Fight class
             $msNow = (int)microtime (true) * 1000;
