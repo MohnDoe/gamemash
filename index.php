@@ -27,7 +27,8 @@
 
     //TEST LEVEL
 ?>
-<html>
+<!doctype html>
+<html lang="fr">
     <head>
         <base href="<?= URL_BASE_HREF;?>">
         <title>GameMash</title>
