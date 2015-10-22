@@ -123,7 +123,7 @@ a
     float : left;
     margin-right: 30px;
     text-decoration: none;
-    transition: .25s;
+    @include transition(.25s);
     a
     {
       opacity : .4;
@@ -272,7 +272,7 @@ a
         left : 0;
         right : 0;
         bottom : 0;
-        transition: all .2s;
+        @include transition(all .2s);
         opacity : .1;
         @include bw();
 
@@ -300,7 +300,7 @@ a
       z-index : 3;
       @include box-shadow(0px 0px 100px 0 transparentize(black, .25));
       @include transform(scale(1));
-      transition : .5s;
+      @include transition(.5s);
 
       .name-fighter
     {
@@ -333,7 +333,7 @@ a
 
       .cover-border
       {
-        transition: .5s opacity;
+        @include transition(.5s opacity);
       }
     }
 
@@ -885,7 +885,7 @@ a
       height : 100%;
       z-index : 4;
       opacity : 0;
-      transition: .25s;
+      @include transition(.25s);
 
       @include display-flex;
       flex-direction  : column;
@@ -942,9 +942,8 @@ a
   border : 1px solid transparentize(lighten($main-blue, 20%), .5);
   border-bottom-width: 2px;
   @include transform(scale(1));
-  transition: .25s all ease;
+  @include transition(.25s all ease);
   outline : none;
-
   &:hover
   {
     @include transform(scale(1.1));
@@ -1039,7 +1038,7 @@ footer
           bottom : 0;
           display : block;
           width : 1%;
-          transition : .15s;
+          @include transition(.15s);
 
         }
       }
@@ -1197,7 +1196,7 @@ footer
       &:-webkit-autofill:hover,
       &:-webkit-autofill:focus,
       &:-webkit-autofill:active {
-        transition: all 5000s ease-in-out 0s;
+        @include transition(all 5000s ease-in-out 0s);
         transition-property: background-color, color;
       }
     }
