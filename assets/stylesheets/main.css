@@ -108,15 +108,24 @@ a {
 
 @-webkit-keyframes shake {
   0% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
     -webkit-transform: scale(1);
+    transform: scale(1);
     filter: blur(0);
   }
   50% {
+    -moz-transform: scale(1.4);
+    -ms-transform: scale(1.4);
     -webkit-transform: scale(1.4);
+    transform: scale(1.4);
     filter: blur(5px);
   }
   100% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
     -webkit-transform: scale(1);
+    transform: scale(1);
     filter: blur(0);
   }
 }
@@ -181,6 +190,9 @@ a {
   width: 100%;
   text-transform: uppercase;
   text-align: center;
+  -moz-transform: rotate(-4deg);
+  -ms-transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
   transform: rotate(-4deg);
   border-radius: 2px;
   -moz-box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.75);
@@ -295,6 +307,9 @@ a {
   -moz-box-shadow: 0px 0px 100px 0 rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 0px 100px 0 rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 100px 0 rgba(0, 0, 0, 0.75);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
   transform: scale(1);
   transition: .5s;
 }
@@ -331,6 +346,9 @@ a {
 }
 /* line 342, ../sass/main.scss */
 .container-fight .fighter:hover .container-cover-fighter {
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
 /* line 345, ../sass/main.scss */
@@ -425,11 +443,17 @@ a {
 }
 /* line 456, ../sass/main.scss */
 .container-fight.hidden-fighter .fighter-right .container-cover-fighter {
+  -moz-transform: translate(-500px, 0);
+  -ms-transform: translate(-500px, 0);
+  -webkit-transform: translate(-500px, 0);
   transform: translate(-500px, 0);
   opacity: 0;
 }
 /* line 464, ../sass/main.scss */
 .container-fight.hidden-fighter .fighter-left .container-cover-fighter {
+  -moz-transform: translate(500px, 0);
+  -ms-transform: translate(500px, 0);
+  -webkit-transform: translate(500px, 0);
   transform: translate(500px, 0);
   opacity: 0;
 }
@@ -877,12 +901,18 @@ a {
   box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(61, 91, 117, 0.5);
   border-bottom-width: 2px;
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
   transform: scale(1);
   transition: .25s all ease;
   outline: none;
 }
 /* line 948, ../sass/main.scss */
 .button-blue:hover {
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
   transform: scale(1.1);
   background-color: rgba(56, 83, 107, 0.9);
   border-color: rgba(64, 97, 124, 0.5);
