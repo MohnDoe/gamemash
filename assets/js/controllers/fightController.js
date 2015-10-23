@@ -19,37 +19,59 @@ app.controller('fightController', function ($scope, $http, $rootScope, $timeout)
     };
 
     $scope.isBusy = false;
-    $scope.createFight = function () {
+    $scope.createFight = function (fight) {
         //console.log('creating fight...');
         $scope.isBusy = true;
-        $http.get('./api/fight').
-            success(function (data, status, headers, config) {
-                $scope.fight = {
-                    gameLeft : {
-                        name : data.response.fight.gameLeft.name,
-                        year : data.response.fight.gameLeft.year,
-                        id : data.response.fight.gameLeft.id,
-                        url_image : data.response.fight.gameLeft.url_image,
-                        url_cover : data.response.fight.gameLeft.url_cover
-                    },
-                    gameRight : {
-                        name : data.response.fight.gameRight.name,
-                        year : data.response.fight.gameRight.year,
-                        id : data.response.fight.gameRight.id,
-                        url_image : data.response.fight.gameRight.url_image,
-                        url_cover : data.response.fight.gameRight.url_cover
-                    },
-                    token : data.response.fight.token,
-                    id : data.response.fight.id
-                };
-                $timeout(function(){$scope.isBusy = false;}, 400);
+        if(fight == null){
+            $http.get('./api/fight').
+                success(function (data, status, headers, config) {
+                    $scope.fight = {
+                        gameLeft : {
+                            name : data.response.fight.gameLeft.name,
+                            year : data.response.fight.gameLeft.year,
+                            id : data.response.fight.gameLeft.id,
+                            url_image : data.response.fight.gameLeft.url_image,
+                            url_cover : data.response.fight.gameLeft.url_cover
+                        },
+                        gameRight : {
+                            name : data.response.fight.gameRight.name,
+                            year : data.response.fight.gameRight.year,
+                            id : data.response.fight.gameRight.id,
+                            url_image : data.response.fight.gameRight.url_image,
+                            url_cover : data.response.fight.gameRight.url_cover
+                        },
+                        token : data.response.fight.token,
+                        id : data.response.fight.id
+                    };
+                    $timeout(function(){$scope.isBusy = false;}, 400);
 
-                //console.log(data);
-            }).
-            error(function (data, status, headers, config) {
-                // called asynchronously if an error occurs
-                // or server returns response with an error status.
-            });
+                    //console.log(data);
+                }).
+                error(function (data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+        }else{
+            $scope.fight = {
+                gameLeft : {
+                    name : fight.gameLeft.name,
+                    year : fight.gameLeft.year,
+                    id : fight.gameLeft.id,
+                    url_image : fight.gameLeft.url_image,
+                    url_cover : fight.gameLeft.url_cover
+                },
+                gameRight : {
+                    name : fight.gameRight.name,
+                    year : fight.gameRight.year,
+                    id : fight.gameRight.id,
+                    url_image : fight.gameRight.url_image,
+                    url_cover : fight.gameRight.url_cover
+                },
+                token : fight.token,
+                id : fight.id
+            };
+            $timeout(function(){$scope.isBusy = false;}, 150);
+        }
     };
 
     $scope.voteFor = function(side){
@@ -73,7 +95,11 @@ app.controller('fightController', function ($scope, $http, $rootScope, $timeout)
                     $rootScope.$emit('updateUser', data.response.user);
                 }
                 // creating a new fight
-                $scope.createFight();
+                if(data.response.fight){
+                    $scope.createFight(data.response.fight);
+                }else{
+                    $scope.createFight(null);
+                }
             }).
             error(function (data, status, headers, config) {
                 // called asynchronously if an error occurs
@@ -101,5 +127,5 @@ app.controller('fightController', function ($scope, $http, $rootScope, $timeout)
             id : 0
         };
     };
-    $scope.createFight();
+    $scope.createFight(null);
 });

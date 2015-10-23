@@ -52,8 +52,19 @@ app.controller('loginController', function ($scope, $http, $location, $rootScope
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         }).
             success(function (data, status, headers, config) {
+                console.log(data.response.user);
                 if(data.response.status == 'connected'){
-                    analytics.identify(data.response.user.id);
+                    analytics.identify(
+                        data.response.user.id,
+                        {
+                            name: data.response.user.name,
+                            is_registered: data.response.user.is_registered,
+                            registered_at: data.response.user.registered_at,
+                            email: data.response.user.email,
+                            points: data.response.user.points,
+                            createdAt: data.response.user.created,
+                            lastSeen: new Date()
+                        });
                     analytics.track('Logged In');
                     $rootScope.$emit('updateUser', data.response.user);
                     $rootScope.$emit('updateUserStatus', data.response.status);

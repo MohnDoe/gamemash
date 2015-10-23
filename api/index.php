@@ -104,6 +104,10 @@
 
             $json_response['response']['points'] = $arrayPoints;
             $json_response['response']['user'] = $CurrentUser->convert_in_array();
+
+            $Fight = $CurrentUser->get_fight();
+
+            $json_response['response']['fight'] = $Fight->convert_in_array();
             $json_response['status'] = 'OK';
             echo json_encode($json_response);
             exit();
@@ -234,7 +238,7 @@
 
                 //not good
                 $json_response['response']['status'] = 'not connected';
-                $json_response['response']['error_message'] = utf8_encode('Aucun compte n\'est associé à cette adresse e-mail');
+                $json_response['response']['error_message'] = utf8_encode('Aucun compte n\'est associï¿½ ï¿½ cette adresse e-mail');
                 $json_response['status'] = 'OK';
                 echo json_encode($json_response);
                 exit();
@@ -253,7 +257,7 @@
                 //not good
                 $json_response['response'] = array(
                     'status' => 'not connected',
-                    'error_message' => utf8_encode('Un compte est déjà associé à cette adresse email.')
+                    'error_message' => utf8_encode('Un compte est dï¿½jï¿½ associï¿½ ï¿½ cette adresse email.')
                 );
                 $json_response['status'] = 'OK';
                 echo json_encode($json_response);
