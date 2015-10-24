@@ -41,6 +41,26 @@
                 analytics.page()
             }}();
         </script>
+        <!--Start of HappyFox Live Chat Script-->
+        <script>
+            window.HFCHAT_CONFIG = {
+                EMBED_TOKEN: "125dc360-79e3-11e5-b2ea-c7531f384798",
+                ACCESS_TOKEN: "28c7ca88c65241708fe9637ceeed23d9",
+                HOST_URL: "https://happyfoxchat.com",
+                ASSETS_URL: "https://d1l7z5ofrj6ab8.cloudfront.net/visitor"
+            };
+
+            (function() {
+                var scriptTag = document.createElement('script');
+                scriptTag.type = 'text/javascript';
+                scriptTag.async = true;
+                scriptTag.src = window.HFCHAT_CONFIG.ASSETS_URL + '/js/widget-loader.js';
+
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(scriptTag, s);
+            })();
+        </script>
+        <!--End of HappyFox Live Chat Script-->
         <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicons/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicons/apple-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicons/apple-icon-72x72.png">
