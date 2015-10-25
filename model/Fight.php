@@ -221,6 +221,7 @@ class Fight {
 
             $results[] = $Fight->convert_in_array();
         }
+        syslog(LOG_INFO, count($results).' votes found');
 
         return $results;
     }

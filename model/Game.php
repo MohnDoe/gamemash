@@ -302,7 +302,6 @@ class Game {
          */
 
         $allFights = Fight::get_fights_done($period);
-        var_dump(count($allFights));
         $arraySumRanksOpponent = array();
         $arrayP = array();
         $arrayNumberFights = array();
