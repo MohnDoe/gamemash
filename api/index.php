@@ -147,6 +147,69 @@
             exit();
         });
 
+
+        $app->get('performance_of_the_:period', function($period) use($app, $json_response) {
+            switch($period)
+            {
+                case 'all':
+                    $periodNumber = null;
+                    break;
+                case 'month':
+                    $periodNumber = 30;
+                    break;
+                case 'week':
+                    $periodNumber = 7;
+                    break;
+                case 'today':
+                    $periodNumber = 1;
+                    break;
+                default:
+                    $periodNumber = null;
+                    break;
+            }
+            $arrayGames = Game::get_best_elo_performances($periodNumber);
+
+            reset( $arrayGames );
+            $first_key = key( $arrayGames );
+            $Game = new Game($first_key);
+
+            $json_response['response']['game'] = $Game->convert_in_array();
+            $json_response['status'] = 'OK';
+            echo json_encode($json_response);
+            exit();
+        });
+
+        $app->get('game_of_the_:period', function($period) use($app, $json_response) {
+            switch($period)
+            {
+                case 'all':
+                    $periodNumber = null;
+                    break;
+                case 'month':
+                    $periodNumber = 30;
+                    break;
+                case 'week':
+                    $periodNumber = 7;
+                    break;
+                case 'today':
+                    $periodNumber = 1;
+                    break;
+                default:
+                    $periodNumber = null;
+                    break;
+            }
+            $arrayGames = Game::get_best_games($periodNumber);
+
+            reset( $arrayGames );
+            $first_key = key( $arrayGames );
+            $Game = new Game($first_key);
+
+            $json_response['response']['game'] = $Game->convert_in_array();
+            $json_response['status'] = 'OK';
+            echo json_encode($json_response);
+            exit();
+        });
+
         $app->get('top', function() use($app, $CurrentUser, $json_response) {
             $paramsGET = $app->request->get();
             $page = $paramsGET['page'];

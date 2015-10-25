@@ -280,7 +280,7 @@ class Game {
         }
     }
 
-    static function get_best_elo_performances($period = 7, $limit = 10){
+    static function get_best_elo_performances($period = 7, $limit = 1){
         //TODO : check time that takes & optimize
         //fetch all fight for the period
 
@@ -395,6 +395,34 @@ class Game {
 
         $arrayPerformances = array_slice($arrayPerformances, 0, $limit, true);
         return $arrayPerformances;
+    }
+
+    static function get_best_games($period = 7, $limit = 1){
+        /*
+         * return array id_game
+         * Return the best game of this week
+         * Game who got the most vote
+         */
+
+        //get all vote for the period
+        $allFights = Fight::get_fights_done($period);
+        $arrayNumberVoteFor = array();
+        //count vote for each games
+        foreach($allFights as $Fight){
+            if($Fight->id_game_winner != 0){
+                if(isset($arrayNumberVoteFor[$Fight->id_game_winner])){
+                    $arrayNumberVoteFor[$Fight->id_game_winner]++;
+                }else{
+                    $arrayNumberVoteFor[$Fight->id_game_winner] = 1;
+                }
+            }
+        }
+        //order it
+        arsort($arrayNumberVoteFor);
+
+        $arrayResult = array_slice($arrayNumberVoteFor, 0, $limit, true);
+        //return X game
+        return $arrayNumberVoteFor;
     }
 
 }
