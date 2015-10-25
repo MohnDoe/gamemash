@@ -219,7 +219,7 @@ class Fight {
             $Fight = new Fight();
             $Fight->init($data);
 
-            $results[] = $Fight;
+            $results[] = $Fight->convert_in_array();
         }
 
         return $results;

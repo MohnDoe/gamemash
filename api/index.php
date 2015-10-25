@@ -179,6 +179,16 @@
             exit();
         });
 
+
+        $app->get('votes', function() use($app, $json_response) {
+            $arrayVotes = Fight::get_fights_done(null, 10);
+
+            $json_response['response']['votes'] = $arrayVotes;
+            $json_response['status'] = 'OK';
+            echo json_encode($json_response);
+            exit();
+        });
+
         $app->get('game_of_the_:period', function($period) use($app, $json_response) {
             switch($period)
             {
