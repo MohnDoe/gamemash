@@ -1,0 +1,11 @@
+{
+  "name": "GameMash",
+  "description": "Fucking cool website",
+  "keywords": [
+    "jeux video",
+    "vote",
+    "ELO"
+  ],
+  "website": "http://gamemash.net",
+  "repository": "https://github.com/Mosby7/gamemash"
+}
