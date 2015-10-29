@@ -166,6 +166,7 @@
     <script src="./assets/js/controllers/userLevelController.js"></script>
     <script src="./assets/js/controllers/loginController.js"></script>
     <script src="./assets/js/controllers/leaderboardController.js"></script>
+    <script src="./assets/js/controllers/profileController.js"></script>
     <!-- services -->
     <script src="./assets/js/services/gamemashStatisticsService.js"></script>
     <script src="./assets/js/services/topRankService.js"></script>

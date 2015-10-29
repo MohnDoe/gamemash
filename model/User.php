@@ -96,7 +96,7 @@ class User {
         "Tails",
         "T. Hawk",
         "Superman",
-        "Altaïr Ibn-La'Ahad",
+        "Altaï¿½r Ibn-La'Ahad",
         "Amigo",
         "Super Macho Man",
         "Super Joe",
@@ -261,6 +261,8 @@ class User {
         'orginal' => ''
     );
 
+    public $is_valid = false;
+
 
     function __construct($idUser = NULL){
         if(!is_null($idUser)){
@@ -295,6 +297,8 @@ class User {
             'big' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=256?d=identicon",
             'original' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=1024?d=identicon"
         );
+
+        $this->is_valid = true;
 
         $this->nb_votes = $this->get_nb_votes();
     }

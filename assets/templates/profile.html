@@ -5,31 +5,27 @@
             <img src = "https://unsplash.it/100" alt = "Votre photo de profil"/>
         </div>
         <div class="container-name-profile">
-            <span class="name-profile">John Doe</span>
-            <span class="container-bio-profile">Homme polyvalent et créateur de GameMash.</span>
+            <span class="name-profile">{{profile.name}}</span>
+            <span class="container-bio-profile">{{profile.biography}}</span>
         </div>
         <div class="container-stats-profile">
             <ul>
                 <li class="stat-profil stat-profil-points">
-                    <icon></icon>
-                    1,290 points
+                    {{profile.points | number}} points
                 </li>
                 <li class="stat-profil stat-profil-followers">
-                    <icon></icon>
-                    12 abonnés
+                    {{profile.followers | number}} abonnés
                 </li>
                 <li class="stat-profil stat-profil-votes">
-                    <icon></icon>
-                    12,908 votes
+                    {{profile.nb_votes | number}} votes
                 </li>
                 <li class="stat-profil stat-profil-location">
-                    <icon></icon>
-                    Nancy, France
+                    {{profile.location}}
                 </li>
             </ul>
         </div>
         <div class="container-actions-profile">
-            <div class="button-action button-action-follow active button-blue dark">Suivre</div>
+            <div class="button-action button-action-follow active button-blue">Suivre</div>
         </div>
         <div class="container-gradient-top-profile"></div>
         <div class="container-background-image-profile" style="background-image: url('https://unsplash.it/2000');"></div>

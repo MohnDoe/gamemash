@@ -1444,7 +1444,7 @@ footer #container-user-level-progress .container-votes-statistics {
   margin-bottom: 20px;
   z-index: 6;
 }
-/* line 1501, ../sass/main.scss */
+/* line 1502, ../sass/main.scss */
 .container-profile .container-top-profile .container-stats-profile .stat-profil {
   letter-spacing: .1em;
   display: block;
@@ -1453,7 +1453,7 @@ footer #container-user-level-progress .container-votes-statistics {
   float: left;
   text-transform: uppercase;
 }
-/* line 1510, ../sass/main.scss */
+/* line 1511, ../sass/main.scss */
 .container-profile .container-top-profile .container-stats-profile .stat-profil icon {
   width: 16px;
   height: 16px;
@@ -1461,11 +1461,11 @@ footer #container-user-level-progress .container-votes-statistics {
   position: relative;
   margin-right: 10px;
 }
-/* line 1521, ../sass/main.scss */
+/* line 1522, ../sass/main.scss */
 .container-profile .container-top-profile .container-actions-profile {
   z-index: 7;
 }
-/* line 1526, ../sass/main.scss */
+/* line 1527, ../sass/main.scss */
 .container-profile .container-top-profile .container-gradient-top-profile {
   z-index: 5;
   width: 100%;
@@ -1482,7 +1482,7 @@ footer #container-user-level-progress .container-votes-statistics {
   background: linear-gradient(to top, #1a2732, rgba(26, 39, 50, 0));
   pointer-events: none;
 }
-/* line 1540, ../sass/main.scss */
+/* line 1541, ../sass/main.scss */
 .container-profile .container-top-profile .container-background-image-profile {
   z-index: 1;
   width: 100%;

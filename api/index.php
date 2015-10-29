@@ -121,6 +121,22 @@
             exit();
         });
 
+        $app->get('profile/:profile_id', function($profile_id) use($app, $CurrentUser, $json_response) {
+            $ProfileUser = new User($profile_id);
+            if(!$ProfileUser->is_registered || !$ProfileUser->is_valid)
+            {
+                $json_response['status'] = 'NOTOK';
+                $json_response['eroor'] = 'No profile.';
+            }else{
+                $json_response['response']['profile'] = $ProfileUser->convert_in_soft_array();
+                $json_response['status'] = 'OK';
+            }
+            //$json_response['response']['user'] = $CurrentUser->convert_in_array();
+            //$json_response['response']['status'] = $CurrentUser->status;
+            echo json_encode($json_response);
+            exit();
+        });
+
 
         $app->get('leaderboard/:period', function($period) use($app, $json_response) {
             switch($period)
