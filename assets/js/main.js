@@ -40,6 +40,12 @@ app.config(function($routeProvider, $locationProvider) {
             activetab : 'top',
             title : 'Top 100'
         })
+        .when('/profile', {
+            templateUrl : 'assets/templates/profile.html',
+            controller  : 'profileController',
+            activetab : 'profile',
+            title : 'Votre profilwa'
+        })
         .when('/login', {
             templateUrl : 'assets/templates/login.html',
             controller  : 'loginController',

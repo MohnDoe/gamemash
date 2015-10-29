@@ -1,6 +1,7 @@
 @import "compass";
 @import "compass/reset";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700);
 
 
 // VARS
@@ -12,6 +13,7 @@ $gradient-base-left : linear-gradient(to right, $main-blue, transparentize($main
 $gradient-base-right : linear-gradient(to left, $main-blue, transparentize($main-blue, 1));
 $gradient-base-bottom-black : linear-gradient(to top, black, transparentize(black, 1));
 $gradient-blue-bottom-dark : linear-gradient(to top, $main-blue, darken($main-blue, 5%));
+$gradient-blue-bottom : linear-gradient(to top, $main-blue, transparentize($main-blue, 1));
 $gradient-blue-top-dark : linear-gradient(to bottom, $main-blue, darken($main-blue, 5%));
 
 //FUTURA STD
@@ -26,6 +28,10 @@ $gradient-blue-top-dark : linear-gradient(to bottom, $main-blue, darken($main-bl
 @font-face {
   font-family: FuturaStdMediumCondensed;
   src: url('../fonts/FuturaStdMediumCondensed.ttf');
+}
+@font-face {
+  font-family: FuturaStdBoldCondensed;
+  src: url('../fonts/FuturaStdBoldCondensed.ttf');
 }
 
 // MOHAVE
@@ -478,6 +484,7 @@ a
     }
   }
 }
+
 .container-loading
 {
   position : absolute;
@@ -506,6 +513,7 @@ a
     padding : 0 50px;
   }
 }
+
 .container-toolbar
 {
   font-family: "Open Sans Condensed", sans-serif;
@@ -971,12 +979,24 @@ a
   @include transform(scale(1));
   @include transition(.25s all ease);
   outline : none;
+
   &:hover
   {
     @include transform(scale(1.1));
     background-color: transparentize(lighten($main-blue, 17%), .1);
     border-color: transparentize(lighten($main-blue, 22%), .5);
+  }
 
+  .dark
+  {
+    border : 1px solid transparentize(darken($main-blue, 20%), .5) !important;
+    background-color: transparentize(darken($main-blue, 15%), .25) !important;
+
+    &:hover
+    {
+      background-color: transparentize(darken($main-blue, 17%), .1) !important;
+      border-color: transparentize(darken($main-blue, 22%), .5) !important;
+    }
   }
 }
 
@@ -1398,5 +1418,139 @@ footer
         }
       }
     }
+  }
+}
+
+.container-profile
+{
+  width : 100%;
+  display: block;
+  height : 100%;
+  position : relative;
+  float : left;
+  background-color: $main-blue;
+
+  .container-top-profile
+  {
+    width : 100%;
+    position : relative;
+    float : left;
+    height : 500px;
+    @include display-flex;
+    flex-direction  : column;
+    align-items     : center;
+    justify-content : center;
+    color : white;
+    
+    .container-picture-profile
+    {
+      width : 100px;
+      height : 100px;
+      display : block;
+      position : relative;
+      @include box-shadow(0px 0px 10px 0 transparentize(black, .75));
+      z-index : 2;
+      margin-bottom: -40px;
+
+      img
+      {
+        width : 100%;
+        height : 100%;
+        display : block;
+      }
+    }
+
+    .container-name-profile
+    {
+      z-index : 4;
+      width : 100%;
+      display : block;
+
+      .name-profile
+      {
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        font-family: FuturaStdBoldCondensed, sans-serif;
+        font-size: 72px;
+        line-height : 60px;
+        position : relative;
+        clear: both;
+        margin-bottom: 10px;
+        text-align: center;
+        display : block;
+      }
+
+      .container-bio-profile
+      {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        line-height : 1.4em;
+        position : relative;
+        clear: both;
+        margin-bottom: 20px;
+        text-align: center;
+        display : block;
+      }
+    }
+
+    .container-stats-profile
+    {
+      font-family: FuturaStdMediumCondensed, sans-serif;
+      margin-bottom : 20px;
+      z-index : 6;
+      .stat-profil
+      {
+        letter-spacing: .1em;
+        display : block;
+        position: relative;
+        margin: 0 10px;
+        float : left;
+        text-transform: uppercase;
+
+        icon
+        {
+          width : 16px;
+          height : 16px;
+          display : block;
+          position: relative;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .container-actions-profile
+    {
+      z-index : 7;
+    }
+
+    .container-gradient-top-profile
+    {
+      z-index : 5;
+      width : 100%;
+      height : 400px;
+      top : 100px;
+      left : 0;
+      right : 0;
+      bottom : 0;
+      position : absolute;
+      @include background($gradient-blue-bottom);
+      pointer-events: none;
+    }
+
+    .container-background-image-profile
+    {
+      z-index : 1;
+      width : 100%;
+      height : 100%;
+      left : 0;
+      right : 0;
+      bottom : 0;
+      position : absolute;
+      background-size: cover;
+      background-position: center;
+      opacity : .15;
+      @include bw();
+    }
+
   }
 }
