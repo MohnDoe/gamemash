@@ -1392,8 +1392,22 @@ footer #container-user-level-progress .container-votes-statistics {
   filter: grayscale(100%);
   display: none;
 }
+/* line 1447, ../sass/main.scss */
+.container-profile .container-content-profile {
+  width: 100%;
+  display: block;
+  position: relative;
+  float: left;
+  height: auto;
+  padding-bottom: 100px;
+}
+/* line 1456, ../sass/main.scss */
+.container-profile .container-content-profile .container-last-votes {
+  width: calc(100% - 20px);
+  height: auto;
+}
 
-/* line 1450, ../sass/main.scss */
+/* line 1466, ../sass/main.scss */
 .container-module {
   width: calc(25% - 20px);
   position: relative;
@@ -1409,42 +1423,102 @@ footer #container-user-level-progress .container-votes-statistics {
   height: auto;
   color: white;
 }
-/* line 1462, ../sass/main.scss */
+/* line 1478, ../sass/main.scss */
 .container-module.container-leaderboard, .container-module.container-last-votes {
-  padding: 20px;
   height: 100%;
 }
-/* line 1468, ../sass/main.scss */
+/* line 1483, ../sass/main.scss */
 .container-module.container-last-votes {
-  height: 500px;
+  height: auto;
+  min-height: 500px;
 }
-/* line 1473, ../sass/main.scss */
+/* line 1488, ../sass/main.scss */
+.container-module.container-last-votes .container-vote {
+  width: 100%;
+  height: 75px;
+  display: block;
+  position: relative;
+  float: left;
+}
+/* line 1496, ../sass/main.scss */
+.container-module.container-last-votes .container-vote .text-vote {
+  width: 100%;
+  height: 100%;
+  display: block;
+  line-height: 75px;
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 14px;
+  z-index: 5;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-family: FuturaStdLightCondensed, sans-serif;
+  padding: 0 20px;
+  position: relative;
+  text-align: center;
+}
+/* line 1512, ../sass/main.scss */
+.container-module.container-last-votes .container-vote .text-vote em {
+  color: white;
+  font-family: FuturaStdBoldCondensed, sans-serif;
+}
+/* line 1519, ../sass/main.scss */
+.container-module.container-last-votes .container-vote .container-background-vote {
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: block;
+  opacity: .25;
+  filter: gray;
+  -webkit-filter: grayscale(100%);
+  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
+  filter: grayscale(100%);
+  z-index: 1;
+}
+/* line 1533, ../sass/main.scss */
+.container-module.container-last-votes .container-vote .container-gradient-vote {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjEuMCIgeTE9IjAuNSIgeDI9IjAuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFhMjczMiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzFhMjczMiIgc3RvcC1vcGFjaXR5PSIwLjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background: -webkit-gradient(linear, 100% 50%, 0% 50%, color-stop(0%, #1a2732), color-stop(100%, rgba(26, 39, 50, 0)));
+  background: -moz-linear-gradient(right, #1a2732, rgba(26, 39, 50, 0));
+  background: -webkit-linear-gradient(right, #1a2732, rgba(26, 39, 50, 0));
+  background: linear-gradient(to left, #1a2732, rgba(26, 39, 50, 0));
+}
+/* line 1548, ../sass/main.scss */
 .container-module .container-header-module {
   width: 100%;
   display: block;
   position: relative;
   float: left;
-  margin-bottom: 20px;
-  height: 14px;
+  height: auto;
   line-height: 14px;
   font-size: 14px;
   letter-spacing: .1em;
   text-transform: uppercase;
+  padding: 20px;
 }
-/* line 1486, ../sass/main.scss */
+/* line 1561, ../sass/main.scss */
 .container-module .container-header-module .title-module {
   position: relative;
   float: left;
   font-family: FuturaStdMediumCondensed, sans-serif;
 }
-/* line 1493, ../sass/main.scss */
+/* line 1568, ../sass/main.scss */
 .container-module .container-header-module .information-module {
   font-family: FuturaStdLightCondensed, sans-serif;
   opacity: .3;
   position: relative;
   float: right;
 }
-/* line 1502, ../sass/main.scss */
+/* line 1577, ../sass/main.scss */
 .container-module .content-module {
   position: relative;
   float: left;
@@ -1452,7 +1526,7 @@ footer #container-user-level-progress .container-votes-statistics {
   width: 100%;
   height: auto;
 }
-/* line 1510, ../sass/main.scss */
+/* line 1585, ../sass/main.scss */
 .container-module .content-module .container-user-leaderboard {
   display: block;
   position: relative;
@@ -1465,7 +1539,7 @@ footer #container-user-level-progress .container-votes-statistics {
   font-size: 14px;
   color: white;
 }
-/* line 1523, ../sass/main.scss */
+/* line 1598, ../sass/main.scss */
 .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard {
   display: block;
   position: relative;
@@ -1474,18 +1548,18 @@ footer #container-user-level-progress .container-votes-statistics {
   height: 100%;
   padding: 0 10px;
 }
-/* line 1532, ../sass/main.scss */
+/* line 1607, ../sass/main.scss */
 .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard {
   position: relative;
   line-height: 40px;
 }
-/* line 1537, ../sass/main.scss */
+/* line 1612, ../sass/main.scss */
 .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard.information-name-user-leaderboard {
   font-family: FuturaStdMediumCondensed, sans-serif;
   float: left;
   text-transform: uppercase;
 }
-/* line 1543, ../sass/main.scss */
+/* line 1618, ../sass/main.scss */
 .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard.information-points-user-leaderboard {
   float: right;
   font-family: FuturaStdLightCondensed, sans-serif;
@@ -1493,7 +1567,7 @@ footer #container-user-level-progress .container-votes-statistics {
   font-size: 12px;
   font-variant: small-caps;
 }
-/* line 1554, ../sass/main.scss */
+/* line 1629, ../sass/main.scss */
 .container-module .content-module .container-user-leaderboard .container-rank-user {
   width: 42px;
   height: 42px;
@@ -1504,7 +1578,7 @@ footer #container-user-level-progress .container-votes-statistics {
   bottom: 0;
   border: 2px solid white;
 }
-/* line 1565, ../sass/main.scss */
+/* line 1640, ../sass/main.scss */
 .container-module .content-module .container-user-leaderboard .container-rank-user .rank-user {
   font-family: FuturaStdBoldCondensedOblique, sans-serif;
   font-size: 18px;

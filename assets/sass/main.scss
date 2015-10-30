@@ -1443,6 +1443,22 @@ footer
     }
 
   }
+  
+  .container-content-profile
+  {
+    width : 100%;
+    display : block;
+    position : relative;
+    float : left;
+    height : auto;
+    padding-bottom: 100px;
+    
+    .container-last-votes
+    {
+      width : calc(100% - 20px);
+      height : auto;
+    }
+  }
 }
 
 
@@ -1461,13 +1477,72 @@ footer
 
   &.container-leaderboard, &.container-last-votes
   {
-    padding: 20px;
     height : 100%;
   }
 
   &.container-last-votes
   {
-    height : 500px;
+    height : auto;
+    min-height: 500px;
+
+    .container-vote
+    {
+      width : 100%;
+      height : 75px;
+      display : block;
+      position : relative;
+      float : left;
+
+      .text-vote
+      {
+        width : 100%;
+        height : 100%;
+        display: block;
+        line-height : 75px;
+        color : transparentize(white, .75);
+        font-size: 14px;
+        z-index: 5;
+        text-transform: uppercase;
+        letter-spacing: .2em;
+        font-family: FuturaStdLightCondensed, sans-serif;
+        padding: 0 20px;
+        position: relative;
+        text-align: center;
+
+        em
+        {
+          color: white;
+          font-family: FuturaStdBoldCondensed, sans-serif;
+        }
+      }
+
+      .container-background-vote
+      {
+        background-size: cover;
+        background-position: center;
+        position : absolute;
+        top : 0;
+        right : 0;
+        left : 0;
+        bottom : 0;
+        display : block;
+        opacity : .25;
+        @include bw();
+        z-index : 1;
+      }
+      .container-gradient-vote
+      {
+
+        position : absolute;
+        top : 0;
+        right : 0;
+        left : 0;
+        bottom : 0;
+        z-index : 2;
+        @include background($gradient-base-right);
+      }
+
+    }
   }
 
   .container-header-module
@@ -1476,12 +1551,12 @@ footer
     display : block;
     position : relative;
     float : left;
-    margin-bottom: 20px;
-    height : 14px;
+    height : auto;
     line-height : 14px;
     font-size: 14px;
     letter-spacing: .1em;
     text-transform: uppercase;
+    padding: 20px;
 
     .title-module
     {

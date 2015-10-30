@@ -42,11 +42,15 @@
             <div class="container-gradient-module"></div>
             <div class="container-header-module">
                 <span class="title-module">Derniers votes</span>
-                <span class="information-module">{{user.nb_votes | number}} votes</span>
+                <span class="information-module">{{profile.nb_votes | number}} votes</span>
             </div>
             <div class="content-module content-last-votes">
                 <div class="container-vote" ng-repeat="line in last_votes track by $index">
-
+                    <span class="text-vote">
+                        <em>{{line.game_winner.name || line.gameLeft.name}}</em> {{line.is_winner === true ? "gagner contre" : "fait une égalité face à"}} <em>{{line.game_looser.name || line.gameRight.name}}</em>
+                    </span>
+                    <div class="container-gradient-vote"></div>
+                    <div class="container-background-vote" style=" background-image: url('{{line.game_winner.url_cover || line.gameLeft.url_cover}}');"></div>
                 </div>
             </div>
         </div>
