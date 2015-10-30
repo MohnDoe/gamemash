@@ -1480,6 +1480,14 @@ footer
     height : 100%;
   }
 
+  &.container-leaderboard
+  {
+    .content-module
+    {
+      padding: 0 20px;
+    }
+  }
+
   &.container-last-votes
   {
     height : auto;
@@ -1492,6 +1500,7 @@ footer
       display : block;
       position : relative;
       float : left;
+      margin-bottom: 5px;
 
       .text-vote
       {
@@ -1513,6 +1522,24 @@ footer
         {
           color: white;
           font-family: FuturaStdBoldCondensed, sans-serif;
+          position: absolute;
+
+          &.left
+          {
+            right : calc(50% + 16px);
+          }
+          &.right
+          {
+            left : calc(50% + 16px);
+          }
+        }
+        b
+        {
+          font-size: 16px;
+          color: $main-red;
+          position : absolute;
+          left : 50%;
+          margin-left: -8px;
         }
       }
 
@@ -1649,5 +1676,18 @@ footer
         }
       }
     }
+  }
+
+  .container-gradient-module
+  {
+
+    position : absolute;
+    top : 50%;
+    right : 0;
+    left : 0;
+    bottom : 0;
+    z-index : 9;
+    pointer-events: none;
+    @include background($gradient-blue-bottom);
   }
 }
