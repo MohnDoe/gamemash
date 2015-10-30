@@ -121,6 +121,15 @@
             exit();
         });
 
+        $app->get('user/:id_user/last_votes', function($id_user) use($app, $CurrentUser, $json_response) {
+            $User = new User($id_user);
+            $last_votes = $User->get_done_fights();
+            $json_response['response']['last_votes'] = $last_votes;
+            $json_response['status'] = 'OK';
+            echo json_encode($json_response);
+            exit();
+        });
+
         $app->get('profile/:profile_id', function($profile_id) use($app, $CurrentUser, $json_response) {
             $ProfileUser = new User($profile_id);
             if(!$ProfileUser->is_registered || !$ProfileUser->is_valid)

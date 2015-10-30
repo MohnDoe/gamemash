@@ -1,7 +1,7 @@
 @import "compass";
 @import "compass/reset";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 
 // VARS
@@ -1145,16 +1145,23 @@ footer
   .container-logged-user
   {
     color: white;
-    font-size : 14px;
-    font-family: MohaveSemiBold, sans-serif;
+    font-size : 12px;
+    font-family: "Open Sans", sans-serif;
+    padding : 0 10px;
+    background-color : $main-red;
+    letter-spacing: .05em;
+    height : 25px;
+    line-height : 25px;
+    display : block;
 
     .logged-user-name
     {
-      color: transparentize(white, .1);
-      font-family: FuturaStdMediumCondensed, sans-serif;
-      padding : 0 10px;
-      background-color : darken($main-blue, 5%);
-      letter-spacing: .05em;
+    }
+
+    .logged-user-points
+    {
+      font-weight: bold;
+      margin-left: 5px;
     }
   }
   .container-guest-user
@@ -1294,131 +1301,6 @@ footer
   float : left;
   background-color: $main-blue;
   padding : 50px;
-  
-  .container-module
-  {
-    width : calc(25% - 20px);
-    position : relative;
-    float : left;
-    margin: 10px;
-    @include background($gradient-blue-top-dark);
-    border: 1px solid darken($main-blue, 5%);
-    display : block;
-    height : auto;
-    color: white;
-
-    &.container-leaderboard
-    {
-      padding: 20px;
-      height : 100%;
-    }
-
-    .container-header-module
-    {
-      width : 100%;
-      display : block;
-      position : relative;
-      float : left;
-      margin-bottom: 20px;
-      height : 14px;
-      line-height : 14px;
-      font-size: 14px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-
-      .title-module
-      {
-        position : relative;
-        float : left;
-        font-family: FuturaStdMediumCondensed, sans-serif;
-      }
-
-      .information-module
-      {
-        font-family: FuturaStdLightCondensed, sans-serif;
-        opacity : .3;
-        position : relative;
-        float : right;
-      }
-    }
-
-    .content-module
-    {
-      position : relative;
-      float : left;
-      display : block;
-      width : 100%;
-      height : auto;
-
-      .container-user-leaderboard
-      {
-        display : block;
-        position : relative;
-        float : left;
-        height : 42px;
-        width : 100%;
-        margin-bottom: 10px;
-        border: 1px solid transparentize(white, .85);
-        line-height : 40px;
-        font-size: 14px;
-        color: white;
-
-        .container-informations-user-leaderboard
-        {
-          display : block;
-          position : relative;
-          float : left;
-          width : calc(100% - 42px);
-          height : 100%;
-          padding : 0 10px;
-
-          .information-user-leaderboard
-          {
-            position : relative;
-            line-height : 40px;
-
-            &.information-name-user-leaderboard
-            {
-              font-family: FuturaStdMediumCondensed, sans-serif;
-              float : left;
-              text-transform: uppercase;
-            }
-            &.information-points-user-leaderboard
-            {
-              float : right;
-              font-family: FuturaStdLightCondensed, sans-serif;
-              opacity : .6;
-              font-size: 12px;
-              font-variant: small-caps;
-            }
-          }
-        }
-
-        .container-rank-user
-        {
-          width : 42px;
-          height : 42px;
-          display : block;
-          position : absolute;
-          top : 0;
-          right : 0;
-          bottom : 0;
-          border: 2px solid white;
-
-          .rank-user
-          {
-            font-family: FuturaStdBoldCondensedOblique, sans-serif;
-            font-size: 18px;
-            line-height : 40px;
-            font-variant: small-caps;
-            width : 100%;
-            text-align: center;
-            display : block;
-          }
-        }
-      }
-    }
-  }
 }
 
 .container-profile
@@ -1446,7 +1328,8 @@ footer
     {
       width : 100px;
       height : 100px;
-      display : block;
+      //display : block;
+      display:none;
       position : relative;
       @include box-shadow(0px 0px 10px 0 transparentize(black, .75));
       z-index : 2;
@@ -1497,8 +1380,9 @@ footer
     {
       font-family: FuturaStdMediumCondensed, sans-serif;
       margin-bottom : 20px;
-
+      opacity : .8;
       z-index : 6;
+
       .stat-profil
       {
         letter-spacing: .1em;
@@ -1507,14 +1391,18 @@ footer
         margin: 0 10px;
         float : left;
         text-transform: uppercase;
-
-        icon
+        line-height: 22px;
+        height : 22px;
+        font-size: 14px;
+        i
         {
-          width : 16px;
-          height : 16px;
-          display : block;
+          width : 22px;
+          height : 22px;
           position: relative;
-          margin-right: 10px;
+          margin-right: 5px;
+          float : left;
+          line-height: 22px;
+          text-align: center;
         }
       }
     }
@@ -1551,7 +1439,140 @@ footer
       background-position: center;
       opacity : .15;
       @include bw();
+      display : none;
     }
 
+  }
+}
+
+
+
+.container-module
+{
+  width : calc(25% - 20px);
+  position : relative;
+  float : left;
+  margin: 10px;
+  @include background($gradient-blue-top-dark);
+  border: 1px solid darken($main-blue, 5%);
+  display : block;
+  height : auto;
+  color: white;
+
+  &.container-leaderboard, &.container-last-votes
+  {
+    padding: 20px;
+    height : 100%;
+  }
+
+  &.container-last-votes
+  {
+    height : 500px;
+  }
+
+  .container-header-module
+  {
+    width : 100%;
+    display : block;
+    position : relative;
+    float : left;
+    margin-bottom: 20px;
+    height : 14px;
+    line-height : 14px;
+    font-size: 14px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+
+    .title-module
+    {
+      position : relative;
+      float : left;
+      font-family: FuturaStdMediumCondensed, sans-serif;
+    }
+
+    .information-module
+    {
+      font-family: FuturaStdLightCondensed, sans-serif;
+      opacity : .3;
+      position : relative;
+      float : right;
+    }
+  }
+
+  .content-module
+  {
+    position : relative;
+    float : left;
+    display : block;
+    width : 100%;
+    height : auto;
+
+    .container-user-leaderboard
+    {
+      display : block;
+      position : relative;
+      float : left;
+      height : 42px;
+      width : 100%;
+      margin-bottom: 10px;
+      border: 1px solid transparentize(white, .85);
+      line-height : 40px;
+      font-size: 14px;
+      color: white;
+
+      .container-informations-user-leaderboard
+      {
+        display : block;
+        position : relative;
+        float : left;
+        width : calc(100% - 42px);
+        height : 100%;
+        padding : 0 10px;
+
+        .information-user-leaderboard
+        {
+          position : relative;
+          line-height : 40px;
+
+          &.information-name-user-leaderboard
+          {
+            font-family: FuturaStdMediumCondensed, sans-serif;
+            float : left;
+            text-transform: uppercase;
+          }
+          &.information-points-user-leaderboard
+          {
+            float : right;
+            font-family: FuturaStdLightCondensed, sans-serif;
+            opacity : .6;
+            font-size: 12px;
+            font-variant: small-caps;
+          }
+        }
+      }
+
+      .container-rank-user
+      {
+        width : 42px;
+        height : 42px;
+        display : block;
+        position : absolute;
+        top : 0;
+        right : 0;
+        bottom : 0;
+        border: 2px solid white;
+
+        .rank-user
+        {
+          font-family: FuturaStdBoldCondensedOblique, sans-serif;
+          font-size: 18px;
+          line-height : 40px;
+          font-variant: small-caps;
+          width : 100%;
+          text-align: center;
+          display : block;
+        }
+      }
+    }
   }
 }

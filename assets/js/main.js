@@ -44,7 +44,7 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl : 'assets/templates/profile.html',
             controller  : 'profileController',
             activetab : 'profile',
-            title : 'Votre profilwa'
+            title : 'Votre profil'
         })
         .when('/login', {
             templateUrl : 'assets/templates/login.html',

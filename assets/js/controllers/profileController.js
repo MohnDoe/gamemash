@@ -24,7 +24,22 @@ app.controller('profileController', function ($scope, $http, $routeParams, $loca
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
             });
-    }
+    };
 
+    $scope.get_last_votes = function(){
+        $http.get('./api/user/'+$scope.profile_id+'/last_votes').
+            success(function (data, status, headers, config) {
+                if(data.status == 'OK'){
+                    $scope.last_votes = data.response.last_votes;
+                }
+                console.log(data);
+            }).
+            error(function (data, status, headers, config) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+    };
+
+    $scope.get_last_votes();
     $scope.get_profile();
 });

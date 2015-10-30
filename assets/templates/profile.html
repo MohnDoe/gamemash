@@ -11,23 +11,44 @@
         <div class="container-stats-profile">
             <ul>
                 <li class="stat-profil stat-profil-points">
+                    <i class="fa fa-diamond"></i>
                     {{profile.points | number}} points
                 </li>
                 <li class="stat-profil stat-profil-followers">
-                    {{profile.followers | number}} abonnés
+                    <i class="fa fa-hand-spock-o"></i>
+                    {{profile.nb_followers | number}} abonnés
                 </li>
                 <li class="stat-profil stat-profil-votes">
+                    <i class="fa fa-paper-plane"></i>
                     {{profile.nb_votes | number}} votes
                 </li>
                 <li class="stat-profil stat-profil-location">
+                    <i class="fa fa-map-marker"></i>
                     {{profile.location}}
                 </li>
             </ul>
         </div>
         <div class="container-actions-profile">
-            <div class="button-action button-action-follow active button-blue">Suivre</div>
+            <div class="button-action button-action-follow active button-blue">
+                <i class="fa fa-hand-spock-o"></i>
+                Suivre
+            </div>
         </div>
         <div class="container-gradient-top-profile"></div>
         <div class="container-background-image-profile" style="background-image: url('https://unsplash.it/2000');"></div>
+    </div>
+    <div class="container-content-profile">
+        <div class="container-last-votes container-module">
+            <div class="container-gradient-module"></div>
+            <div class="container-header-module">
+                <span class="title-module">Derniers votes</span>
+                <span class="information-module">{{user.nb_votes | number}} votes</span>
+            </div>
+            <div class="content-module content-last-votes">
+                <div class="container-vote" ng-repeat="line in last_votes track by $index">
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>

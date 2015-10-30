@@ -263,6 +263,12 @@ class User {
 
     public $is_valid = false;
 
+    public $nb_followers = 0;
+
+    public $location = '';
+
+    public $biography = 'Je suis nouveau.';
+
 
     function __construct($idUser = NULL){
         if(!is_null($idUser)){
@@ -445,8 +451,10 @@ class User {
             'created' => $this->created,
             'last_seen' => $this->last_seen,
             'nb_votes' => $this->nb_votes,
-            'avatar_urls' => $this->avatar_urls
-
+            'avatar_urls' => $this->avatar_urls,
+            'nb_followers' => $this->nb_followers,
+            'location' => $this->location,
+            'biography' => $this->biography,
         ];
 
         return $result;
@@ -458,6 +466,9 @@ class User {
             'name' => $this->name,
             'points' => $this->points,
             'nb_votes' => $this->nb_votes,
+            'nb_followers' => $this->nb_followers,
+            'location' => $this->location,
+            'biography' => $this->biography,
             'avatar_urls' => $this->avatar_urls
         ];
 
@@ -498,6 +509,14 @@ class User {
         }
     }
 
+    public function get_done_fights($limit = 10){
+        $allFights = Fight::get_fights_done(null, $limit, $this->id);
+        $results = array();
+        foreach($allFights as $Fight){
+            $results[] = $Fight->convert_in_array();
+        }
+        return $results;
+    }
     // STATIC
 
     static function check_if_email_exists($email){

@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 /* line 5, ../../../../../RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -1111,18 +1111,21 @@ footer #container-user-level-progress .container-votes-statistics {
 /* line 1145, ../sass/main.scss */
 .container-user .container-logged-user {
   color: white;
-  font-size: 14px;
-  font-family: MohaveSemiBold, sans-serif;
-}
-/* line 1151, ../sass/main.scss */
-.container-user .container-logged-user .logged-user-name {
-  color: rgba(255, 255, 255, 0.9);
-  font-family: FuturaStdMediumCondensed, sans-serif;
+  font-size: 12px;
+  font-family: "Open Sans", sans-serif;
   padding: 0 10px;
-  background-color: #111a21;
+  background-color: #bf3b53;
   letter-spacing: .05em;
+  height: 25px;
+  line-height: 25px;
+  display: block;
 }
-/* line 1160, ../sass/main.scss */
+/* line 1161, ../sass/main.scss */
+.container-user .container-logged-user .logged-user-points {
+  font-weight: bold;
+  margin-left: 5px;
+}
+/* line 1167, ../sass/main.scss */
 .container-user .container-guest-user {
   color: white;
   font-size: 14px;
@@ -1130,7 +1133,7 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
   margin-top: -10px;
 }
-/* line 1168, ../sass/main.scss */
+/* line 1175, ../sass/main.scss */
 .container-user .container-guest-user .information-text {
   width: 100%;
   text-align: center;
@@ -1141,7 +1144,7 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
   margin-bottom: .5em;
 }
-/* line 1179, ../sass/main.scss */
+/* line 1186, ../sass/main.scss */
 .container-user .container-guest-user .button-sign-in {
   width: 100%;
   display: block;
@@ -1151,7 +1154,7 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
 }
 
-/* line 1191, ../sass/main.scss */
+/* line 1198, ../sass/main.scss */
 .container-login {
   width: calc(100% - 100px);
   height: auto;
@@ -1161,7 +1164,7 @@ footer #container-user-level-progress .container-votes-statistics {
   display: block;
   font-family: "Open Sans Condensed", sans-serif;
 }
-/* line 1201, ../sass/main.scss */
+/* line 1208, ../sass/main.scss */
 .container-login .informations-text {
   width: 100%;
   display: block;
@@ -1170,7 +1173,7 @@ footer #container-user-level-progress .container-votes-statistics {
   font-size: 24px;
   margin-bottom: 50px;
 }
-/* line 1211, ../sass/main.scss */
+/* line 1218, ../sass/main.scss */
 .container-login .container-form {
   width: 45%;
   position: relative;
@@ -1179,11 +1182,11 @@ footer #container-user-level-progress .container-votes-statistics {
   float: left;
   padding: 20px;
 }
-/* line 1220, ../sass/main.scss */
+/* line 1227, ../sass/main.scss */
 .container-login .container-form .informations-text {
   margin-bottom: 20px;
 }
-/* line 1225, ../sass/main.scss */
+/* line 1232, ../sass/main.scss */
 .container-login .container-form input:not([type="submit"]) {
   width: 100%;
   height: 50px;
@@ -1200,7 +1203,7 @@ footer #container-user-level-progress .container-votes-statistics {
   position: relative;
   float: left;
 }
-/* line 1242, ../sass/main.scss */
+/* line 1249, ../sass/main.scss */
 .container-login .container-form input:not([type="submit"]):-webkit-autofill, .container-login .container-form input:not([type="submit"]):-webkit-autofill:hover, .container-login .container-form input:not([type="submit"]):-webkit-autofill:focus, .container-login .container-form input:not([type="submit"]):-webkit-autofill:active {
   -moz-transition: all 5000s ease-in-out 0s;
   -o-transition: all 5000s ease-in-out 0s;
@@ -1209,7 +1212,7 @@ footer #container-user-level-progress .container-votes-statistics {
   transition: all 5000s ease-in-out 0s;
   transition-property: background-color, color;
 }
-/* line 1251, ../sass/main.scss */
+/* line 1258, ../sass/main.scss */
 .container-login .container-form .message-input, .container-login .container-form .message-error {
   color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
@@ -1220,13 +1223,13 @@ footer #container-user-level-progress .container-votes-statistics {
   line-height: 1.5em;
   margin-bottom: 15px;
 }
-/* line 1263, ../sass/main.scss */
+/* line 1270, ../sass/main.scss */
 .container-login .container-form .message-error {
   color: rgba(191, 59, 83, 0.9);
   background-color: #EEE;
   padding: 0 10px;
 }
-/* line 1270, ../sass/main.scss */
+/* line 1277, ../sass/main.scss */
 .container-login .container-form .button-login, .container-login .container-form .button-register {
   width: 100%;
   position: relative;
@@ -1235,12 +1238,12 @@ footer #container-user-level-progress .container-votes-statistics {
   margin-top: 10px;
   font-size: 16px;
 }
-/* line 1281, ../sass/main.scss */
+/* line 1288, ../sass/main.scss */
 .container-login .container-form:last-child {
   border-left: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-/* line 1288, ../sass/main.scss */
+/* line 1295, ../sass/main.scss */
 .container-leaderboards {
   width: 100%;
   display: block;
@@ -1250,125 +1253,8 @@ footer #container-user-level-progress .container-votes-statistics {
   background-color: #1a2732;
   padding: 50px;
 }
-/* line 1298, ../sass/main.scss */
-.container-leaderboards .container-module {
-  width: calc(25% - 20px);
-  position: relative;
-  float: left;
-  margin: 10px;
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFhMjczMiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzExMWEyMSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #1a2732), color-stop(100%, #111a21));
-  background: -moz-linear-gradient(top, #1a2732, #111a21);
-  background: -webkit-linear-gradient(top, #1a2732, #111a21);
-  background: linear-gradient(to bottom, #1a2732, #111a21);
-  border: 1px solid #111a21;
-  display: block;
-  height: auto;
-  color: white;
-}
-/* line 1310, ../sass/main.scss */
-.container-leaderboards .container-module.container-leaderboard {
-  padding: 20px;
-  height: 100%;
-}
-/* line 1316, ../sass/main.scss */
-.container-leaderboards .container-module .container-header-module {
-  width: 100%;
-  display: block;
-  position: relative;
-  float: left;
-  margin-bottom: 20px;
-  height: 14px;
-  line-height: 14px;
-  font-size: 14px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-/* line 1329, ../sass/main.scss */
-.container-leaderboards .container-module .container-header-module .title-module {
-  position: relative;
-  float: left;
-  font-family: FuturaStdMediumCondensed, sans-serif;
-}
-/* line 1336, ../sass/main.scss */
-.container-leaderboards .container-module .container-header-module .information-module {
-  font-family: FuturaStdLightCondensed, sans-serif;
-  opacity: .3;
-  position: relative;
-  float: right;
-}
-/* line 1345, ../sass/main.scss */
-.container-leaderboards .container-module .content-module {
-  position: relative;
-  float: left;
-  display: block;
-  width: 100%;
-  height: auto;
-}
-/* line 1353, ../sass/main.scss */
-.container-leaderboards .container-module .content-module .container-user-leaderboard {
-  display: block;
-  position: relative;
-  float: left;
-  height: 42px;
-  width: 100%;
-  margin-bottom: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  line-height: 40px;
-  font-size: 14px;
-  color: white;
-}
-/* line 1366, ../sass/main.scss */
-.container-leaderboards .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard {
-  display: block;
-  position: relative;
-  float: left;
-  width: calc(100% - 42px);
-  height: 100%;
-  padding: 0 10px;
-}
-/* line 1375, ../sass/main.scss */
-.container-leaderboards .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard {
-  position: relative;
-  line-height: 40px;
-}
-/* line 1380, ../sass/main.scss */
-.container-leaderboards .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard.information-name-user-leaderboard {
-  font-family: FuturaStdMediumCondensed, sans-serif;
-  float: left;
-  text-transform: uppercase;
-}
-/* line 1386, ../sass/main.scss */
-.container-leaderboards .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard.information-points-user-leaderboard {
-  float: right;
-  font-family: FuturaStdLightCondensed, sans-serif;
-  opacity: .6;
-  font-size: 12px;
-  font-variant: small-caps;
-}
-/* line 1397, ../sass/main.scss */
-.container-leaderboards .container-module .content-module .container-user-leaderboard .container-rank-user {
-  width: 42px;
-  height: 42px;
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  border: 2px solid white;
-}
-/* line 1408, ../sass/main.scss */
-.container-leaderboards .container-module .content-module .container-user-leaderboard .container-rank-user .rank-user {
-  font-family: FuturaStdBoldCondensedOblique, sans-serif;
-  font-size: 18px;
-  line-height: 40px;
-  font-variant: small-caps;
-  width: 100%;
-  text-align: center;
-  display: block;
-}
 
-/* line 1424, ../sass/main.scss */
+/* line 1306, ../sass/main.scss */
 .container-profile {
   width: 100%;
   display: block;
@@ -1377,7 +1263,7 @@ footer #container-user-level-progress .container-votes-statistics {
   float: left;
   background-color: #1a2732;
 }
-/* line 1433, ../sass/main.scss */
+/* line 1315, ../sass/main.scss */
 .container-profile .container-top-profile {
   width: 100%;
   position: relative;
@@ -1390,11 +1276,11 @@ footer #container-user-level-progress .container-votes-statistics {
   justify-content: center;
   color: white;
 }
-/* line 1445, ../sass/main.scss */
+/* line 1327, ../sass/main.scss */
 .container-profile .container-top-profile .container-picture-profile {
   width: 100px;
   height: 100px;
-  display: block;
+  display: none;
   position: relative;
   -moz-box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.25);
@@ -1402,19 +1288,19 @@ footer #container-user-level-progress .container-votes-statistics {
   z-index: 2;
   margin-bottom: -40px;
 }
-/* line 1455, ../sass/main.scss */
+/* line 1338, ../sass/main.scss */
 .container-profile .container-top-profile .container-picture-profile img {
   width: 100%;
   height: 100%;
   display: block;
 }
-/* line 1463, ../sass/main.scss */
+/* line 1346, ../sass/main.scss */
 .container-profile .container-top-profile .container-name-profile {
   z-index: 4;
   width: 100%;
   display: block;
 }
-/* line 1469, ../sass/main.scss */
+/* line 1352, ../sass/main.scss */
 .container-profile .container-top-profile .container-name-profile .name-profile {
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -1427,7 +1313,7 @@ footer #container-user-level-progress .container-votes-statistics {
   text-align: center;
   display: block;
 }
-/* line 1483, ../sass/main.scss */
+/* line 1366, ../sass/main.scss */
 .container-profile .container-top-profile .container-name-profile .container-bio-profile {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
@@ -1438,13 +1324,14 @@ footer #container-user-level-progress .container-votes-statistics {
   text-align: center;
   display: block;
 }
-/* line 1496, ../sass/main.scss */
+/* line 1379, ../sass/main.scss */
 .container-profile .container-top-profile .container-stats-profile {
   font-family: FuturaStdMediumCondensed, sans-serif;
   margin-bottom: 20px;
+  opacity: .8;
   z-index: 6;
 }
-/* line 1502, ../sass/main.scss */
+/* line 1386, ../sass/main.scss */
 .container-profile .container-top-profile .container-stats-profile .stat-profil {
   letter-spacing: .1em;
   display: block;
@@ -1452,20 +1339,25 @@ footer #container-user-level-progress .container-votes-statistics {
   margin: 0 10px;
   float: left;
   text-transform: uppercase;
+  line-height: 22px;
+  height: 22px;
+  font-size: 14px;
 }
-/* line 1511, ../sass/main.scss */
-.container-profile .container-top-profile .container-stats-profile .stat-profil icon {
-  width: 16px;
-  height: 16px;
-  display: block;
+/* line 1397, ../sass/main.scss */
+.container-profile .container-top-profile .container-stats-profile .stat-profil i {
+  width: 22px;
+  height: 22px;
   position: relative;
-  margin-right: 10px;
+  margin-right: 5px;
+  float: left;
+  line-height: 22px;
+  text-align: center;
 }
-/* line 1522, ../sass/main.scss */
+/* line 1410, ../sass/main.scss */
 .container-profile .container-top-profile .container-actions-profile {
   z-index: 7;
 }
-/* line 1527, ../sass/main.scss */
+/* line 1415, ../sass/main.scss */
 .container-profile .container-top-profile .container-gradient-top-profile {
   z-index: 5;
   width: 100%;
@@ -1482,7 +1374,7 @@ footer #container-user-level-progress .container-votes-statistics {
   background: linear-gradient(to top, #1a2732, rgba(26, 39, 50, 0));
   pointer-events: none;
 }
-/* line 1541, ../sass/main.scss */
+/* line 1429, ../sass/main.scss */
 .container-profile .container-top-profile .container-background-image-profile {
   z-index: 1;
   width: 100%;
@@ -1498,4 +1390,127 @@ footer #container-user-level-progress .container-votes-statistics {
   -webkit-filter: grayscale(100%);
   filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
   filter: grayscale(100%);
+  display: none;
+}
+
+/* line 1450, ../sass/main.scss */
+.container-module {
+  width: calc(25% - 20px);
+  position: relative;
+  float: left;
+  margin: 10px;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFhMjczMiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzExMWEyMSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #1a2732), color-stop(100%, #111a21));
+  background: -moz-linear-gradient(top, #1a2732, #111a21);
+  background: -webkit-linear-gradient(top, #1a2732, #111a21);
+  background: linear-gradient(to bottom, #1a2732, #111a21);
+  border: 1px solid #111a21;
+  display: block;
+  height: auto;
+  color: white;
+}
+/* line 1462, ../sass/main.scss */
+.container-module.container-leaderboard, .container-module.container-last-votes {
+  padding: 20px;
+  height: 100%;
+}
+/* line 1468, ../sass/main.scss */
+.container-module.container-last-votes {
+  height: 500px;
+}
+/* line 1473, ../sass/main.scss */
+.container-module .container-header-module {
+  width: 100%;
+  display: block;
+  position: relative;
+  float: left;
+  margin-bottom: 20px;
+  height: 14px;
+  line-height: 14px;
+  font-size: 14px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+/* line 1486, ../sass/main.scss */
+.container-module .container-header-module .title-module {
+  position: relative;
+  float: left;
+  font-family: FuturaStdMediumCondensed, sans-serif;
+}
+/* line 1493, ../sass/main.scss */
+.container-module .container-header-module .information-module {
+  font-family: FuturaStdLightCondensed, sans-serif;
+  opacity: .3;
+  position: relative;
+  float: right;
+}
+/* line 1502, ../sass/main.scss */
+.container-module .content-module {
+  position: relative;
+  float: left;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* line 1510, ../sass/main.scss */
+.container-module .content-module .container-user-leaderboard {
+  display: block;
+  position: relative;
+  float: left;
+  height: 42px;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  line-height: 40px;
+  font-size: 14px;
+  color: white;
+}
+/* line 1523, ../sass/main.scss */
+.container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard {
+  display: block;
+  position: relative;
+  float: left;
+  width: calc(100% - 42px);
+  height: 100%;
+  padding: 0 10px;
+}
+/* line 1532, ../sass/main.scss */
+.container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard {
+  position: relative;
+  line-height: 40px;
+}
+/* line 1537, ../sass/main.scss */
+.container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard.information-name-user-leaderboard {
+  font-family: FuturaStdMediumCondensed, sans-serif;
+  float: left;
+  text-transform: uppercase;
+}
+/* line 1543, ../sass/main.scss */
+.container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard.information-points-user-leaderboard {
+  float: right;
+  font-family: FuturaStdLightCondensed, sans-serif;
+  opacity: .6;
+  font-size: 12px;
+  font-variant: small-caps;
+}
+/* line 1554, ../sass/main.scss */
+.container-module .content-module .container-user-leaderboard .container-rank-user {
+  width: 42px;
+  height: 42px;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid white;
+}
+/* line 1565, ../sass/main.scss */
+.container-module .content-module .container-user-leaderboard .container-rank-user .rank-user {
+  font-family: FuturaStdBoldCondensedOblique, sans-serif;
+  font-size: 18px;
+  line-height: 40px;
+  font-variant: small-caps;
+  width: 100%;
+  text-align: center;
+  display: block;
 }

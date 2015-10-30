@@ -178,12 +178,15 @@ class Fight {
         return $Fight;
     }
 
-    static function get_fights_done($period = null, $limit = null)
+    static function get_fights_done($period = null, $limit = null, $id_user = null)
     {
         $req = 'SELECT * FROM ' . self::$table;
         $req .= ' WHERE is_done_fight = 1';
         if(!is_null($period)){
             $req .= ' AND date_voted_fight > DATE_SUB(NOW(), INTERVAL '.$period.' DAY)';
+        }
+        if(!is_null($id_user)){
+            $req .= ' AND id_user_fight = '.$id_user;
         }
         $req .= ' ORDER BY date_voted_fight DESC';
         if(!is_null($limit)){
