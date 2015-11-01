@@ -138,6 +138,7 @@
                 $json_response['eroor'] = 'No profile.';
             }else{
                 $json_response['response']['profile'] = $ProfileUser->convert_in_soft_array();
+                $json_response['response']['is_current_user'] = ($CurrentUser->id == $ProfileUser->id);
                 $json_response['status'] = 'OK';
             }
             //$json_response['response']['user'] = $CurrentUser->convert_in_array();

@@ -50,7 +50,10 @@
                         <em class="left">{{line.game_winner.name || line.gameLeft.name}}</em> <b><i class='fa fa-{{line.is_winner === true ? "chevron-right" : "exchange"}}'></i></b> <em class="right">{{line.game_looser.name || line.gameRight.name}}</em>
                     </span>
                     <div class="container-gradient-vote"></div>
-                    <div class="container-background-vote" style=" background-image: url('{{line.game_winner.url_cover || line.gameLeft.url_cover}}');"></div>
+                    <div class="container-backgrounds-vote">
+                        <div class="container-background-vote left" style=" background-image: url('{{line.game_winner.url_cover || line.gameLeft.url_cover}}');"></div>
+                        <div class="container-background-vote right" style=" background-image: url('{{line.game_looser.url_cover || line.gameRight.url_cover}}');"></div>
+                    </div>
                 </div>
             </div>
         </div>

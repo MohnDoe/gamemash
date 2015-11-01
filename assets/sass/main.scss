@@ -1461,8 +1461,6 @@ footer
   }
 }
 
-
-
 .container-module
 {
   width : calc(25% - 20px);
@@ -1543,19 +1541,27 @@ footer
         }
       }
 
-      .container-background-vote
-      {
-        background-size: cover;
-        background-position: center;
+      .container-backgrounds-vote{
         position : absolute;
         top : 0;
         right : 0;
         left : 0;
         bottom : 0;
         display : block;
-        opacity : .25;
-        @include bw();
         z-index : 1;
+        
+        .container-background-vote
+        {
+          background-size: cover;
+          background-position: center;
+          position : relative;
+          float : left;
+          width : 50%;
+          height : 100%;
+          display : block;
+          opacity : .25;
+          @include bw();
+        }
       }
       .container-gradient-vote
       {

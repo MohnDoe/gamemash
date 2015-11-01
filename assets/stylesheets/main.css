@@ -1407,7 +1407,7 @@ footer #container-user-level-progress .container-votes-statistics {
   height: auto;
 }
 
-/* line 1466, ../sass/main.scss */
+/* line 1464, ../sass/main.scss */
 .container-module {
   width: calc(25% - 20px);
   position: relative;
@@ -1423,20 +1423,20 @@ footer #container-user-level-progress .container-votes-statistics {
   height: auto;
   color: white;
 }
-/* line 1478, ../sass/main.scss */
+/* line 1476, ../sass/main.scss */
 .container-module.container-leaderboard, .container-module.container-last-votes {
   height: 100%;
 }
-/* line 1485, ../sass/main.scss */
+/* line 1483, ../sass/main.scss */
 .container-module.container-leaderboard .content-module {
   padding: 0 20px;
 }
-/* line 1491, ../sass/main.scss */
+/* line 1489, ../sass/main.scss */
 .container-module.container-last-votes {
   height: auto;
   min-height: 500px;
 }
-/* line 1496, ../sass/main.scss */
+/* line 1494, ../sass/main.scss */
 .container-module.container-last-votes .container-vote {
   width: 100%;
   height: 75px;
@@ -1445,7 +1445,7 @@ footer #container-user-level-progress .container-votes-statistics {
   float: left;
   margin-bottom: 5px;
 }
-/* line 1505, ../sass/main.scss */
+/* line 1503, ../sass/main.scss */
 .container-module.container-last-votes .container-vote .text-vote {
   width: 100%;
   height: 100%;
@@ -1461,21 +1461,21 @@ footer #container-user-level-progress .container-votes-statistics {
   position: relative;
   text-align: center;
 }
-/* line 1521, ../sass/main.scss */
+/* line 1519, ../sass/main.scss */
 .container-module.container-last-votes .container-vote .text-vote em {
   color: white;
   font-family: FuturaStdBoldCondensed, sans-serif;
   position: absolute;
 }
-/* line 1527, ../sass/main.scss */
+/* line 1525, ../sass/main.scss */
 .container-module.container-last-votes .container-vote .text-vote em.left {
   right: calc(50% + 16px);
 }
-/* line 1531, ../sass/main.scss */
+/* line 1529, ../sass/main.scss */
 .container-module.container-last-votes .container-vote .text-vote em.right {
   left: calc(50% + 16px);
 }
-/* line 1536, ../sass/main.scss */
+/* line 1534, ../sass/main.scss */
 .container-module.container-last-votes .container-vote .text-vote b {
   font-size: 16px;
   color: #bf3b53;
@@ -1483,24 +1483,32 @@ footer #container-user-level-progress .container-votes-statistics {
   left: 50%;
   margin-left: -8px;
 }
-/* line 1546, ../sass/main.scss */
-.container-module.container-last-votes .container-vote .container-background-vote {
-  background-size: cover;
-  background-position: center;
+/* line 1544, ../sass/main.scss */
+.container-module.container-last-votes .container-vote .container-backgrounds-vote {
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
   display: block;
+  z-index: 1;
+}
+/* line 1553, ../sass/main.scss */
+.container-module.container-last-votes .container-vote .container-backgrounds-vote .container-background-vote {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 100%;
+  display: block;
   opacity: .25;
   filter: gray;
   -webkit-filter: grayscale(100%);
   filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
   filter: grayscale(100%);
-  z-index: 1;
 }
-/* line 1560, ../sass/main.scss */
+/* line 1566, ../sass/main.scss */
 .container-module.container-last-votes .container-vote .container-gradient-vote {
   position: absolute;
   top: 0;
@@ -1514,7 +1522,7 @@ footer #container-user-level-progress .container-votes-statistics {
   background: -webkit-linear-gradient(right, #1a2732, rgba(26, 39, 50, 0));
   background: linear-gradient(to left, #1a2732, rgba(26, 39, 50, 0));
 }
-/* line 1575, ../sass/main.scss */
+/* line 1581, ../sass/main.scss */
 .container-module .container-header-module {
   width: 100%;
   display: block;
@@ -1527,20 +1535,20 @@ footer #container-user-level-progress .container-votes-statistics {
   text-transform: uppercase;
   padding: 20px;
 }
-/* line 1588, ../sass/main.scss */
+/* line 1594, ../sass/main.scss */
 .container-module .container-header-module .title-module {
   position: relative;
   float: left;
   font-family: FuturaStdMediumCondensed, sans-serif;
 }
-/* line 1595, ../sass/main.scss */
+/* line 1601, ../sass/main.scss */
 .container-module .container-header-module .information-module {
   font-family: FuturaStdLightCondensed, sans-serif;
   opacity: .3;
   position: relative;
   float: right;
 }
-/* line 1604, ../sass/main.scss */
+/* line 1610, ../sass/main.scss */
 .container-module .content-module {
   position: relative;
   float: left;
@@ -1548,7 +1556,7 @@ footer #container-user-level-progress .container-votes-statistics {
   width: 100%;
   height: auto;
 }
-/* line 1612, ../sass/main.scss */
+/* line 1618, ../sass/main.scss */
 .container-module .content-module .container-user-leaderboard {
   display: block;
   position: relative;
@@ -1561,7 +1569,7 @@ footer #container-user-level-progress .container-votes-statistics {
   font-size: 14px;
   color: white;
 }
-/* line 1625, ../sass/main.scss */
+/* line 1631, ../sass/main.scss */
 .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard {
   display: block;
   position: relative;
@@ -1570,18 +1578,18 @@ footer #container-user-level-progress .container-votes-statistics {
   height: 100%;
   padding: 0 10px;
 }
-/* line 1634, ../sass/main.scss */
+/* line 1640, ../sass/main.scss */
 .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard {
   position: relative;
   line-height: 40px;
 }
-/* line 1639, ../sass/main.scss */
+/* line 1645, ../sass/main.scss */
 .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard.information-name-user-leaderboard {
   font-family: FuturaStdMediumCondensed, sans-serif;
   float: left;
   text-transform: uppercase;
 }
-/* line 1645, ../sass/main.scss */
+/* line 1651, ../sass/main.scss */
 .container-module .content-module .container-user-leaderboard .container-informations-user-leaderboard .information-user-leaderboard.information-points-user-leaderboard {
   float: right;
   font-family: FuturaStdLightCondensed, sans-serif;
@@ -1589,7 +1597,7 @@ footer #container-user-level-progress .container-votes-statistics {
   font-size: 12px;
   font-variant: small-caps;
 }
-/* line 1656, ../sass/main.scss */
+/* line 1662, ../sass/main.scss */
 .container-module .content-module .container-user-leaderboard .container-rank-user {
   width: 42px;
   height: 42px;
@@ -1600,7 +1608,7 @@ footer #container-user-level-progress .container-votes-statistics {
   bottom: 0;
   border: 2px solid white;
 }
-/* line 1667, ../sass/main.scss */
+/* line 1673, ../sass/main.scss */
 .container-module .content-module .container-user-leaderboard .container-rank-user .rank-user {
   font-family: FuturaStdBoldCondensedOblique, sans-serif;
   font-size: 18px;
@@ -1610,7 +1618,7 @@ footer #container-user-level-progress .container-votes-statistics {
   text-align: center;
   display: block;
 }
-/* line 1681, ../sass/main.scss */
+/* line 1687, ../sass/main.scss */
 .container-module .container-gradient-module {
   position: absolute;
   top: 50%;
