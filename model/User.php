@@ -269,6 +269,8 @@ class User {
 
     public $biography = 'Je suis nouveau.';
 
+    public $url_profile = '';
+
 
     function __construct($idUser = NULL){
         if(!is_null($idUser)){
@@ -304,6 +306,7 @@ class User {
             'original' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=1024?d=identicon"
         );
 
+        $this->url_profile = './profile/'.$this->id;
         $this->is_valid = true;
 
         $this->nb_votes = $this->get_nb_votes();
@@ -455,6 +458,7 @@ class User {
             'nb_followers' => $this->nb_followers,
             'location' => $this->location,
             'biography' => $this->biography,
+            'url_profile' => $this->url_profile
         ];
 
         return $result;
@@ -469,7 +473,8 @@ class User {
             'nb_followers' => $this->nb_followers,
             'location' => $this->location,
             'biography' => $this->biography,
-            'avatar_urls' => $this->avatar_urls
+            'avatar_urls' => $this->avatar_urls,
+            'url_profile' => $this->url_profile
         ];
 
         return $result;

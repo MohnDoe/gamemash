@@ -8,13 +8,21 @@ app.controller('profileController', function ($scope, $http, $routeParams, $loca
 
     $scope.isBusy = true;
 
+    $scope.isEditable = false;
+
+    $scope.isEditing = false;
+
     $scope.get_profile = function(){
         $scope.isBusy = true;
+        $scope.isEditable = false;
         $http.get('./api/profile/'+$scope.profile_id).
             success(function (data, status, headers, config) {
-                console.log(data);
                 if(data.status == 'OK'){
                     $scope.profile = data.response.profile;
+                    if(data.response.is_current_user){
+                        $scope.editableProfile = $scope.profile;
+                        $scope.isEditable = true;
+                    }
                 }else{
                     $location.path('/');
                 }
@@ -40,6 +48,19 @@ app.controller('profileController', function ($scope, $http, $routeParams, $loca
             });
     };
 
+    $scope.enable_editing = function(){
+        $scope.isEditing = true;
+    };
+
+    $scope.save_editing = function(){
+        $scope.isEditing = false;
+    };
+
+    $scope.cancel_editing = function(){
+        $scope.isEditing = false;
+    };
+
     $scope.get_last_votes();
     $scope.get_profile();
+
 });

@@ -115,7 +115,7 @@
         </div>
         <div class="container-user" ng-controller="userController">
            <div class="container-logged-user" ng-if="status === 'connected'">
-               <a href = "./profile/{{user.id}}">
+               <a href = "{{user.url_profile}}">
                 <span class="logged-user-name">
                 {{user.name}}
                 </span>

@@ -29,9 +29,19 @@
             </ul>
         </div>
         <div class="container-actions-profile">
-            <div class="button-action button-action-follow active button-blue">
-                <i class="fa fa-hand-spock-o"></i>
-                Suivre
+            <div class="button-action button-action-edit button-blue" ng-if="isEditable && !isEditing" ng-click="enable_editing();">
+                <i class="fa fa-cog"></i>
+                Editer profil
+            </div>
+
+            <div class="button-action button-action-edit button-blue" ng-if="isEditing" ng-click="cancel_editing();">
+                <i class="fa fa-ban"></i>
+                Annuler
+            </div>
+
+            <div class="button-action button-action-edit button-blue" ng-if="isEditing" ng-click="save_editing();">
+                <i class="fa fa-check"></i>
+                Sauvegarder les modifications
             </div>
         </div>
         <div class="container-gradient-top-profile"></div>
