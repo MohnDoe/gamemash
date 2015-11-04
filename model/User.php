@@ -96,7 +96,7 @@ class User {
         "Tails",
         "T. Hawk",
         "Superman",
-        "Altaïr Ibn-La'Ahad",
+        "Altaï¿½r Ibn-La'Ahad",
         "Amigo",
         "Super Macho Man",
         "Super Joe",
@@ -261,6 +261,16 @@ class User {
         'orginal' => ''
     );
 
+    public $is_valid = false;
+
+    public $nb_followers = 0;
+
+    public $location = '';
+
+    public $biography = 'Je suis nouveau.';
+
+    public $url_profile = '';
+
 
     function __construct($idUser = NULL){
         if(!is_null($idUser)){
@@ -295,6 +305,9 @@ class User {
             'big' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=256?d=identicon",
             'original' => "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ). "&s=1024?d=identicon"
         );
+
+        $this->url_profile = './profile/'.$this->id;
+        $this->is_valid = true;
 
         $this->nb_votes = $this->get_nb_votes();
     }
@@ -441,8 +454,11 @@ class User {
             'created' => $this->created,
             'last_seen' => $this->last_seen,
             'nb_votes' => $this->nb_votes,
-            'avatar_urls' => $this->avatar_urls
-
+            'avatar_urls' => $this->avatar_urls,
+            'nb_followers' => $this->nb_followers,
+            'location' => $this->location,
+            'biography' => $this->biography,
+            'url_profile' => $this->url_profile
         ];
 
         return $result;
@@ -454,7 +470,11 @@ class User {
             'name' => $this->name,
             'points' => $this->points,
             'nb_votes' => $this->nb_votes,
-            'avatar_urls' => $this->avatar_urls
+            'nb_followers' => $this->nb_followers,
+            'location' => $this->location,
+            'biography' => $this->biography,
+            'avatar_urls' => $this->avatar_urls,
+            'url_profile' => $this->url_profile
         ];
 
         return $result;
@@ -494,6 +514,14 @@ class User {
         }
     }
 
+    public function get_done_fights($limit = 10){
+        $allFights = Fight::get_fights_done(null, $limit, $this->id);
+        $results = array();
+        foreach($allFights as $Fight){
+            $results[] = $Fight->convert_in_array();
+        }
+        return $results;
+    }
     // STATIC
 
     static function check_if_email_exists($email){

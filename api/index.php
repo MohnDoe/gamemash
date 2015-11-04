@@ -121,6 +121,31 @@
             exit();
         });
 
+        $app->get('user/:id_user/last_votes', function($id_user) use($app, $CurrentUser, $json_response) {
+            $User = new User($id_user);
+            $last_votes = $User->get_done_fights();
+            $json_response['response']['last_votes'] = $last_votes;
+            $json_response['status'] = 'OK';
+            echo json_encode($json_response);
+            exit();
+        });
+
+        $app->get('profile/:profile_id', function($profile_id) use($app, $CurrentUser, $json_response) {
+            $ProfileUser = new User($profile_id);
+            if(!$ProfileUser->is_registered || !$ProfileUser->is_valid)
+            {
+                $json_response['status'] = 'NOTOK';
+                $json_response['eroor'] = 'No profile.';
+            }else{
+                $json_response['response']['profile'] = $ProfileUser->convert_in_soft_array();
+                $json_response['response']['is_current_user'] = ($CurrentUser->id == $ProfileUser->id);
+                $json_response['status'] = 'OK';
+            }
+            //$json_response['response']['user'] = $CurrentUser->convert_in_array();
+            //$json_response['response']['status'] = $CurrentUser->status;
+            echo json_encode($json_response);
+            exit();
+        });
 
         $app->get('leaderboard/:period', function($period) use($app, $json_response) {
             switch($period)
@@ -285,6 +310,40 @@
                 exit();
             }
 
+        });
+
+        $app->post('game/add_collection', function() use($app, $CurrentUser, $json_response) {
+            $allParamsPOST = $app->request->post ();
+            $id_fight = $allParamsPOST['id_fight'];
+
+            $Fight = new Fight($id_fight);
+
+            $side = $allParamsPOST['side'];
+
+            if($side == 'left'){
+                $id_game_to_add = $Fight->id_game_left;
+            }else if($side == 'right'){
+                $id_game_to_add = $Fight->id_game_right;
+            }else{
+                $json_response['error'] = 'Jeu manquant.';
+                $json_response['status'] = 'NOTOK';
+                echo json_encode($json_response);
+                exit();
+            }
+
+            $result_in_collection = InCollection::add_game($CurrentUser->id, $id_game_to_add);
+
+            //TODO : add points for this action if success
+
+            $json_response['response']['action_results'] = array(
+                'id_game' => $id_game_to_add,
+                'in_collection' => $result_in_collection,
+                'side' => $side
+            );
+            $json_response['response']['user'] = $CurrentUser->convert_in_array();
+            $json_response['status'] = 'OK';
+            echo json_encode($json_response);
+            exit();
         });
     });
 

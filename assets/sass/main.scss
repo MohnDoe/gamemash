@@ -1,6 +1,7 @@
 @import "compass";
 @import "compass/reset";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 
 // VARS
@@ -12,6 +13,7 @@ $gradient-base-left : linear-gradient(to right, $main-blue, transparentize($main
 $gradient-base-right : linear-gradient(to left, $main-blue, transparentize($main-blue, 1));
 $gradient-base-bottom-black : linear-gradient(to top, black, transparentize(black, 1));
 $gradient-blue-bottom-dark : linear-gradient(to top, $main-blue, darken($main-blue, 5%));
+$gradient-blue-bottom : linear-gradient(to top, $main-blue, transparentize($main-blue, 1));
 $gradient-blue-top-dark : linear-gradient(to bottom, $main-blue, darken($main-blue, 5%));
 
 //FUTURA STD
@@ -26,6 +28,10 @@ $gradient-blue-top-dark : linear-gradient(to bottom, $main-blue, darken($main-bl
 @font-face {
   font-family: FuturaStdMediumCondensed;
   src: url('../fonts/FuturaStdMediumCondensed.ttf');
+}
+@font-face {
+  font-family: FuturaStdBoldCondensed;
+  src: url('../fonts/FuturaStdBoldCondensed.ttf');
 }
 
 // MOHAVE
@@ -346,6 +352,91 @@ a
       }
     }
 
+    .container-actions-fighter
+    {
+      display : none;
+      position : absolute;
+      left : 0;
+      right : 0;
+      bottom : 0;
+      top : 0;
+      z-index : 4;
+
+      .container-action
+      {
+        width : 100%;
+        height : 33.333333%;
+        position : absolute;
+        color: white;
+        font-family: FuturaStdMediumCondensed, sans-serif;
+        letter-spacing: .1em;
+        transition: .25s;
+
+        @include display-flex;
+        flex-direction  : column;
+        align-items     : center;
+        justify-content : center;
+
+        &.action-add-collection
+        {
+          top : 0;
+          background-color: transparentize(#444, .5);
+        }
+
+        &.action-vote
+        {
+          top : 33.333333%;
+          bottom : 33.333333%;
+          background-color: transparentize(#333, .2);
+        }
+
+        &.action-add-wishlist
+        {
+          bottom : 0;
+          background-color: transparentize(#444, .5);
+        }
+
+        .name-action
+        {
+          font-size: 32px;
+          text-transform: uppercase;
+          opacity : .85;
+        }
+
+        i
+        {
+          width : 64px;
+          height : 64px;
+          margin-bottom: 10px;
+          opacity : .85;
+        }
+
+        &.checked
+        {
+          i
+          {
+            color : $main-red;
+          }
+        }
+
+        &:hover
+        {
+          .name-action
+          {
+            opacity : 1;
+          }
+
+          i
+          {
+            opacity : 1;
+          }
+        }
+      }
+
+
+
+    }
+
     &:hover
     {
       .container-cover-fighter
@@ -361,6 +452,11 @@ a
       .container-image-fighter
       {
         opacity : .5;
+      }
+
+      .container-actions-fighter
+      {
+        display : block;
       }
     }
 
@@ -478,6 +574,7 @@ a
     }
   }
 }
+
 .container-loading
 {
   position : absolute;
@@ -506,6 +603,7 @@ a
     padding : 0 50px;
   }
 }
+
 .container-toolbar
 {
   font-family: "Open Sans Condensed", sans-serif;
@@ -971,12 +1069,24 @@ a
   @include transform(scale(1));
   @include transition(.25s all ease);
   outline : none;
+
   &:hover
   {
     @include transform(scale(1.1));
     background-color: transparentize(lighten($main-blue, 17%), .1);
     border-color: transparentize(lighten($main-blue, 22%), .5);
+  }
 
+  .dark
+  {
+    border : 1px solid transparentize(darken($main-blue, 20%), .5) !important;
+    background-color: transparentize(darken($main-blue, 15%), .25) !important;
+
+    &:hover
+    {
+      background-color: transparentize(darken($main-blue, 17%), .1) !important;
+      border-color: transparentize(darken($main-blue, 22%), .5) !important;
+    }
   }
 }
 
@@ -1125,16 +1235,23 @@ footer
   .container-logged-user
   {
     color: white;
-    font-size : 14px;
-    font-family: MohaveSemiBold, sans-serif;
+    font-size : 12px;
+    font-family: "Open Sans", sans-serif;
+    padding : 0 10px;
+    background-color : $main-red;
+    letter-spacing: .05em;
+    height : 25px;
+    line-height : 25px;
+    display : block;
 
     .logged-user-name
     {
-      color: transparentize(white, .1);
-      font-family: FuturaStdMediumCondensed, sans-serif;
-      padding : 0 10px;
-      background-color : darken($main-blue, 5%);
-      letter-spacing: .05em;
+    }
+
+    .logged-user-points
+    {
+      font-weight: bold;
+      margin-left: 5px;
     }
   }
   .container-guest-user
@@ -1274,129 +1391,399 @@ footer
   float : left;
   background-color: $main-blue;
   padding : 50px;
-  
-  .container-module
+}
+
+.container-profile
+{
+  width : 100%;
+  display: block;
+  height : 100%;
+  position : relative;
+  float : left;
+  background-color: $main-blue;
+
+  .container-top-profile
   {
-    width : calc(25% - 20px);
+    width : 100%;
     position : relative;
     float : left;
-    margin: 10px;
-    @include background($gradient-blue-top-dark);
-    border: 1px solid darken($main-blue, 5%);
-    display : block;
-    height : auto;
-    color: white;
-
-    &.container-leaderboard
+    height : 500px;
+    @include display-flex;
+    flex-direction  : column;
+    align-items     : center;
+    justify-content : center;
+    color : white;
+    
+    .container-picture-profile
     {
-      padding: 20px;
-      height : 100%;
+      width : 100px;
+      height : 100px;
+      //display : block;
+      display:none;
+      position : relative;
+      @include box-shadow(0px 0px 10px 0 transparentize(black, .75));
+      z-index : 2;
+      margin-bottom: -40px;
+
+      img
+      {
+        width : 100%;
+        height : 100%;
+        display : block;
+      }
     }
 
-    .container-header-module
+    .container-name-profile
     {
+      z-index : 4;
       width : 100%;
       display : block;
-      position : relative;
-      float : left;
-      margin-bottom: 20px;
-      height : 14px;
-      line-height : 14px;
-      font-size: 14px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
 
-      .title-module
+      .name-profile
       {
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        font-family: FuturaStdBoldCondensed, sans-serif;
+        font-size: 72px;
+        line-height : 60px;
         position : relative;
-        float : left;
-        font-family: FuturaStdMediumCondensed, sans-serif;
+        clear: both;
+        margin-bottom: 10px;
+        text-align: center;
+        display : block;
       }
 
-      .information-module
+      .container-bio-profile
       {
-        font-family: FuturaStdLightCondensed, sans-serif;
-        opacity : .3;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        line-height : 1.4em;
         position : relative;
-        float : right;
+        clear: both;
+        margin-bottom: 20px;
+        text-align: center;
+        display : block;
       }
     }
 
+    .container-stats-profile
+    {
+      font-family: FuturaStdMediumCondensed, sans-serif;
+      margin-bottom : 20px;
+      opacity : .8;
+      z-index : 6;
+
+      .stat-profil
+      {
+        letter-spacing: .1em;
+        display : block;
+        position: relative;
+        margin: 0 10px;
+        float : left;
+        text-transform: uppercase;
+        line-height: 22px;
+        height : 22px;
+        font-size: 14px;
+        i
+        {
+          width : 22px;
+          height : 22px;
+          position: relative;
+          margin-right: 5px;
+          float : left;
+          line-height: 22px;
+          text-align: center;
+        }
+      }
+    }
+
+    .container-actions-profile
+    {
+      z-index : 7;
+    }
+
+    .container-gradient-top-profile
+    {
+      z-index : 5;
+      width : 100%;
+      height : 400px;
+      top : 100px;
+      left : 0;
+      right : 0;
+      bottom : 0;
+      position : absolute;
+      @include background($gradient-blue-bottom);
+      pointer-events: none;
+    }
+
+    .container-background-image-profile
+    {
+      z-index : 1;
+      width : 100%;
+      height : 100%;
+      left : 0;
+      right : 0;
+      bottom : 0;
+      position : absolute;
+      background-size: cover;
+      background-position: center;
+      opacity : .15;
+      @include bw();
+      display : none;
+    }
+
+  }
+  
+  .container-content-profile
+  {
+    width : 100%;
+    display : block;
+    position : relative;
+    float : left;
+    height : auto;
+    padding-bottom: 100px;
+    
+    .container-last-votes
+    {
+      width : calc(100% - 20px);
+      height : auto;
+    }
+  }
+}
+
+.container-module
+{
+  width : calc(25% - 20px);
+  position : relative;
+  float : left;
+  margin: 10px;
+  @include background($gradient-blue-top-dark);
+  border: 1px solid darken($main-blue, 5%);
+  display : block;
+  height : auto;
+  color: white;
+
+  &.container-leaderboard, &.container-last-votes
+  {
+    height : 100%;
+  }
+
+  &.container-leaderboard
+  {
     .content-module
     {
+      padding: 0 20px;
+    }
+  }
+
+  &.container-last-votes
+  {
+    height : auto;
+    min-height: 500px;
+
+    .container-vote
+    {
+      width : 100%;
+      height : 75px;
+      display : block;
       position : relative;
       float : left;
-      display : block;
-      width : 100%;
-      height : auto;
+      margin-bottom: 5px;
 
-      .container-user-leaderboard
+      .text-vote
+      {
+        width : 100%;
+        height : 100%;
+        display: block;
+        line-height : 75px;
+        color : transparentize(white, .75);
+        font-size: 14px;
+        z-index: 5;
+        text-transform: uppercase;
+        letter-spacing: .2em;
+        font-family: FuturaStdLightCondensed, sans-serif;
+        padding: 0 20px;
+        position: relative;
+        text-align: center;
+
+        em
+        {
+          color: white;
+          font-family: FuturaStdBoldCondensed, sans-serif;
+          position: absolute;
+
+          &.left
+          {
+            right : calc(50% + 16px);
+          }
+          &.right
+          {
+            left : calc(50% + 16px);
+          }
+        }
+        b
+        {
+          font-size: 16px;
+          color: $main-red;
+          position : absolute;
+          left : 50%;
+          margin-left: -8px;
+        }
+      }
+
+      .container-backgrounds-vote{
+        position : absolute;
+        top : 0;
+        right : 0;
+        left : 0;
+        bottom : 0;
+        display : block;
+        z-index : 1;
+
+        .container-background-vote
+        {
+          background-size: cover;
+          background-position: center;
+          position : relative;
+          float : left;
+          width : 50%;
+          height : 100%;
+          display : block;
+          opacity : .25;
+          @include bw();
+        }
+      }
+      .container-gradient-vote
+      {
+
+        position : absolute;
+        top : 0;
+        right : 0;
+        left : 0;
+        bottom : 0;
+        z-index : 2;
+        @include background($gradient-base-right);
+      }
+
+    }
+  }
+
+  .container-header-module
+  {
+    width : 100%;
+    display : block;
+    position : relative;
+    float : left;
+    height : auto;
+    line-height : 14px;
+    font-size: 14px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 20px;
+
+    .title-module
+    {
+      position : relative;
+      float : left;
+      font-family: FuturaStdMediumCondensed, sans-serif;
+    }
+
+    .information-module
+    {
+      font-family: FuturaStdLightCondensed, sans-serif;
+      opacity : .3;
+      position : relative;
+      float : right;
+    }
+  }
+
+  .content-module
+  {
+    position : relative;
+    float : left;
+    display : block;
+    width : 100%;
+    height : auto;
+
+    .container-user-leaderboard
+    {
+      display : block;
+      position : relative;
+      float : left;
+      height : 42px;
+      width : 100%;
+      margin-bottom: 10px;
+      border: 1px solid transparentize(white, .85);
+      line-height : 40px;
+      font-size: 14px;
+      color: white;
+
+      .container-informations-user-leaderboard
       {
         display : block;
         position : relative;
         float : left;
-        height : 42px;
-        width : 100%;
-        margin-bottom: 10px;
-        border: 1px solid transparentize(white, .85);
-        line-height : 40px;
-        font-size: 14px;
-        color: white;
+        width : calc(100% - 42px);
+        height : 100%;
+        padding : 0 10px;
 
-        .container-informations-user-leaderboard
+        .information-user-leaderboard
         {
-          display : block;
           position : relative;
-          float : left;
-          width : calc(100% - 42px);
-          height : 100%;
-          padding : 0 10px;
+          line-height : 40px;
 
-          .information-user-leaderboard
+          &.information-name-user-leaderboard
           {
-            position : relative;
-            line-height : 40px;
-
-            &.information-name-user-leaderboard
-            {
-              font-family: FuturaStdMediumCondensed, sans-serif;
-              float : left;
-              text-transform: uppercase;
-            }
-            &.information-points-user-leaderboard
-            {
-              float : right;
-              font-family: FuturaStdLightCondensed, sans-serif;
-              opacity : .6;
-              font-size: 12px;
-              font-variant: small-caps;
-            }
+            font-family: FuturaStdMediumCondensed, sans-serif;
+            float : left;
+            text-transform: uppercase;
           }
-        }
-
-        .container-rank-user
-        {
-          width : 42px;
-          height : 42px;
-          display : block;
-          position : absolute;
-          top : 0;
-          right : 0;
-          bottom : 0;
-          border: 2px solid white;
-
-          .rank-user
+          &.information-points-user-leaderboard
           {
-            font-family: FuturaStdBoldCondensedOblique, sans-serif;
-            font-size: 18px;
-            line-height : 40px;
+            float : right;
+            font-family: FuturaStdLightCondensed, sans-serif;
+            opacity : .6;
+            font-size: 12px;
             font-variant: small-caps;
-            width : 100%;
-            text-align: center;
-            display : block;
           }
         }
       }
+
+      .container-rank-user
+      {
+        width : 42px;
+        height : 42px;
+        display : block;
+        position : absolute;
+        top : 0;
+        right : 0;
+        bottom : 0;
+        border: 2px solid white;
+
+        .rank-user
+        {
+          font-family: FuturaStdBoldCondensedOblique, sans-serif;
+          font-size: 18px;
+          line-height : 40px;
+          font-variant: small-caps;
+          width : 100%;
+          text-align: center;
+          display : block;
+        }
+      }
     }
+  }
+
+  .container-gradient-module
+  {
+
+    position : absolute;
+    top : 50%;
+    right : 0;
+    left : 0;
+    bottom : 0;
+    z-index : 9;
+    pointer-events: none;
+    @include background($gradient-blue-bottom);
   }
 }

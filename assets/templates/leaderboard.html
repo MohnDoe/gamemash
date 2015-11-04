@@ -9,7 +9,11 @@
             <div class="container-user-leaderboard" ng-repeat="line in leaderboards.all.content track by $index">
                 <div class="container-informations-user-leaderboard">
                     <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">{{line.user.name}}</li>
+                        <li class="information-user-leaderboard information-name-user-leaderboard">
+                            <a href = "{{line.user.url_profile}}">
+                                {{line.user.name}}
+                            </a>
+                        </li>
                         <li class="information-user-leaderboard information-points-user-leaderboard">{{line.points_period | number}} pts</li>
                     </ul>
                 </div>
@@ -30,7 +34,11 @@
             <div class="container-user-leaderboard" ng-repeat="line in leaderboards.month.content track by $index">
                 <div class="container-informations-user-leaderboard">
                     <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">{{line.user.name}}</li>
+                        <li class="information-user-leaderboard information-name-user-leaderboard">
+                            <a href = "{{line.user.url_profile}}">
+                                {{line.user.name}}
+                            </a>
+                        </li>
                         <li class="information-user-leaderboard information-points-user-leaderboard">+{{line.points_period | number}} pts</li>
                     </ul>
                 </div>
@@ -51,7 +59,11 @@
             <div class="container-user-leaderboard" ng-repeat="line in leaderboards.week.content track by $index">
                 <div class="container-informations-user-leaderboard">
                     <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">{{line.user.name}}</li>
+                        <li class="information-user-leaderboard information-name-user-leaderboard">
+                            <a href = "{{line.user.url_profile}}">
+                                {{line.user.name}}
+                            </a>
+                        </li>
                         <li class="information-user-leaderboard information-points-user-leaderboard">+{{line.points_period | number}} pts</li>
                     </ul>
                 </div>
@@ -72,7 +84,11 @@
             <div class="container-user-leaderboard" ng-repeat="line in leaderboards.today.content track by $index">
                 <div class="container-informations-user-leaderboard">
                     <ul>
-                        <li class="information-user-leaderboard information-name-user-leaderboard">{{line.user.name}}</li>
+                        <li class="information-user-leaderboard information-name-user-leaderboard">
+                            <a href = "{{line.user.url_profile}}">
+                                {{line.user.name}}
+                            </a>
+                        </li>
                         <li class="information-user-leaderboard information-points-user-leaderboard">+{{line.points_period | number}} pts</li>
                     </ul>
                 </div>

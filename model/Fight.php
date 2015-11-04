@@ -144,14 +144,32 @@ class Fight {
     public function convert_in_array(){
         $GameLeft = new Game($this->id_game_left);
         $GameRight = new Game($this->id_game_right);
+        $is_winner = false;
+        if($this->is_done){
+            if($this->id_game_left == $this->id_game_winner){
+                $is_winner = true;
+                $GameWinner = $GameLeft;
+                $GameLooser = $GameRight;
+            }else if($this->id_game_right == $this->id_game_winner){
+                $is_winner = true;
+                $GameWinner = $GameRight;
+                $GameLooser = $GameLeft;
+            }
+        }
         $result = [
             'id' => $this->id,
             'token' => $this->token,
             'date_created' => $this->date_created,
-            'gameRight' => $GameRight->convert_in_array(),
-            'gameLeft' => $GameLeft->convert_in_array()
+            'is_winner' => $is_winner,
+            'is_done' => !!$this->is_done
         ];
-
+        if($this->is_done && $is_winner){
+            $result['game_winner'] = $GameWinner->convert_in_array();
+            $result['game_looser'] = $GameLooser->convert_in_array();
+        }else{
+            $result['gameRight'] = $GameRight->convert_in_array();
+            $result['gameLeft'] = $GameLeft->convert_in_array();
+        }
         return $result;
     }
 
@@ -178,12 +196,15 @@ class Fight {
         return $Fight;
     }
 
-    static function get_fights_done($period = null, $limit = null)
+    static function get_fights_done($period = null, $limit = null, $id_user = null)
     {
         $req = 'SELECT * FROM ' . self::$table;
         $req .= ' WHERE is_done_fight = 1';
         if(!is_null($period)){
             $req .= ' AND date_voted_fight > DATE_SUB(NOW(), INTERVAL '.$period.' DAY)';
+        }
+        if(!is_null($id_user)){
+            $req .= ' AND id_user_fight = '.$id_user;
         }
         $req .= ' ORDER BY date_voted_fight DESC';
         if(!is_null($limit)){

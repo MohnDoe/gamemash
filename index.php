@@ -91,6 +91,7 @@
         <meta name="twitter:title" content="GameMash - Votez pour vos jeux préférés">
         <meta name="twitter:description" content="Choisissez le jeu que vous préférez parmi les deux jeux proposés.">
         <meta name="twitter:image" content="http://www.gamemash.net/assets/img/gamemash-meta-img.jpg">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     </head>
     <body ng-app="appGameMash">
     <div id="main">
@@ -114,7 +115,14 @@
         </div>
         <div class="container-user" ng-controller="userController">
            <div class="container-logged-user" ng-if="status === 'connected'">
-                <span class="logged-user-name">{{user.name}}</span>
+               <a href = "{{user.url_profile}}">
+                <span class="logged-user-name">
+                {{user.name}}
+                </span>
+                <span class="logged-user-points">
+                {{user.points | number}}
+                </span>
+               </a>
             </div>
             <div class="container-guest-user" ng-if="status != 'connected'">
                 <span class="information-text">Connectez-vous pour sauvegarder votre progression</span>
@@ -166,6 +174,7 @@
     <script src="./assets/js/controllers/userLevelController.js"></script>
     <script src="./assets/js/controllers/loginController.js"></script>
     <script src="./assets/js/controllers/leaderboardController.js"></script>
+    <script src="./assets/js/controllers/profileController.js"></script>
     <!-- services -->
     <script src="./assets/js/services/gamemashStatisticsService.js"></script>
     <script src="./assets/js/services/topRankService.js"></script>
