@@ -11,7 +11,21 @@
             Je n'arrive pas &agrave; decider
         </div>
     </div>
-    <div class="fighter fighter-left" ng-click="voteFor('left');">
+    <div class="fighter fighter-left">
+        <div class="container-actions-fighter">
+            <div class="container-action action-add-collection" ng-class="{'checked' : currentUser.left.in_collection}">
+                <i class="fa fa-gamepad fa-3x" ng-click="addToCollection('left');"></i>
+                <span class="name-action">Ajouter à ma collection</span>
+            </div>
+            <div class="container-action action-vote" ng-click="voteFor('left');">
+                <i class="fa fa-check fa-3x"></i>
+                <span class="name-action">Voter pour ce jeu</span>
+            </div>
+            <div class="container-action action-add-wishlist" ng-click="addToWishlist('left');" ng-class="{'checked' : currentUser.left.in_wishlist}">
+                <i class="fa fa-bookmark-o fa-3x"></i>
+                <span class="name-action">Ajouter à ma liste de souhaits</span>
+            </div>
+        </div>
         <div class="container-cover-fighter">
             <span class="name-fighter">{{fight.gameLeft.name}} ({{fight.gameLeft.year}})</span>
             <div class="border-white cover-border"></div>
@@ -20,7 +34,21 @@
         <div class="container-gradient-fighter"></div>
         <div class="container-image-fighter" back-img="fight.gameLeft.url_image"></div>
     </div>
-    <div class="fighter fighter-right" ng-click="voteFor('right');">
+    <div class="fighter fighter-right">
+        <div class="container-actions-fighter">
+            <div class="container-action action-add-collection">
+                <i class="fa fa-gamepad fa-3x" ng-click="addToCollection('right');" ng-class="{'checked' : currentUser.right.in_collection}"></i>
+                <span class="name-action">Ajouter à ma collection</span>
+            </div>
+            <div class="container-action action-vote" ng-click="voteFor('right');">
+                <i class="fa fa-check fa-3x"></i>
+                <span class="name-action">Voter pour ce jeu</span>
+            </div>
+            <div class="container-action action-add-wishlist" ng-click="addToWishlist('right');" ng-class="{'checked' : currentUser.right.in_wishlist}">
+                <i class="fa fa-bookmark-o fa-3x"></i>
+                <span class="name-action">Ajouter à ma liste de souhaits</span>
+            </div>
+        </div>
         <div class="container-cover-fighter">
             <span class="name-fighter">{{fight.gameRight.name}} ({{fight.gameRight.year}})</span>
             <div class="border-white cover-border"></div>
