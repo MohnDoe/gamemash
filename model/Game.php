@@ -55,29 +55,32 @@ class Game {
         return $req->fetch();
     }
 
-    public function init ()
+    public function init ($data = null)
     {
-        if ($data = $this->game_exists ()) {
-
-            $this->id = $data['id_game'];
-            $this->name = $data['name_game'];
-            $this->api_url = $data['api_url_game'];
-            $this->deck = $data['deck_game'];
-
-            $this->cover_serialized = $data['cover_game'];
-            $this->cover_unserialized = unserialize($this->cover_serialized);
-
-            $this->images_serialized = $data['images_game'];
-            $this->images_unserialized = unserialize($this->images_serialized);
-
-            $this->release_date = $data['release_date_game'];
-            $this->current_elo = $data['current_elo_game'];
-
-            $this->platforms_array = $this->getPlatforms();
-
-            $this->initEloStats();
-
+        if(is_null($data)){
+            if(!$data = $this->game_exists())
+            {
+                return false;
+            }
         }
+
+        $this->id = $data['id_game'];
+        $this->name = $data['name_game'];
+        $this->api_url = $data['api_url_game'];
+        $this->deck = $data['deck_game'];
+
+        $this->cover_serialized = $data['cover_game'];
+        $this->cover_unserialized = unserialize($this->cover_serialized);
+
+        $this->images_serialized = $data['images_game'];
+        $this->images_unserialized = unserialize($this->images_serialized);
+
+        $this->release_date = $data['release_date_game'];
+        $this->current_elo = $data['current_elo_game'];
+
+        $this->platforms_array = $this->getPlatforms();
+
+        $this->initEloStats();
     }
 
     static function get_top_games ($page = 1) {
