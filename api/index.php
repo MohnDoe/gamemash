@@ -325,15 +325,21 @@
             }else if($side == 'right'){
                 $id_game_to_add = $Fight->id_game_right;
             }else{
-                $json_response['error'] = 'Jeu manquant';
+                $json_response['error'] = 'Jeu manquant.';
                 $json_response['status'] = 'NOTOK';
                 echo json_encode($json_response);
                 exit();
             }
-            //TODO : check if everything is alright
-            InCollection::add_game($CurrentUser->id, $id_game_to_add);
+
+            $result_in_collection = InCollection::add_game($CurrentUser->id, $id_game_to_add);
 
             //TODO : add points for this action if success
+
+            $json_response['response']['action_results'] = array(
+                'id_game' => $id_game_to_add,
+                'in_collection' => $result_in_collection,
+                'side' => $side
+            );
             $json_response['response']['user'] = $CurrentUser->convert_in_array();
             $json_response['status'] = 'OK';
             echo json_encode($json_response);

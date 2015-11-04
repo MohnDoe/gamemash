@@ -172,7 +172,6 @@
         /**
          * Function to get our database connection.
          *
-         * TODO change this to fill your needs
          *
          * @global type $db
          * @return PDO $db

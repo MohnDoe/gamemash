@@ -14,7 +14,7 @@
     <div class="fighter fighter-left">
         <div class="container-actions-fighter">
             <div class="container-action action-add-collection" ng-class="{'checked' : currentUser.left.in_collection}" ng-click="addToCollection('left');">
-                <i class="fa fa-gamepad fa-3x"></i>
+                <i class="fa fa-3x" ng-class="{'fa-spinner fa-pulse' : currentUser.left.isBusy, 'fa-gamepad' : !currentUser.left.isBusy}"></i>
                 <span class="name-action">Ajouter à ma collection</span>
             </div>
             <div class="container-action action-vote" ng-click="voteFor('left');">
@@ -37,7 +37,7 @@
     <div class="fighter fighter-right">
         <div class="container-actions-fighter">
             <div class="container-action action-add-collection" ng-click="addToCollection('right');" ng-class="{'checked' : currentUser.right.in_collection}">
-                <i class="fa fa-gamepad fa-3x" ></i>
+                <i class="fa fa-3x"  ng-class="{'fa-spinner fa-pulse' : currentUser.right.isBusy, 'fa-gamepad' : !currentUser.right.isBusy}"></i>
                 <span class="name-action">Ajouter à ma collection</span>
             </div>
             <div class="container-action action-vote" ng-click="voteFor('right');">

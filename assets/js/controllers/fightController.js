@@ -23,11 +23,13 @@ app.controller('fightController', function ($scope, $http, $rootScope, $timeout)
     $scope.currentUser = {
         left : {
             in_collection : false,
-            in_wishlist : false
+            in_wishlist : false,
+            isBusy : false
         },
         right : {
             in_collection : false,
-            in_wishlist : false
+            in_wishlist : false,
+            isBusy : false
 
         }
     }
@@ -95,14 +97,13 @@ app.controller('fightController', function ($scope, $http, $rootScope, $timeout)
     $scope.addToCollection = function(side){
         console.log('adding game to collection ...');
         if(side === 'left'){
-            $scope.currentUser.left.in_collection = true;
+            $scope.currentUser.left.isBusy = true;
         }else if(side === 'right'){
-            $scope.currentUser.right.in_collection = true;
+            $scope.currentUser.right.isBusy = true;
         }else{
             return false;
         }
-
-        console.log($scope.currentUser);
+        console.log('adding game to collection ...');
         $http({
             url: 'api/game/add_collection',
             method: 'POST',
@@ -110,7 +111,32 @@ app.controller('fightController', function ($scope, $http, $rootScope, $timeout)
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         }).
             success(function (data, status, headers, config) {
-                //TODO : track this
+                if(data.status == 'OK'){
+                    $scope.currentUser.right.isBusy = false;
+                    $scope.currentUser.left.isBusy = false;
+                    in_collection = data.response.action_results.in_collection;
+
+                    if(in_collection){
+                        analytics.track('Added game to collection',
+                            {
+                                id_game :  data.response.action_results.id_game,
+                                side : data.response.action_results.side
+                            });
+                    }else{
+                        analytics.track('Removed game from collection',
+                            {
+                                id_game :  data.response.action_results.id_game,
+                                side : data.response.action_results.side
+                            });
+                    }
+                    if(data.response.action_results.side == 'left'){
+                        $scope.currentUser.left.in_collection = in_collection;
+                    }else if(data.response.action_results.side == 'right'){
+                        $scope.currentUser.right.in_collection = in_collection;
+                    }else{
+                        return false;
+                    }
+                }
             }).
             error(function (data, status, headers, config) {
                 // called asynchronously if an error occurs
@@ -128,8 +154,8 @@ app.controller('fightController', function ($scope, $http, $rootScope, $timeout)
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         }).
             success(function (data, status, headers, config) {
-                analytics.track('Vote');
                 if(data.status == 'OK'){
+                    analytics.track('Vote');
                     $rootScope.$emit('updateUser', data.response.user);
                 }
                 // creating a new fight
