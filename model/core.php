@@ -71,6 +71,7 @@
     DEFINE('DB_TABLE_PLATFORMS', 'platforms');
     DEFINE('DB_TABLE_IS_IN_PLATFORM', 'is_in_platform');
     DEFINE('DB_TABLE_ACTIVITES', 'activites');
+    DEFINE('DB_TABLE_IN_COLLECTION', 'in_collection');
 
 
     // POINTS CONSTANT
@@ -92,5 +93,6 @@
     require_once 'Platform.php';
     require_once 'ELORanking.php';
     require_once 'PersistentAuth.php';
+    require_once 'InCollection.php';
     require_once 'GiantBomb/GiantBomb.php';
     require_once $_SERVER['DOCUMENT_ROOT'].URL_BASE_HREF.'vendor/autoload.php';

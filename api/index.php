@@ -147,7 +147,6 @@
             exit();
         });
 
-
         $app->get('leaderboard/:period', function($period) use($app, $json_response) {
             switch($period)
             {
@@ -311,6 +310,34 @@
                 exit();
             }
 
+        });
+
+        $app->post('game/add_collection', function() use($app, $CurrentUser, $json_response) {
+            $allParamsPOST = $app->request->post ();
+            $id_fight = $allParamsPOST['id_fight'];
+
+            $Fight = new Fight($id_fight);
+
+            $side = $allParamsPOST['side'];
+
+            if($side == 'left'){
+                $id_game_to_add = $Fight->id_game_left;
+            }else if($side == 'right'){
+                $id_game_to_add = $Fight->id_game_right;
+            }else{
+                $json_response['error'] = 'Jeu manquant';
+                $json_response['status'] = 'NOTOK';
+                echo json_encode($json_response);
+                exit();
+            }
+            //TODO : check if everything is alright
+            InCollection::add_game($CurrentUser->id, $id_game_to_add);
+
+            //TODO : add points for this action if success
+            $json_response['response']['user'] = $CurrentUser->convert_in_array();
+            $json_response['status'] = 'OK';
+            echo json_encode($json_response);
+            exit();
         });
     });
 

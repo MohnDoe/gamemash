@@ -19,6 +19,18 @@ app.controller('fightController', function ($scope, $http, $rootScope, $timeout)
     };
 
     $scope.isBusy = false;
+
+    $scope.currentUser = {
+        left : {
+            in_collection : false,
+            in_wishlist : false
+        },
+        right : {
+            in_collection : false,
+            in_wishlist : false
+
+        }
+    }
     $scope.createFight = function (fight) {
         //console.log('creating fight...');
         $scope.isBusy = true;
@@ -78,6 +90,32 @@ app.controller('fightController', function ($scope, $http, $rootScope, $timeout)
         // vote stuff
         //console.log('voting for '+side);
         $scope.sendVoteFor(side);
+    };
+
+    $scope.addToCollection = function(side){
+        console.log('adding game to collection ...');
+        if(side === 'left'){
+            $scope.currentUser.left.in_collection = true;
+        }else if(side === 'right'){
+            $scope.currentUser.right.in_collection = true;
+        }else{
+            return false;
+        }
+
+        console.log($scope.currentUser);
+        $http({
+            url: 'api/game/add_collection',
+            method: 'POST',
+            data: 'side=' + side + '&id_fight=' + $scope.fight.id + '&token_fight=' + $scope.fight.token,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+        }).
+            success(function (data, status, headers, config) {
+                //TODO : track this
+            }).
+            error(function (data, status, headers, config) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
     };
 
     $scope.sendVoteFor = function(side){
