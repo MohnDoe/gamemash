@@ -144,13 +144,32 @@ class Fight {
     public function convert_in_array(){
         $GameLeft = new Game($this->id_game_left);
         $GameRight = new Game($this->id_game_right);
+        $is_winner = false;
+        if($this->is_done){
+            if($this->id_game_left == $this->id_game_winner){
+                $is_winner = true;
+                $GameWinner = $GameLeft;
+                $GameLooser = $GameRight;
+            }else if($this->id_game_right == $this->id_game_winner){
+                $is_winner = true;
+                $GameWinner = $GameRight;
+                $GameLooser = $GameLeft;
+            }
+        }
         $result = [
             'id' => $this->id,
             'token' => $this->token,
             'date_created' => $this->date_created,
-            'gameRight' => $GameRight->convert_in_array(),
-            'gameLeft' => $GameLeft->convert_in_array()
+            'is_winner' => $is_winner,
+            'is_done' => !!$this->is_done
         ];
+        if($this->is_done && $is_winner){
+            $result['game_winner'] = $GameWinner->convert_in_array();
+            $result['game_looser'] = $GameLooser->convert_in_array();
+        }else{
+            $result['gameRight'] = $GameRight->convert_in_array();
+            $result['gameLeft'] = $GameLeft->convert_in_array();
+        }
 
         return $result;
     }
@@ -200,8 +219,9 @@ class Fight {
             $Fight = new Fight();
             $Fight->init($data);
 
-            $results[] = $Fight;
+            $results[] = $Fight->convert_in_array();
         }
+        syslog(LOG_INFO, count($results).' votes found');
 
         return $results;
     }
